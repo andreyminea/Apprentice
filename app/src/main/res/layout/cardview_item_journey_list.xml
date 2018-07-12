@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="240dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/journey_image"
+            android:layout_width="match_parent"
+            android:layout_height="100dp" />
+
+        <TextView
+            android:id="@+id/TextViewJourneyTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Title"
+            android:textSize="20sp"
+            android:layout_margin="2dp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/ico_overview"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="10dp"/>
+            <ImageView
+                android:id="@+id/ico_bani"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="10dp"/>
+            <ImageView
+                android:id="@+id/ico_stres"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="10dp"/>
+            <ImageView
+                android:id="@+id/ico_job"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="10dp"/>
+        </LinearLayout>
+    </LinearLayout>
+</android.support.v7.widget.CardView>

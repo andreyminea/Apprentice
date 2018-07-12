@@ -9,9 +9,6 @@ public class DashboardItem {
     private String Description;
     private int Thumbnail;
 
-    public DashboardItem() {
-    }
-
     public DashboardItem(String title, String description, int thumbnail) {
         Title = title;
         Description = description;
