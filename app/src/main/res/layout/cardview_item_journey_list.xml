@@ -29,7 +29,8 @@
                 android:id="@+id/ico_overview"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:layout_margin="10dp"/>
+                android:layout_margin="10dp"
+                android:clickable="true"/>
             <ImageView
                 android:id="@+id/ico_bani"
                 android:layout_width="50dp"

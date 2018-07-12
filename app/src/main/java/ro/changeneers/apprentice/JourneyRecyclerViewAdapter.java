@@ -1,6 +1,7 @@
 package ro.changeneers.apprentice;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -13,7 +14,7 @@ import android.widget.TextView;
 import java.util.List;
 
 public class JourneyRecyclerViewAdapter extends RecyclerView.Adapter<JourneyRecyclerViewAdapter.MyJourneyViewHolder> {
-    private Context jContext;
+    private static Context jContext;
     private List<JourneyItem> jList;
 
     public JourneyRecyclerViewAdapter(Context jContext, List<JourneyItem> jList) {
@@ -64,6 +65,14 @@ public class JourneyRecyclerViewAdapter extends RecyclerView.Adapter<JourneyRecy
             journeyBaniThumbnail = itemView.findViewById(R.id.ico_bani);
             journeyStresThumbnail = itemView.findViewById(R.id.ico_stres);
             journeyJobsThumbnail = itemView.findViewById(R.id.ico_job);
+
+            journeyOverviewThumbnail.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(v.getContext(),JourneyCardStackActivity.class);
+                    v.getContext().startActivity(intent);
+                }
+            });
         }
     }
 }
