@@ -58,7 +58,7 @@ public class JourneyRecyclerViewAdapter extends RecyclerView.Adapter<JourneyRecy
 
         public MyJourneyViewHolder(@NonNull View itemView) {
             super(itemView);
-            journeyThumbnail = itemView.findViewById(R.id.ImageViewPresentation);
+            journeyThumbnail = itemView.findViewById(R.id.ImageViewJourney);
             journeyTitle = itemView.findViewById(R.id.TextViewJourneyTitle);
             journeyOverviewThumbnail = itemView.findViewById(R.id.ico_overview);
             journeyBaniThumbnail = itemView.findViewById(R.id.ico_bani);
