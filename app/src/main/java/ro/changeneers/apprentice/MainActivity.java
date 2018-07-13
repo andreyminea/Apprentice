@@ -10,6 +10,8 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
+    private static final String TAG = "MainActivity";
+
     List<DashboardItem> items;
     private RecyclerView.LayoutManager mLayoutManager;
 

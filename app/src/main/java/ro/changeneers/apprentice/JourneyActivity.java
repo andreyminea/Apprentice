@@ -5,6 +5,8 @@ import android.os.Bundle;
 
 public class JourneyActivity extends AppCompatActivity {
 
+    private static final String TAG = "JourneyActivity";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

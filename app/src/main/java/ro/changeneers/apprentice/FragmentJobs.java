@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 public class FragmentJobs extends android.support.v4.app.Fragment {
 
-    private static final String TAG = "FragmentOverview";
+    private static final String TAG = "FragmentJobs";
 
     private TextView tvJobs;
 

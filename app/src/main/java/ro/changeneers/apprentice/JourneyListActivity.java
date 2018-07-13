@@ -10,6 +10,8 @@ import java.util.List;
 
 public class JourneyListActivity extends AppCompatActivity {
 
+    private static final String TAG = "JourneyListActivity";
+
     List<JourneyItem> journeys;
     private RecyclerView.LayoutManager jLayoutManager;
 
