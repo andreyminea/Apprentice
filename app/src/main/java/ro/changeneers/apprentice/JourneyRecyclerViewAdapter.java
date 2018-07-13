@@ -36,10 +36,10 @@ public class JourneyRecyclerViewAdapter extends RecyclerView.Adapter<JourneyRecy
     public void onBindViewHolder(@NonNull MyJourneyViewHolder holder, int position) {
         holder.journeyThumbnail.setImageResource(jList.get(position).getThumbnail());
         holder.journeyTitle.setText(jList.get(position).getTitle());
-        holder.journeyOverviewThumbnail.setImageResource(R.drawable.ic_launcher_background);
-        holder.journeyBaniThumbnail.setImageResource(R.drawable.ic_launcher_background);
-        holder.journeyStresThumbnail.setImageResource(R.drawable.ic_launcher_background);
-        holder.journeyJobsThumbnail.setImageResource(R.drawable.ic_launcher_background);
+        holder.journeyOverviewThumbnail.setImageResource(R.mipmap.ico_info);
+        holder.journeyBaniThumbnail.setImageResource(R.mipmap.ico_bani);
+        holder.journeyStresThumbnail.setImageResource(R.mipmap.ico_stres);
+        holder.journeyJobsThumbnail.setImageResource(R.mipmap.ico_jobs);
 
     }
 
