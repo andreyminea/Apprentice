@@ -18,6 +18,8 @@ public class JourneyCardStackActivity extends AppCompatActivity {
 
         jcsViewPager = findViewById(R.id.ViewPagerStack);
         jcsAdapter = new JourneyCardStackAdapter(getSupportFragmentManager());
+        jcsViewPager.setPageTransformer(false,new JourneyCardStackTransformer());
+        jcsViewPager.setOffscreenPageLimit(5);
         setupJCSViewPager(jcsViewPager);
     }
 
