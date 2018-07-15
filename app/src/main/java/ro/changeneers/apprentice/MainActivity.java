@@ -127,6 +127,7 @@ public class MainActivity extends AppCompatActivity {
         if(currentUser != null){
             updateUI();
         }
+
     }
     private void updateUI() {
         Toast.makeText(MainActivity.this,"Te-ai logat!",Toast.LENGTH_LONG).show();
