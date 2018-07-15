@@ -43,38 +43,17 @@ public class MainActivity extends AppCompatActivity {
     private CallbackManager mCallbackManager;
     private static String TAG = "FACELOG";
 
-    @Override
-    public void onStart() {
-        super.onStart();
-        // Check if user is signed in (non-null) and update UI accordingly.
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-        if(currentUser != null){
-            updateUI();
-        }
 
-    }
 
-    private void updateUI() {
 
-        Toast.makeText(MainActivity.this,"Te-ai logat!",Toast.LENGTH_LONG).show();
 
-        Intent accountIntent = new Intent(MainActivity.this,AccountFacebookActivity.class);
-        startActivity(accountIntent);
-        finish();
-    }
-
-//    @Override
-//    protected void onStart() {
-//        super.onStart();
-//
-//        mAuth.addAuthStateListener(mAuthListener);
-//    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // Initialize Google Login button
         button = (SignInButton) findViewById(R.id.googleBtn);
         mAuth = FirebaseAuth.getInstance();
 
@@ -132,40 +111,62 @@ public class MainActivity extends AppCompatActivity {
                 // ...
             }
         });
-
-// ...
-
-
     }
+
+    //    @Override
+//    protected void onStart() {
+//        super.onStart();
+//
+//        mAuth.addAuthStateListener(mAuthListener);
+//    }
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        // Pass the activity result back to the Facebook SDK
-        mCallbackManager.onActivityResult(requestCode, resultCode, data);
+    public void onStart() {
+        super.onStart();
+        // Check if user is signed in (non-null) and update UI accordingly.
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        if(currentUser != null){
+            updateUI();
+        }
     }
+    private void updateUI() {
+        Toast.makeText(MainActivity.this,"Te-ai logat!",Toast.LENGTH_LONG).show();
+
+        Intent accountIntent = new Intent(MainActivity.this,AccountFacebookActivity.class);
+        startActivity(accountIntent);
+        finish();
+    }
+
+//    @Override
+//    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+//        super.onActivityResult(requestCode, resultCode, data);
+//
+//        // Pass the activity result back to the Facebook SDK
+//        mCallbackManager.onActivityResult(requestCode, resultCode, data);
+//    }
 
     private void signIn() {
         Intent signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient);
         startActivityForResult(signInIntent, RC_SIGN_IN);
     }
 
-//    @Override
-//    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-//        super.onActivityResult(requestCode, resultCode, data);
-//
-//        // Result returned from launching the Intent from GoogleSignInApi.getSignInIntent(...);
-//        if (requestCode == RC_SIGN_IN) {
-//            GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
-//            if(result.isSuccess()) {
-//                //Google Sign in was successful, authenticate with Firebase
-//                GoogleSignInAccount account = result.getSignInAccount();
-//                firebaseAuthWithGoogle(account);
-//            } else {
-//                Toast.makeText(MainActivity.this, "Auth went wrong", Toast.LENGTH_SHORT).show();
-//            }
-//        }
-//    }
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        // Result returned from launching the Intent from GoogleSignInApi.getSignInIntent(...);
+        if (requestCode == RC_SIGN_IN) {
+            GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
+            if(result.isSuccess()) {
+                //Google Sign in was successful, authenticate with Firebase
+                GoogleSignInAccount account = result.getSignInAccount();
+                firebaseAuthWithGoogle(account);
+            } else {
+                Toast.makeText(MainActivity.this, "Auth went wrong", Toast.LENGTH_SHORT).show();
+            }
+        }
+       // Pass the activity result back to the Facebook SDK
+       mCallbackManager.onActivityResult(requestCode, resultCode, data);
+    }
 
     private void firebaseAuthWithGoogle(GoogleSignInAccount account) {
 
