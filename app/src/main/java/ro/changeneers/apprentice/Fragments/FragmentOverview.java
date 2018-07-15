@@ -1,4 +1,4 @@
-package ro.changeneers.apprentice;
+package ro.changeneers.apprentice.Fragments;
 
 
 import android.os.Bundle;
@@ -7,6 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import ro.changeneers.apprentice.R;
 
 public class FragmentOverview extends android.support.v4.app.Fragment {
 

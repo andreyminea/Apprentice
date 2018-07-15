@@ -1,4 +1,4 @@
-package ro.changeneers.apprentice;
+package ro.changeneers.apprentice.Adapters;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;

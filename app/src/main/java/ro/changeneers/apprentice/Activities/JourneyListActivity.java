@@ -1,4 +1,4 @@
-package ro.changeneers.apprentice;
+package ro.changeneers.apprentice.Activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -7,6 +7,10 @@ import android.support.v7.widget.RecyclerView;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import ro.changeneers.apprentice.Adapters.JourneyRecyclerViewAdapter;
+import ro.changeneers.apprentice.Models.JourneyItem;
+import ro.changeneers.apprentice.R;
 
 public class JourneyListActivity extends AppCompatActivity {
 
