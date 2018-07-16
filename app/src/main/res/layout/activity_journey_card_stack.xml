@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="6dp"
-    tools:context=".Activities.JourneyCardStackActivity">
+    tools:context=".Activities.JourneyViewPagerActivity">
 
     <android.support.v4.view.ViewPager
 

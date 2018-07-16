@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 import java.util.List;
 
-import ro.changeneers.apprentice.Activities.JourneyCardStackActivity;
+import ro.changeneers.apprentice.Activities.JourneyViewPagerActivity;
 import ro.changeneers.apprentice.Models.JourneyItem;
 import ro.changeneers.apprentice.R;
 
@@ -72,7 +72,7 @@ public class JourneyRecyclerViewAdapter extends RecyclerView.Adapter<JourneyRecy
             journeyOverviewThumbnail.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(v.getContext(),JourneyCardStackActivity.class);
+                    Intent intent = new Intent(v.getContext(),JourneyViewPagerActivity.class);
                     v.getContext().startActivity(intent);
                 }
             });
