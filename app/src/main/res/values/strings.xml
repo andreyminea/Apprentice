@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Apprentice</string>
+    <string name="facebook_app_id">2025137434467305</string>
+    <string name="fb_login_protocol_scheme">fb2025137434467305</string>
 </resources>
