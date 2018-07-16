@@ -17,7 +17,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".JourneyListActivity" />
-        <activity android:name=".ChatActivity"></activity>
+        <activity android:name=".ChatActivity" />
+        <activity android:name=".LogInActivity"></activity>
     </application>
 
 </manifest>
