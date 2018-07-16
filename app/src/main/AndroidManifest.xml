@@ -18,8 +18,8 @@
         </activity>
         <activity android:name=".Activities.JourneyListActivity" />
         <activity android:name=".Activities.ChatActivity" />
-        <activity android:name=".Activities.JourneyViewPagerActivity" />
         <activity android:name=".Activities.JourneyActivity" />
+        <activity android:name=".Activities.BottomNavigationActivity"></activity>
     </application>
 
 </manifest>

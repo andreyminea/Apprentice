@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 import java.util.List;
 
-import ro.changeneers.apprentice.Activities.JourneyViewPagerActivity;
+import ro.changeneers.apprentice.Activities.BottomNavigationActivity;
 import ro.changeneers.apprentice.Models.JourneyItem;
 import ro.changeneers.apprentice.R;
 
@@ -72,7 +72,32 @@ public class JourneyRecyclerViewAdapter extends RecyclerView.Adapter<JourneyRecy
             journeyOverviewThumbnail.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(v.getContext(),JourneyViewPagerActivity.class);
+                    Intent intent = new Intent(v.getContext(),BottomNavigationActivity.class);
+                    intent.putExtra("position",0);
+                    v.getContext().startActivity(intent);
+                }
+            });
+            journeyBaniThumbnail.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(v.getContext(),BottomNavigationActivity.class);
+                    intent.putExtra("position",1);
+                    v.getContext().startActivity(intent);
+                }
+            });
+            journeyStresThumbnail.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(v.getContext(),BottomNavigationActivity.class);
+                    intent.putExtra("position",2);
+                    v.getContext().startActivity(intent);
+                }
+            });
+            journeyJobsThumbnail.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(v.getContext(),BottomNavigationActivity.class);
+                    intent.putExtra("position",3);
                     v.getContext().startActivity(intent);
                 }
             });
