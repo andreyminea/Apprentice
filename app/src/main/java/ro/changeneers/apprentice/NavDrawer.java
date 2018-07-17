@@ -15,6 +15,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
+import ro.changeneers.apprentice.Activities.ChatActivity;
+import ro.changeneers.apprentice.Activities.JourneyListActivity;
+import ro.changeneers.apprentice.Activities.MainActivity;
+
 
 public abstract class NavDrawer extends AppCompatActivity implements MenuItem.OnMenuItemClickListener {
     private FrameLayout view_stub; //This is the framelayout to keep your content view

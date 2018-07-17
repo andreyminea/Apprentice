@@ -13,9 +13,10 @@ import ro.changeneers.apprentice.Fragments.FragmentJobs;
 import ro.changeneers.apprentice.Fragments.FragmentOverview;
 import ro.changeneers.apprentice.Fragments.FragmentStartJourney;
 import ro.changeneers.apprentice.Fragments.FragmentStres;
+import ro.changeneers.apprentice.NavDrawer;
 import ro.changeneers.apprentice.R;
 
-public class BottomNavigationActivity extends AppCompatActivity {
+public class BottomNavigationActivity extends NavDrawer {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
