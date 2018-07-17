@@ -8,7 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends NavDrawer {
 
     List<DashboardItem> items;
     private RecyclerView.LayoutManager mLayoutManager;
