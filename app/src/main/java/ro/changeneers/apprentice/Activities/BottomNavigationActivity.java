@@ -30,20 +30,23 @@ public class BottomNavigationActivity extends AppCompatActivity {
         switch(position){
             case 0:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new FragmentOverview()).commit();
+                bottomNav.setSelectedItemId(R.id.nav_info);
                 break;
             case 1:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new FragmentBani()).commit();
+                bottomNav.setSelectedItemId(R.id.nav_bani);
                 break;
             case 2:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new FragmentStres()).commit();
+                bottomNav.setSelectedItemId(R.id.nav_stres);
                 break;
             case 3:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new FragmentJobs()).commit();
+                bottomNav.setSelectedItemId(R.id.nav_jobs);
                 break;
         }
 
     }
-
 
     private BottomNavigationView.OnNavigationItemSelectedListener navListener =
             new BottomNavigationView.OnNavigationItemSelectedListener() {
