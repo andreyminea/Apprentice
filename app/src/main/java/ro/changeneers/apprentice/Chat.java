@@ -18,7 +18,7 @@ import java.util.Iterator;
 import java.util.Map;
 
 
-public class Chat_Room  extends AppCompatActivity{
+public class Chat extends AppCompatActivity{
 
     private Button btn_send_msg;
     private EditText input_msg;
