@@ -1,4 +1,4 @@
-package ro.changeneers.apprentice;
+package ro.changeneers.apprentice.Activities;
 
 import android.content.Intent;
 import android.content.res.Configuration;
@@ -15,9 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
-import ro.changeneers.apprentice.Activities.ChatActivity;
-import ro.changeneers.apprentice.Activities.JourneyListActivity;
-import ro.changeneers.apprentice.Activities.MainActivity;
+import ro.changeneers.apprentice.R;
 
 
 public abstract class NavDrawer extends AppCompatActivity implements MenuItem.OnMenuItemClickListener {
