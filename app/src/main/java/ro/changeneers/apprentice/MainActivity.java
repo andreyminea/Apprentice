@@ -135,8 +135,18 @@ public class MainActivity extends AppCompatActivity
             }
         });
 
-
         roomList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id)
+            {
+                Intent intent = new Intent(MainActivity.this, Chat_room.class);
+                intent.putExtra("room_name", ((TextView) view).getText().toString());
+                intent.putExtra("user_name", userName);
+                startActivity(intent);
+            }
+        });
+
+       /*roomList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id)
             {
@@ -147,7 +157,7 @@ public class MainActivity extends AppCompatActivity
                 //starts new activity with passed username and room name
 
             }
-        });
+        });*/
 
     }
 

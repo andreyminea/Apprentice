@@ -1,10 +1,12 @@
 package ro.changeneers.apprentice;
+
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.google.firebase.database.ChildEventListener;
@@ -18,27 +20,30 @@ import java.util.Iterator;
 import java.util.Map;
 
 
-public class Chat extends AppCompatActivity{
+public class Chat_room extends AppCompatActivity{
 
     private Button btn_send_msg;
     private EditText input_msg;
     private TextView chat_conversation;
+    private ScrollView scroll;         /// aici
 
     private String user_name,room_name;
     private DatabaseReference root ;
     private String temp_key;
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate( Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.chat_room);
+        setContentView(R.layout.activity_chat_room);
 
         btn_send_msg = (Button) findViewById(R.id.sendBtn);
         input_msg = (EditText) findViewById(R.id.sendMsg);
-        chat_conversation = (TextView) findViewById(R.id.textView);
+        chat_conversation = (TextView) findViewById(R.id.received);
 
-        user_name = getIntent().getExtras().get("user_name").toString();
-        room_name = getIntent().getExtras().get("room_name").toString();
+        scroll = (ScrollView) findViewById(R.id.chatMessages); /// aici
+
+        user_name = getIntent().getExtras().getString("user_name");
+        room_name = getIntent().getExtras().getString("room_name");
         setTitle(" Room - "+room_name);
 
         root = FirebaseDatabase.getInstance().getReference().child(room_name);
@@ -93,6 +98,8 @@ public class Chat extends AppCompatActivity{
     }
 
     private String chat_msg,chat_user_name;
+    private TextView.BufferType nimic;
+
 
     private void append_chat_conversation(DataSnapshot dataSnapshot) {
 
@@ -104,6 +111,8 @@ public class Chat extends AppCompatActivity{
             chat_user_name = (String) ((DataSnapshot)i.next()).getValue();
 
             chat_conversation.append(chat_user_name +" : "+chat_msg +" \n");
+            input_msg.setText("", nimic);
+            scroll.fullScroll(ScrollView.FOCUS_DOWN);
         }
 
 
