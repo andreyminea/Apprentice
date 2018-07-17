@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "515050166794",
+    "firebase_url": "https://apprentice-8ffa9.firebaseio.com",
+    "project_id": "apprentice-8ffa9",
+    "storage_bucket": "apprentice-8ffa9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:515050166794:android:71de1f90564f87de",
+        "android_client_info": {
+          "package_name": "ro.changeneers.apprentice"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "515050166794-jbo8s6euq71g1k02194u72fvgttjci7r.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "ro.changeneers.apprentice",
+            "certificate_hash": "50b97f8af02fec1d82f54429eb57e004ff2a7fd5"
+          }
+        },
+        {
+          "client_id": "515050166794-h1jnhutn41q43d3tt3o4uh1duebl89o7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBUL2gpQv9zVeUY-nJlcEESNK4gCiPNa6c"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "515050166794-h1jnhutn41q43d3tt3o4uh1duebl89o7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
