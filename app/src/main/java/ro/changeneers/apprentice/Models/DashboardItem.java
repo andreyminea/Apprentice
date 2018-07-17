@@ -1,4 +1,4 @@
-package ro.changeneers.apprentice;
+package ro.changeneers.apprentice.Models;
 
 /**
  * Created by retea on 11-Jul-18.
@@ -8,9 +8,6 @@ public class DashboardItem {
     private String Title;
     private String Description;
     private int Thumbnail;
-
-    public DashboardItem() {
-    }
 
     public DashboardItem(String title, String description, int thumbnail) {
         Title = title;
