@@ -1,4 +1,4 @@
-package ro.changeneers.apprentice;
+package ro.changeneers.apprentice.Adapters;
 
 import android.content.Context;
 import android.content.Intent;
@@ -12,6 +12,11 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.List;
+
+import ro.changeneers.apprentice.Activities.ChatActivity;
+import ro.changeneers.apprentice.Models.DashboardItem;
+import ro.changeneers.apprentice.Activities.JourneyListActivity;
+import ro.changeneers.apprentice.R;
 
 /**
  * Created by retea on 11-Jul-18.

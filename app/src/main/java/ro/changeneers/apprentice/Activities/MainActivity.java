@@ -1,4 +1,4 @@
-package ro.changeneers.apprentice;
+package ro.changeneers.apprentice.Activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -8,7 +8,17 @@ import android.support.v7.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 
+<<<<<<< HEAD:app/src/main/java/ro/changeneers/apprentice/MainActivity.java
 public class MainActivity extends NavDrawer {
+=======
+import ro.changeneers.apprentice.Adapters.RecyclerViewAdapter;
+import ro.changeneers.apprentice.Models.DashboardItem;
+import ro.changeneers.apprentice.R;
+
+public class MainActivity extends AppCompatActivity {
+>>>>>>> origin/bottomnavigation:app/src/main/java/ro/changeneers/apprentice/Activities/MainActivity.java
+
+    private static final String TAG = "MainActivity";
 
     List<DashboardItem> items;
     private RecyclerView.LayoutManager mLayoutManager;
