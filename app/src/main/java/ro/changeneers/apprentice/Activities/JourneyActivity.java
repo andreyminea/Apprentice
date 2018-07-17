@@ -3,9 +3,10 @@ package ro.changeneers.apprentice.Activities;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import ro.changeneers.apprentice.NavDrawer;
 import ro.changeneers.apprentice.R;
 
-public class JourneyActivity extends AppCompatActivity {
+public class JourneyActivity extends NavDrawer {
 
     private static final String TAG = "JourneyActivity";
 

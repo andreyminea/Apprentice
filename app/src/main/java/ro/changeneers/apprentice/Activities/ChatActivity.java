@@ -1,15 +1,9 @@
 package ro.changeneers.apprentice.Activities;
-
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-
-<<<<<<< HEAD:app/src/main/java/ro/changeneers/apprentice/ChatActivity.java
-public class ChatActivity extends NavDrawer {
-=======
+import ro.changeneers.apprentice.NavDrawer;
 import ro.changeneers.apprentice.R;
 
-public class ChatActivity extends AppCompatActivity {
->>>>>>> origin/bottomnavigation:app/src/main/java/ro/changeneers/apprentice/Activities/ChatActivity.java
+public class ChatActivity extends NavDrawer {
 
     private static final String TAG = "ChatActivity";
 

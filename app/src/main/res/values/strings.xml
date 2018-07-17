@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">Apprentice</string>
-<<<<<<< HEAD
     <string name="Home">Home</string>
     <string name="My_Profile">My Profile</string>
     <string name="About_us">About us</string>
@@ -17,10 +16,4 @@
     <string name="action_settings">Settings</string>
 
     <string name="title_activity_nav_drawer">NavDrawer</string>
-=======
-    <string name="title_activity_main2">Main2Activity</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
->>>>>>> origin/bottomnavigation
 </resources>

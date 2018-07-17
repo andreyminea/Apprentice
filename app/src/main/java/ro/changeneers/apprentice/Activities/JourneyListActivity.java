@@ -10,9 +10,10 @@ import java.util.List;
 
 import ro.changeneers.apprentice.Adapters.JourneyRecyclerViewAdapter;
 import ro.changeneers.apprentice.Models.JourneyItem;
+import ro.changeneers.apprentice.NavDrawer;
 import ro.changeneers.apprentice.R;
 
-public class JourneyListActivity extends AppCompatActivity {
+public class JourneyListActivity extends NavDrawer {
 
     private static final String TAG = "JourneyListActivity";
 
