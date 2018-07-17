@@ -1,6 +1,6 @@
 package ro.changeneers.apprentice.Activities;
 import android.os.Bundle;
-import ro.changeneers.apprentice.NavDrawer;
+
 import ro.changeneers.apprentice.R;
 
 public class ChatActivity extends NavDrawer {

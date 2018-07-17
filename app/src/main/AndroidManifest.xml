@@ -20,7 +20,7 @@
         <activity android:name=".Activities.JourneyActivity" />
         <activity android:name=".Activities.BottomNavigationActivity"></activity>
         <activity android:name=".Activities.MainActivity"></activity>
-        <activity android:name=".LogInActivity" />
+        <activity android:name=".Activities.LogInActivity" />
 
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
