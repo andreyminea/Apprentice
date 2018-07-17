@@ -14,13 +14,15 @@ public class FragmentJobs extends android.support.v4.app.Fragment {
 
     private static final String TAG = "FragmentJobs";
 
-    private TextView tvJobs;
+    private TextView tvJobsTitle;
+    private TextView tvJobsText;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_jobs_layout,container,false);
-        tvJobs = view.findViewById(R.id.TextViewJobs);
+        tvJobsTitle = view.findViewById(R.id.TextViewJobsTitle);
+        tvJobsText = view.findViewById(R.id.TextViewJobsText);
         return view;
     }
 }
