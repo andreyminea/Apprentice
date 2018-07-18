@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
+import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -93,6 +94,7 @@ public abstract class NavDrawer extends AppCompatActivity implements MenuItem.On
         // Pass the event to ActionBarDrawerToggle, if it returns
         // true, then it has handled the app icon touch event
         if (mDrawerToggle.onOptionsItemSelected(item)) {
+            mDrawerLayout.closeDrawer(GravityCompat.START, false);
             return true;
         }
         // Handle your other action bar items...
@@ -107,35 +109,50 @@ public abstract class NavDrawer extends AppCompatActivity implements MenuItem.On
                 Log.d(TAG, "open Home Activity");
                 Intent i = new Intent(this, MainActivity.class);
                 startActivity(i);
+                mDrawerLayout.closeDrawer(GravityCompat.START, false);
                 break;
             case R.id.nav_chat:
                 Log.d(TAG, "open Chat Activity");
                 Intent j = new Intent(this, ChatActivity.class);
                 startActivity(j);
+                mDrawerLayout.closeDrawer(GravityCompat.START, false);
                 break;
             case R.id.nav_about:
                 Log.d(TAG, "open About Activity");
                 Intent a = new Intent(this, JourneyListActivity.class);
                 startActivity(a);
+                mDrawerLayout.closeDrawer(GravityCompat.START, false);
                 break;
             case R.id.nav_profile:
                 Log.d(TAG, "open Profile Activity");
                 Intent b = new Intent(this, MainActivity.class);
                 startActivity(b);
+                mDrawerLayout.closeDrawer(GravityCompat.START, false);
                 break;
             case R.id.nav_settings:
                 Log.d(TAG, "open Settings Activity");
                 Intent d = new Intent(this, MainActivity.class);
                 startActivity(d);
+                mDrawerLayout.closeDrawer(GravityCompat.START, false);
                 break;
             case R.id.nav_logout:
                 Log.d(TAG, "open Logout Activity");
                 Intent c = new Intent(this, MainActivity.class);
                 startActivity(c);
+                mDrawerLayout.closeDrawer(GravityCompat.START, false);
                 break;
             // and so on...
         }
         return false;
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (this.mDrawerLayout.isDrawerVisible(GravityCompat.START)) {
+            this.mDrawerLayout.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
+        }
     }
 
 
@@ -161,4 +178,4 @@ public abstract class NavDrawer extends AppCompatActivity implements MenuItem.On
         Log.d(TAG, "onDestroy callback");
     }
 
-};
+}
