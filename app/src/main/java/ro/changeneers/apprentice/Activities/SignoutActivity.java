@@ -28,14 +28,15 @@ public class SignoutActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signout);
 
-        button = (Button) findViewById(R.id.signoutBtn);
+        button = (Button) findViewById(R.id.nav_logout);
         mAuth = FirebaseAuth.getInstance();
 
         mAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 if (firebaseAuth.getCurrentUser() == null){
-                    startActivity(new Intent(SignoutActivity.this, MainActivity.class));
+//                    startActivity(new Intent(SignoutActivity.this, LogInActivity.class));
+                    finish();
                 }
             }
         };
