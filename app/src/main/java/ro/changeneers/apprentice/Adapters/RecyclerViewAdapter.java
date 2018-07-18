@@ -11,6 +11,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.List;
 
 import ro.changeneers.apprentice.Activities.ChatActivity;
@@ -46,7 +48,14 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     @Override
     public void onBindViewHolder( MyViewHolder holder, int position) {
         final int i = position;
-        holder.dashboardItemThumbnail.setImageResource(mList.get(position).getThumbnail());
+        switch (position){
+            case 0:
+                Picasso.get().load(R.drawable.adventure).into(holder.dashboardItemThumbnail);
+                break;
+            case 1:
+                Picasso.get().load(R.drawable.chatting).into(holder.dashboardItemThumbnail);
+                break;
+        }
         holder.dashboardItemTitle.setText(mList.get(position).getTitle());
         holder.dashboardItemDescription.setText(mList.get(position).getDescription());
         holder.dashboardLayout.setOnClickListener(new View.OnClickListener() {

@@ -10,6 +10,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.List;
 
 import ro.changeneers.apprentice.Activities.BottomNavigationActivity;
@@ -37,12 +39,19 @@ public class JourneyRecyclerViewAdapter extends RecyclerView.Adapter<JourneyRecy
 
     @Override
     public void onBindViewHolder(@NonNull MyJourneyViewHolder holder, int position) {
-        holder.journeyThumbnail.setImageResource(jList.get(position).getThumbnail());
+        final int i = position;
+        switch (position){
+            case 0:
+                Picasso.get().load(R.drawable.adventure).into(holder.journeyThumbnail);
+                break;
+        }
+
+        Picasso.get().load(R.drawable.ico_info).into(holder.journeyOverviewThumbnail);
+        Picasso.get().load(R.drawable.ico_bani).into(holder.journeyBaniThumbnail);
+        Picasso.get().load(R.drawable.ico_stres).into(holder.journeyStresThumbnail);
+        Picasso.get().load(R.drawable.ico_jobs).into(holder.journeyJobsThumbnail);
+
         holder.journeyTitle.setText(jList.get(position).getTitle());
-        holder.journeyOverviewThumbnail.setImageResource(R.drawable.ico_info);
-        holder.journeyBaniThumbnail.setImageResource(R.drawable.ico_bani);
-        holder.journeyStresThumbnail.setImageResource(R.drawable.ico_stres);
-        holder.journeyJobsThumbnail.setImageResource(R.drawable.ico_jobs);
 
     }
 

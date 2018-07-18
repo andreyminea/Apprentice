@@ -14,13 +14,15 @@ public class FragmentOverview extends android.support.v4.app.Fragment {
 
     private static final String TAG = "FragmentOverview";
 
-    private TextView tvOverview;
+    private TextView tvOverviewTitle;
+    private TextView tvOverviewText;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_overview_layout,container,false);
-        tvOverview = view.findViewById(R.id.TextViewOverview);
+        tvOverviewTitle = view.findViewById(R.id.TextViewOverviewTitle);
+        tvOverviewText = view.findViewById(R.id.TextViewOverviewText);
         return view;
     }
 }
