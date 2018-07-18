@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item
+        android:id="@+id/nav_info"
+        android:icon="@drawable/ic_info_outline_black_24dp"
+        android:title="Info"/>
+
+    <item
+        android:id="@+id/nav_bani"
+        android:icon="@drawable/ic_attach_money_black_24dp"
+        android:title="Bani"/>
+
+    <item
+        android:id="@+id/nav_stres"
+        android:icon="@drawable/ic_warning_black_24dp"
+        android:title="Stres"/>
+
+    <item
+        android:id="@+id/nav_jobs"
+        android:icon="@drawable/ic_work_black_24dp"
+        android:title="Jobs"/>
+
+    <item
+        android:id="@+id/nav_start"
+        android:icon="@drawable/ic_done_black_24dp"
+        android:title="Start"/>
+</menu>

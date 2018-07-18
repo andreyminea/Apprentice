@@ -1,9 +1,11 @@
-package ro.changeneers.apprentice;
-
-import android.support.v7.app.AppCompatActivity;
+package ro.changeneers.apprentice.Activities;
 import android.os.Bundle;
 
-public class ChatActivity extends AppCompatActivity {
+import ro.changeneers.apprentice.R;
+
+public class ChatActivity extends NavDrawer {
+
+    private static final String TAG = "ChatActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

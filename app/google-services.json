@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "460870423453",
+    "firebase_url": "https://signin-59f74.firebaseio.com",
+    "project_id": "signin-59f74",
+    "storage_bucket": "signin-59f74.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:460870423453:android:71de1f90564f87de",
+        "android_client_info": {
+          "package_name": "ro.changeneers.apprentice"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "460870423453-dl2ajl9q4bqguce36ifb5d8cogpoakp5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "ro.changeneers.apprentice",
+            "certificate_hash": "f70783d8a4446b21a8eea31243c90edf768b530e"
+          }
+        },
+        {
+          "client_id": "460870423453-3h2ftasb1ojgs9n93ffij54fmhiom8rl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAAQnmPCBjctg3wyzuziRCm1PhcElzePcQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "460870423453-3h2ftasb1ojgs9n93ffij54fmhiom8rl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
