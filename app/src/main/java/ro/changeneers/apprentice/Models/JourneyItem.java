@@ -3,26 +3,27 @@ package ro.changeneers.apprentice.Models;
 public class JourneyItem {
 
     private String Title;
-    private int Thumbnail;
+    private String Descriere;
 
-    public JourneyItem(String title, int thumbnail) {
+    public JourneyItem(String title,String descriere) {
         Title = title;
-        Thumbnail = thumbnail;
+        Descriere = descriere;
     }
 
     public String getTitle() {
         return Title;
     }
 
+    public String getDescriere() {
+        return Descriere;
+    }
+
+    public void setDescriere(String descriere) {
+        Descriere = descriere;
+    }
+
     public void setTitle(String title) {
         Title = title;
     }
 
-    public int getThumbnail() {
-        return Thumbnail;
-    }
-
-    public void setThumbnail(int thumbnail) {
-        Thumbnail = thumbnail;
-    }
 }

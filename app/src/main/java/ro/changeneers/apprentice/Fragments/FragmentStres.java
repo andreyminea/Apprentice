@@ -14,13 +14,15 @@ public class FragmentStres extends android.support.v4.app.Fragment {
 
     private static final String TAG = "FragmentStres";
 
-    private TextView tvStres;
+    private TextView tvStresTitle;
+    private TextView tvStresText;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_stres_layout,container,false);
-        tvStres = view.findViewById(R.id.TextViewStres);
+        tvStresTitle = view.findViewById(R.id.TextViewStresTitle);
+        tvStresText = view.findViewById(R.id.TextViewStresText);
         return view;
     }
 }
