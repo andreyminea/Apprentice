@@ -38,28 +38,6 @@ public class BottomNavigationActivity extends NavDrawer {
         setupViewPager(mViewPager,position,bottomNav);
 
 
-//        switch(position){
-//            case 0:
-////                mViewPager.setCurrentItem(0);
-//                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new FragmentOverview()).commitAllowingStateLoss();
-//                bottomNav.setSelectedItemId(R.id.nav_info);
-//                break;
-//            case 1:
-////                mViewPager.setCurrentItem(1);
-//                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new FragmentBani()).commitAllowingStateLoss();
-//                bottomNav.setSelectedItemId(R.id.nav_bani);
-//                break;
-//            case 2:
-////                mViewPager.setCurrentItem(2);
-//                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new FragmentStres()).commitAllowingStateLoss();
-//                bottomNav.setSelectedItemId(R.id.nav_stres);
-//                break;
-//            case 3:
-//                mViewPager.setCurrentItem(3);
-////                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new FragmentJobs()).commitAllowingStateLoss();
-//                bottomNav.setSelectedItemId(R.id.nav_jobs);
-//                break;
-//        }
 
         mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
@@ -110,8 +88,7 @@ public class BottomNavigationActivity extends NavDrawer {
                             mViewPager.setCurrentItem(4);
                             break;
                     }
-//                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-//                            selectedFragment).commitAllowingStateLoss();
+
                     return true;
                 }
             };
