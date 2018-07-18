@@ -15,6 +15,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 import ro.changeneers.apprentice.R;
 
 
@@ -130,8 +132,7 @@ public abstract class NavDrawer extends AppCompatActivity implements MenuItem.On
                 break;
             case R.id.nav_logout:
                 Log.d(TAG, "open Logout Activity");
-                Intent c = new Intent(this, MainActivity.class);
-                startActivity(c);
+                logout();
                 break;
             // and so on...
         }
@@ -161,4 +162,11 @@ public abstract class NavDrawer extends AppCompatActivity implements MenuItem.On
         Log.d(TAG, "onDestroy callback");
     }
 
-};
+    private void logout() {
+        FirebaseAuth.getInstance().signOut();
+        Intent intent = new Intent(this, LogInActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
+        finish();
+    }
+}
