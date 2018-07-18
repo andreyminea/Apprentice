@@ -9,18 +9,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activities.MainActivity">
+        <activity android:name=".Activities.StartActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
             <category android:name="android.intent.category.LAUNCHER" />
         </intent-filter></activity>
-        <activity android:name=".Activities.JourneyListActivity" />
-        <activity android:name=".Activities.ChatActivity" />
+        <activity android:name=".Activities.JourneyListActivity"/>
+        <activity android:name=".Activities.ChatActivity"/>
         <activity android:name=".Activities.JourneyActivity" />
-        <activity android:name=".Activities.BottomNavigationActivity"></activity>
-        <activity android:name=".Activities.StartActivity"></activity>
-        <activity android:name=".Activities.LogInActivity" />
+        <activity android:name=".Activities.BottomNavigationActivity"/>
+        <activity android:name=".Activities.MainActivity"/>
+        <activity android:name=".Activities.LogInActivity"/>
 
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
