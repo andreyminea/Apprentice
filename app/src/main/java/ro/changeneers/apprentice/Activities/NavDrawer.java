@@ -1,6 +1,9 @@
 package ro.changeneers.apprentice.Activities;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
@@ -14,6 +17,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.FrameLayout;
 
 import ro.changeneers.apprentice.R;
@@ -43,7 +47,10 @@ public abstract class NavDrawer extends AppCompatActivity implements MenuItem.On
             drawerMenu.getItem(i).setOnMenuItemClickListener(this);
         }
         // and so on...
+
+
     }
+
 
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
