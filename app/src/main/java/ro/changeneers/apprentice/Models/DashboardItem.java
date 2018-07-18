@@ -9,10 +9,9 @@ public class DashboardItem {
     private String Description;
     private int Thumbnail;
 
-    public DashboardItem(String title, String description, int thumbnail) {
+    public DashboardItem(String title, String description) {
         Title = title;
         Description = description;
-        Thumbnail = thumbnail;
     }
 
     public String getTitle() {
@@ -23,9 +22,6 @@ public class DashboardItem {
         return Description;
     }
 
-    public int getThumbnail() {
-        return Thumbnail;
-    }
 
     public void setTitle(String title) {
         Title = title;
@@ -35,7 +31,4 @@ public class DashboardItem {
         Description = description;
     }
 
-    public void setThumbnail(int thumbnail) {
-        Thumbnail = thumbnail;
-    }
 }
