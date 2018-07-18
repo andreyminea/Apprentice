@@ -139,7 +139,7 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id)
             {
-                Intent intent = new Intent(MainActivity.this, Chat_room.class);
+                Intent intent = new Intent(MainActivity.this, Chatnew.class);
                 intent.putExtra("room_name", ((TextView) view).getText().toString());
                 intent.putExtra("user_name", userName);
                 startActivity(intent);
