@@ -27,7 +27,9 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 
-public class ChatMain extends AppCompatActivity
+import ro.changeneers.apprentice.Activities.NavDrawer;
+
+public class ChatMain extends NavDrawer
 {
     EditText roomName;
     Button createRoom;

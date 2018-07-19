@@ -7,6 +7,7 @@
 
     <application
         android:allowBackup="true"
+        android:name=".FireApp"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
@@ -24,6 +25,10 @@
         <activity android:name=".Activities.BottomNavigationActivity"/>
         <activity android:name=".Activities.MainActivity"/>
         <activity android:name=".Activities.LogInActivity"/>
+
+        <activity android:name=".Chat_room"
+            android:windowSoftInputMode="stateHidden"/>
+        <activity android:name=".ChatMain"/>
 
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
@@ -45,9 +50,7 @@
                 <data android:scheme="@string/fb_login_protocol_scheme" />
             </intent-filter>
         </activity>
-        <activity android:name=".Chat_room"
-            android:windowSoftInputMode="stateHidden"/>
-        <activity android:name=".ChatMain">
+
 
     </application>
 

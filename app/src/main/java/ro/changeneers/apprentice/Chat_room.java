@@ -20,8 +20,10 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
+import ro.changeneers.apprentice.Activities.NavDrawer;
 
-public class Chat_room extends AppCompatActivity {
+
+public class Chat_room extends NavDrawer {
 
     private ImageButton btn_send_msg;
     private EditText input_msg;
