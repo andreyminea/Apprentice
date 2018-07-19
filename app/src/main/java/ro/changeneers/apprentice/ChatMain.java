@@ -24,11 +24,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
-import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-public class MainActivity extends AppCompatActivity
+public class ChatMain extends AppCompatActivity
 {
     EditText roomName;
     Button createRoom;
@@ -139,7 +138,7 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id)
             {
-                Intent intent = new Intent(MainActivity.this, Chat_room.class);
+                Intent intent = new Intent(ChatMain.this, Chat_room.class);
                 intent.putExtra("room_name", ((TextView) view).getText().toString());
                 intent.putExtra("user_name", userName);
                 startActivity(intent);
