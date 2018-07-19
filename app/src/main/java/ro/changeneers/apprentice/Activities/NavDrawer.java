@@ -1,12 +1,17 @@
 package ro.changeneers.apprentice.Activities;
 
+import android.app.Activity;
+import android.app.ActivityManager;
 import android.content.BroadcastReceiver;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
+import android.support.design.widget.NavigationView.OnNavigationItemSelectedListener;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -22,16 +27,19 @@ import android.widget.FrameLayout;
 
 import com.google.firebase.auth.FirebaseAuth;
 
+import java.util.List;
+
 import ro.changeneers.apprentice.R;
 
 
-public abstract class NavDrawer extends AppCompatActivity implements MenuItem.OnMenuItemClickListener {
+public abstract class NavDrawer extends AppCompatActivity implements OnNavigationItemSelectedListener {
     private FrameLayout view_stub; //This is the framelayout to keep your content view
     private NavigationView navigation_view; // The new navigation view from Android Design Library. Can inflate menu resources. Easy
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mDrawerToggle;
     private Menu drawerMenu;
     private String TAG = NavDrawer.class.getSimpleName();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,10 +53,7 @@ public abstract class NavDrawer extends AppCompatActivity implements MenuItem.On
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         drawerMenu = navigation_view.getMenu();
-        for(int i = 0; i < drawerMenu.size(); i++) {
-            drawerMenu.getItem(i).setOnMenuItemClickListener(this);
-        }
-        // and so on...
+        navigation_view.setNavigationItemSelectedListener(this);
     }
 
     @Override
@@ -56,6 +61,8 @@ public abstract class NavDrawer extends AppCompatActivity implements MenuItem.On
         super.onPostCreate(savedInstanceState);
         mDrawerToggle.syncState();
     }
+
+
 
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
@@ -109,37 +116,47 @@ public abstract class NavDrawer extends AppCompatActivity implements MenuItem.On
     }
 
     @Override
-    public boolean onMenuItemClick(MenuItem item) {
-        switch (item.getItemId()) {
+    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+
+        mDrawerLayout.closeDrawer(GravityCompat.START);
+
+        final int mItemId = menuItem.getItemId();
+        if (mItemId == getNavigationItemID())
+        {
+            return true;
+        }
+        onMenuItemClick(mItemId);
+        return true;
+    }
+
+    protected abstract int getNavigationItemID();
+
+    public void onMenuItemClick(int item) {
+        switch (item) {
             case R.id.nav_home:
                 Log.d(TAG, "open Home Activity");
                 Intent i = new Intent(this, MainActivity.class);
                 startActivity(i);
-                mDrawerLayout.closeDrawer(GravityCompat.START, false);
                 break;
             case R.id.nav_chat:
                 Log.d(TAG, "open Chat Activity");
                 Intent j = new Intent(this, ChatActivity.class);
                 startActivity(j);
-                mDrawerLayout.closeDrawer(GravityCompat.START, false);
                 break;
             case R.id.nav_about:
                 Log.d(TAG, "open About Activity");
                 Intent a = new Intent(this, JourneyListActivity.class);
                 startActivity(a);
-                mDrawerLayout.closeDrawer(GravityCompat.START, false);
                 break;
             case R.id.nav_profile:
                 Log.d(TAG, "open Profile Activity");
                 Intent b = new Intent(this, MainActivity.class);
                 startActivity(b);
-                mDrawerLayout.closeDrawer(GravityCompat.START, false);
                 break;
             case R.id.nav_settings:
                 Log.d(TAG, "open Settings Activity");
                 Intent d = new Intent(this, MainActivity.class);
                 startActivity(d);
-                mDrawerLayout.closeDrawer(GravityCompat.START, false);
                 break;
             case R.id.nav_logout:
                 Log.d(TAG, "open Logout Activity");
@@ -147,7 +164,6 @@ public abstract class NavDrawer extends AppCompatActivity implements MenuItem.On
                 break;
             // and so on...
         }
-        return false;
     }
 
     @Override

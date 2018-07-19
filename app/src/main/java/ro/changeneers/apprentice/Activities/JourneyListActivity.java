@@ -1,6 +1,7 @@
 package ro.changeneers.apprentice.Activities;
 
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
@@ -11,7 +12,7 @@ import ro.changeneers.apprentice.Adapters.JourneyRecyclerViewAdapter;
 import ro.changeneers.apprentice.Models.JourneyItem;
 import ro.changeneers.apprentice.R;
 
-public class JourneyListActivity extends NavDrawer {
+public class JourneyListActivity extends AppCompatActivity {
 
     private static final String TAG = "JourneyListActivity";
 
@@ -34,4 +35,5 @@ public class JourneyListActivity extends NavDrawer {
 
 
     }
+
 }
