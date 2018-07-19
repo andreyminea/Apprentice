@@ -21,7 +21,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".Chat_room" />
-        <activity android:name=".Chatnew"></activity>
     </application>
 
 </manifest>

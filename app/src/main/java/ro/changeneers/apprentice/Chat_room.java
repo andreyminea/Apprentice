@@ -1,12 +1,12 @@
 package ro.changeneers.apprentice;
 
-import android.nfc.Tag;
+
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.ListView;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
@@ -16,37 +16,41 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import java.io.Console;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
 
-public class Chat_room extends AppCompatActivity{
+public class Chat_room extends AppCompatActivity {
 
-    private Button btn_send_msg;
+    private ImageButton btn_send_msg;
     private EditText input_msg;
-    private TextView chat_conversation;
-    private ScrollView scroll;         /// aici
 
-    private String user_name,room_name;
-    private DatabaseReference root ;
+    private ListView listview;
+    private ArrayList<Message> chat;
+    private MessageListAdapter adapter;
+
+    private String user_name, room_name;
+    private DatabaseReference root;
     private String temp_key;
 
     @Override
-    protected void onCreate( Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat_room);
 
-        btn_send_msg = (Button) findViewById(R.id.sendBtn);
-        input_msg = (EditText) findViewById(R.id.sendMsg);
-        chat_conversation = (TextView) findViewById(R.id.received);
+        listview = (ListView) findViewById(R.id.chatMessages);
+        chat = new ArrayList<Message>();
 
-        scroll = (ScrollView) findViewById(R.id.chatMessages); /// aici
+        btn_send_msg = (ImageButton) findViewById(R.id.sendBtn);
+        input_msg = (EditText) findViewById(R.id.sendMsg);
 
         user_name = getIntent().getExtras().getString("user_name");
         room_name = getIntent().getExtras().getString("room_name");
         setTitle(" Room - "+room_name);
+
+
 
         root = FirebaseDatabase.getInstance().getReference().child(room_name);
 
@@ -101,22 +105,37 @@ public class Chat_room extends AppCompatActivity{
 
     private String chat_msg,chat_user_name;
     private TextView.BufferType nimic;
+    private Message message;
 
 
     private void append_chat_conversation(DataSnapshot dataSnapshot) {
 
         Iterator i = dataSnapshot.getChildren().iterator();
+        message = new Message("","");
 
         while (i.hasNext()){
 
             chat_msg = (String) ((DataSnapshot)i.next()).getValue();
             chat_user_name = (String) ((DataSnapshot)i.next()).getValue();
+            message.setBoth(chat_user_name, chat_msg);
 
-            chat_conversation.append(chat_user_name +" : "+chat_msg +" \n");
+            chat.add(message);
+            adapter = new MessageListAdapter(this,R.layout.my_message, R.layout.their_message, chat, user_name);
+            listview.setAdapter(adapter);
+            scrollMyListViewToBottom();
             input_msg.setText("", nimic);
-            scroll.fullScroll(ScrollView.FOCUS_DOWN);
+
         }
 
 
     }
+    private void scrollMyListViewToBottom() {
+        listview.post(new Runnable() {
+            @Override
+            public void run() {
+                listview.setSelection(adapter.getCount() - 1);
+            }
+        });
+    }
+
 }
