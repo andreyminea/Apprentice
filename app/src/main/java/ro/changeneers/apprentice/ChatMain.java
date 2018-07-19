@@ -82,7 +82,7 @@ public class ChatMain extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_chat_main);
 
         roomName = (EditText) findViewById(R.id.roomName);
         createRoom = (Button) findViewById(R.id.createRoom);
