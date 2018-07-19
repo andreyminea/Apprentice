@@ -41,7 +41,7 @@ public class MessageListAdapter extends ArrayAdapter<Message>
 
         LayoutInflater inflater = LayoutInflater.from(mContext);
 
-        if(UserName == name)
+        if(UserName.equals(name))
 
         {
             convertView= inflater.inflate(mResource1, parent, false);

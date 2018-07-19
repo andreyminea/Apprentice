@@ -138,6 +138,7 @@ public class ChatMain extends AppCompatActivity
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id)
             {
+
                 Intent intent = new Intent(ChatMain.this, Chat_room.class);
                 intent.putExtra("room_name", ((TextView) view).getText().toString());
                 intent.putExtra("user_name", userName);

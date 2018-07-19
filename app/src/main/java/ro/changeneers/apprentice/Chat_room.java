@@ -7,7 +7,6 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
-import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.google.firebase.database.ChildEventListener;
@@ -41,6 +40,8 @@ public class Chat_room extends AppCompatActivity {
         setContentView(R.layout.activity_chat_room);
 
         listview = (ListView) findViewById(R.id.chatMessages);
+        listview.setTranscriptMode(ListView.TRANSCRIPT_MODE_NORMAL);
+        listview.setStackFromBottom(true);
         chat = new ArrayList<Message>();
 
         btn_send_msg = (ImageButton) findViewById(R.id.sendBtn);
@@ -48,8 +49,9 @@ public class Chat_room extends AppCompatActivity {
 
         user_name = getIntent().getExtras().getString("user_name");
         room_name = getIntent().getExtras().getString("room_name");
-        setTitle(" Room - "+room_name);
+        setTitle(" Room - " + room_name);
 
+        adapter = new MessageListAdapter(this,R.layout.my_message, R.layout.their_message, chat, user_name);
 
 
         root = FirebaseDatabase.getInstance().getReference().child(room_name);
@@ -58,19 +60,24 @@ public class Chat_room extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                Map<String,Object> map = new HashMap<String, Object>();
+                Map<String, Object> map = new HashMap<String, Object>();
                 temp_key = root.push().getKey();
                 root.updateChildren(map);
 
                 DatabaseReference message_root = root.child(temp_key);
-                Map<String,Object> map2 = new HashMap<String, Object>();
-                map2.put("name",user_name);
-                map2.put("msg",input_msg.getText().toString());
+                Map<String, Object> map2 = new HashMap<String, Object>();
+                map2.put("name", user_name);
+                map2.put("msg", input_msg.getText().toString());
 
                 message_root.updateChildren(map2);
             }
         });
+    }
 
+    @Override
+    protected void onStart()
+    {
+        super.onStart();
         root.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
@@ -101,6 +108,14 @@ public class Chat_room extends AppCompatActivity {
             }
         });
 
+
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        scrollMyListViewToBottom();
     }
 
     private String chat_msg,chat_user_name;
@@ -108,7 +123,8 @@ public class Chat_room extends AppCompatActivity {
     private Message message;
 
 
-    private void append_chat_conversation(DataSnapshot dataSnapshot) {
+    private void append_chat_conversation(DataSnapshot dataSnapshot)
+    {
 
         Iterator i = dataSnapshot.getChildren().iterator();
         message = new Message("","");
@@ -120,12 +136,14 @@ public class Chat_room extends AppCompatActivity {
             message.setBoth(chat_user_name, chat_msg);
 
             chat.add(message);
-            adapter = new MessageListAdapter(this,R.layout.my_message, R.layout.their_message, chat, user_name);
-            listview.setAdapter(adapter);
             scrollMyListViewToBottom();
+
             input_msg.setText("", nimic);
 
+
         }
+        listview.setAdapter(adapter);
+
 
 
     }
