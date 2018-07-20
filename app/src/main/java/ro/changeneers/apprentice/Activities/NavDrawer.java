@@ -20,7 +20,6 @@ import android.widget.FrameLayout;
 
 import com.google.firebase.auth.FirebaseAuth;
 
-import ro.changeneers.apprentice.ChatMain;
 import ro.changeneers.apprentice.R;
 
 
@@ -129,7 +128,7 @@ public abstract class NavDrawer extends AppCompatActivity implements OnNavigatio
                 break;
             case R.id.nav_chat:
                 Log.d(TAG, "open Chat Activity");
-                Intent j = new Intent(this, ChatMain.class);
+                Intent j = new Intent(this, MainChatActivity.class);
                 startActivity(j);
                 break;
             case R.id.nav_about:

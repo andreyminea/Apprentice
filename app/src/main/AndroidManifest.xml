@@ -7,7 +7,7 @@
 
     <application
         android:allowBackup="true"
-        android:name=".FireApp"
+        android:name=".ApprenticeApplication"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
@@ -26,9 +26,9 @@
         <activity android:name=".Activities.StartActivity"/>
         <activity android:name=".Activities.LogInActivity"/>
 
-        <activity android:name=".Chat_room"
+        <activity android:name=".Activities.ChatRoomActivity"
             android:windowSoftInputMode="stateHidden"/>
-        <activity android:name=".ChatMain"/>
+        <activity android:name=".Activities.MainChatActivity"/>
 
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"

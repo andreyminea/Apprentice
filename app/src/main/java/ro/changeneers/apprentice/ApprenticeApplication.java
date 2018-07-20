@@ -5,7 +5,7 @@ import android.app.Application;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class FireApp extends Application
+public class ApprenticeApplication extends Application
 {
     @Override
     public void onCreate()
