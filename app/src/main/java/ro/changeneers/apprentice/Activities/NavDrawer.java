@@ -29,6 +29,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.List;
 
+import ro.changeneers.apprentice.ChatMain;
 import ro.changeneers.apprentice.R;
 
 
@@ -39,7 +40,6 @@ public abstract class NavDrawer extends AppCompatActivity implements OnNavigatio
     private ActionBarDrawerToggle mDrawerToggle;
     private Menu drawerMenu;
     private String TAG = NavDrawer.class.getSimpleName();
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,8 +61,6 @@ public abstract class NavDrawer extends AppCompatActivity implements OnNavigatio
         super.onPostCreate(savedInstanceState);
         mDrawerToggle.syncState();
     }
-
-
 
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
@@ -140,7 +138,7 @@ public abstract class NavDrawer extends AppCompatActivity implements OnNavigatio
                 break;
             case R.id.nav_chat:
                 Log.d(TAG, "open Chat Activity");
-                Intent j = new Intent(this, ChatActivity.class);
+                Intent j = new Intent(this, ChatMain.class);
                 startActivity(j);
                 break;
             case R.id.nav_about:
