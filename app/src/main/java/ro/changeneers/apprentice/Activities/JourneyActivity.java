@@ -13,4 +13,10 @@ public class JourneyActivity extends NavDrawer {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_journey);
     }
+
+    @Override
+    protected int getNavigationItemID()
+    {
+        return R.id.nav_home;
+    }
 }
