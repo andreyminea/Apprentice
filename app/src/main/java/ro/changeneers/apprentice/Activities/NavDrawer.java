@@ -1,9 +1,6 @@
 package ro.changeneers.apprentice.Activities;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
@@ -17,12 +14,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
 import android.widget.FrameLayout;
 
 import com.google.firebase.auth.FirebaseAuth;
 
-import ro.changeneers.apprentice.ChatMain;
 import ro.changeneers.apprentice.R;
 
 
@@ -120,7 +115,7 @@ public abstract class NavDrawer extends AppCompatActivity implements MenuItem.On
                 break;
             case R.id.nav_chat:
                 Log.d(TAG, "open Chat Activity");
-                Intent j = new Intent(this, ChatMain.class);
+                Intent j = new Intent(this, MainChatActivity.class);
                 startActivity(j);
                 mDrawerLayout.closeDrawer(GravityCompat.START, false);
                 break;

@@ -1,4 +1,4 @@
-package ro.changeneers.apprentice;
+package ro.changeneers.apprentice.Models;
 
 public class Message
 {

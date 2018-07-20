@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/chatBackground"
-    tools:context=".Chat_room">
+    tools:context=".Activities.ChatRoomActivity">
 
     <ImageButton
         android:id="@+id/sendBtn"
