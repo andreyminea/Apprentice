@@ -1,12 +1,6 @@
 package ro.changeneers.apprentice.Activities;
 
-import android.app.Activity;
-import android.app.ActivityManager;
-import android.content.BroadcastReceiver;
-import android.content.ComponentName;
-import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -22,12 +16,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
 import android.widget.FrameLayout;
 
 import com.google.firebase.auth.FirebaseAuth;
-
-import java.util.List;
 
 import ro.changeneers.apprentice.ChatMain;
 import ro.changeneers.apprentice.R;
