@@ -1,8 +1,7 @@
-package ro.changeneers.apprentice;
+package ro.changeneers.apprentice.activities;
 
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -20,10 +19,12 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
-import ro.changeneers.apprentice.Activities.NavDrawer;
+import ro.changeneers.apprentice.models.Message;
+import ro.changeneers.apprentice.adapters.MessageListAdapter;
+import ro.changeneers.apprentice.R;
 
 
-public class Chat_room extends NavDrawer {
+public class ChatRoomActivity extends NavDrawer {
 
     private ImageButton btn_send_msg;
     private EditText input_msg;

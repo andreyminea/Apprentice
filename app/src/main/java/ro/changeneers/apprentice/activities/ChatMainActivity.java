@@ -1,9 +1,8 @@
-package ro.changeneers.apprentice;
+package ro.changeneers.apprentice.activities;
 
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -27,9 +26,9 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 
-import ro.changeneers.apprentice.Activities.NavDrawer;
+import ro.changeneers.apprentice.R;
 
-public class ChatMain extends NavDrawer
+public class ChatMainActivity extends NavDrawer
 {
     EditText roomName;
     Button createRoom;
@@ -141,7 +140,7 @@ public class ChatMain extends NavDrawer
             public void onItemClick(AdapterView<?> parent, View view, int position, long id)
             {
 
-                Intent intent = new Intent(ChatMain.this, Chat_room.class);
+                Intent intent = new Intent(ChatMainActivity.this, ChatRoomActivity.class);
                 intent.putExtra("room_name", ((TextView) view).getText().toString());
                 intent.putExtra("user_name", userName);
                 startActivity(intent);
