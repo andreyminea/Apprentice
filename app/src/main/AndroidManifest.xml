@@ -7,28 +7,28 @@
 
     <application
         android:allowBackup="true"
-        android:name=".FireApp"
+        android:name=".ApprenticeApplication"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activities.StartActivity">
+        <activity android:name=".activities.StartActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
             <category android:name="android.intent.category.LAUNCHER" />
         </intent-filter></activity>
-        <activity android:name=".Activities.JourneyListActivity"/>
-        <activity android:name=".Activities.ChatActivity"/>
-        <activity android:name=".Activities.JourneyActivity" />
-        <activity android:name=".Activities.BottomNavigationActivity"/>
-        <activity android:name=".Activities.MainActivity"/>
-        <activity android:name=".Activities.LogInActivity"/>
+        <activity android:name=".activities.JourneyListActivity"/>
+        <activity android:name=".activities.ChatActivity"/>
+        <activity android:name=".activities.JourneyActivity" />
+        <activity android:name=".activities.BottomNavigationActivity"/>
+        <activity android:name=".activities.MainActivity"/>
+        <activity android:name=".activities.LogInActivity"/>
 
-        <activity android:name=".Chat_room"
+        <activity android:name=".activities.ChatRoomActivity"
             android:windowSoftInputMode="stateHidden"/>
-        <activity android:name=".ChatMain"/>
+        <activity android:name=".activities.ChatMainActivity"/>
 
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"

@@ -1,4 +1,4 @@
-package ro.changeneers.apprentice.Fragments;
+package ro.changeneers.apprentice.fragments;
 
 
 import android.os.Bundle;

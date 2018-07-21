@@ -1,4 +1,4 @@
-package ro.changeneers.apprentice.Activities;
+package ro.changeneers.apprentice.activities;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -7,14 +7,13 @@ import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.view.MenuItem;
-import android.view.View;
 
-import ro.changeneers.apprentice.Adapters.ViewPagerAdapter;
-import ro.changeneers.apprentice.Fragments.FragmentBani;
-import ro.changeneers.apprentice.Fragments.FragmentJobs;
-import ro.changeneers.apprentice.Fragments.FragmentOverview;
-import ro.changeneers.apprentice.Fragments.FragmentStartJourney;
-import ro.changeneers.apprentice.Fragments.FragmentStres;
+import ro.changeneers.apprentice.adapters.ViewPagerAdapter;
+import ro.changeneers.apprentice.fragments.FragmentBani;
+import ro.changeneers.apprentice.fragments.FragmentJobs;
+import ro.changeneers.apprentice.fragments.FragmentOverview;
+import ro.changeneers.apprentice.fragments.FragmentStartJourney;
+import ro.changeneers.apprentice.fragments.FragmentStres;
 import ro.changeneers.apprentice.R;
 
 public class BottomNavigationActivity extends NavDrawer {

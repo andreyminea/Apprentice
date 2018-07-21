@@ -1,6 +1,5 @@
-package ro.changeneers.apprentice.Fragments;
+package ro.changeneers.apprentice.fragments;
 
-import android.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;

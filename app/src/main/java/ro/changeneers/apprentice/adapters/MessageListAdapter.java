@@ -1,4 +1,4 @@
-package ro.changeneers.apprentice;
+package ro.changeneers.apprentice.adapters;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -10,6 +10,9 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+
+import ro.changeneers.apprentice.R;
+import ro.changeneers.apprentice.models.Message;
 
 public class MessageListAdapter extends ArrayAdapter<Message>
 

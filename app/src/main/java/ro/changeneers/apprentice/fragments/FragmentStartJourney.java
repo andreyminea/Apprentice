@@ -1,4 +1,4 @@
-package ro.changeneers.apprentice.Fragments;
+package ro.changeneers.apprentice.fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import ro.changeneers.apprentice.Activities.JourneyActivity;
+import ro.changeneers.apprentice.activities.JourneyActivity;
 import ro.changeneers.apprentice.R;
 
 public class FragmentStartJourney extends android.support.v4.app.Fragment {

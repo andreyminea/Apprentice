@@ -1,4 +1,4 @@
-package ro.changeneers.apprentice.Adapters;
+package ro.changeneers.apprentice.adapters;
 
 import android.content.Context;
 import android.content.Intent;
@@ -15,9 +15,9 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-import ro.changeneers.apprentice.Activities.ChatActivity;
-import ro.changeneers.apprentice.Models.DashboardItem;
-import ro.changeneers.apprentice.Activities.JourneyListActivity;
+import ro.changeneers.apprentice.activities.ChatActivity;
+import ro.changeneers.apprentice.models.DashboardItem;
+import ro.changeneers.apprentice.activities.JourneyListActivity;
 import ro.changeneers.apprentice.R;
 
 /**
@@ -28,6 +28,9 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     private Context mContext;
     private List<DashboardItem> mList;
+
+    private static final int POSITION_JOURNEY = 0;
+    private static final int POSITON_CHAT = 1;
 
     public RecyclerViewAdapter(Context mContext, List<DashboardItem> mList) {
         this.mContext = mContext;
@@ -49,10 +52,10 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     public void onBindViewHolder( MyViewHolder holder, int position) {
         final int i = position;
         switch (position){
-            case 0:
+            case POSITION_JOURNEY:
                 Picasso.get().load(R.drawable.adventure).into(holder.dashboardItemThumbnail);
                 break;
-            case 1:
+            case POSITON_CHAT:
                 Picasso.get().load(R.drawable.chatting).into(holder.dashboardItemThumbnail);
                 break;
         }
@@ -61,7 +64,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         holder.dashboardLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(i==0){
+                if(i==POSITION_JOURNEY){
                     Intent intent = new Intent(mContext,JourneyListActivity.class);
                     mContext.startActivity(intent);
                 }else{

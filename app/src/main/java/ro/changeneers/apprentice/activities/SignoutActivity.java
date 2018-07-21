@@ -1,6 +1,5 @@
-package ro.changeneers.apprentice.Activities;
+package ro.changeneers.apprentice.activities;
 
-import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;

@@ -1,15 +1,13 @@
-package ro.changeneers.apprentice.Activities;
+package ro.changeneers.apprentice.activities;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.WindowManager;
 
 import java.util.ArrayList;
 import java.util.List;
-import ro.changeneers.apprentice.Adapters.RecyclerViewAdapter;
-import ro.changeneers.apprentice.Models.DashboardItem;
+import ro.changeneers.apprentice.adapters.RecyclerViewAdapter;
+import ro.changeneers.apprentice.models.DashboardItem;
 import ro.changeneers.apprentice.R;
 
 public class MainActivity extends NavDrawer {

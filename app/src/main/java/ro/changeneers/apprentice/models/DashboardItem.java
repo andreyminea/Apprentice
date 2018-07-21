@@ -1,4 +1,4 @@
-package ro.changeneers.apprentice.Models;
+package ro.changeneers.apprentice.models;
 
 /**
  * Created by retea on 11-Jul-18.

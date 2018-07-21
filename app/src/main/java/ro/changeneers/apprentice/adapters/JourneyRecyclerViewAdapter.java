@@ -1,4 +1,4 @@
-package ro.changeneers.apprentice.Adapters;
+package ro.changeneers.apprentice.adapters;
 
 import android.content.Context;
 import android.content.Intent;
@@ -14,8 +14,8 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-import ro.changeneers.apprentice.Activities.BottomNavigationActivity;
-import ro.changeneers.apprentice.Models.JourneyItem;
+import ro.changeneers.apprentice.activities.BottomNavigationActivity;
+import ro.changeneers.apprentice.models.JourneyItem;
 import ro.changeneers.apprentice.R;
 
 public class JourneyRecyclerViewAdapter extends RecyclerView.Adapter<JourneyRecyclerViewAdapter.MyJourneyViewHolder> {

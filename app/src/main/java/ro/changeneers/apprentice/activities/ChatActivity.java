@@ -1,4 +1,4 @@
-package ro.changeneers.apprentice.Activities;
+package ro.changeneers.apprentice.activities;
 import android.os.Bundle;
 
 import ro.changeneers.apprentice.R;

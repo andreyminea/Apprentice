@@ -1,4 +1,4 @@
-package ro.changeneers.apprentice.Models;
+package ro.changeneers.apprentice.models;
 
 public class JourneyItem {
 
