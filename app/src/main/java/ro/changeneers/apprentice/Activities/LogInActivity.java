@@ -39,7 +39,7 @@ public class LogInActivity extends AppCompatActivity {
 
 
     SignInButton button;
-    private FirebaseAuth mAuth;
+    public FirebaseAuth mAuth;
     private final static int RC_SIGN_IN = 2;
 
     GoogleApiClient mGoogleApiClient;
