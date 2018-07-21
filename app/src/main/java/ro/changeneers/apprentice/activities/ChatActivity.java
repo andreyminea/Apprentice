@@ -12,4 +12,10 @@ public class ChatActivity extends NavDrawer {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat);
     }
+
+    @Override
+    protected int getNavigationItemID()
+    {
+        return R.id.nav_chat;
+    }
 }

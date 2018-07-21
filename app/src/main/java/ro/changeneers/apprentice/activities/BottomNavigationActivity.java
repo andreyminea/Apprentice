@@ -6,6 +6,7 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
 import ro.changeneers.apprentice.adapters.ViewPagerAdapter;
@@ -16,7 +17,7 @@ import ro.changeneers.apprentice.fragments.FragmentStartJourney;
 import ro.changeneers.apprentice.fragments.FragmentStres;
 import ro.changeneers.apprentice.R;
 
-public class BottomNavigationActivity extends NavDrawer {
+public class BottomNavigationActivity extends AppCompatActivity {
 
     private ViewPagerAdapter mViewPagerAdapter;
     private ViewPager mViewPager;
