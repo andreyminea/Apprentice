@@ -1,7 +1,5 @@
 package ro.changeneers.apprentice.Adapters;
 
-import android.content.Context;
-import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -15,61 +13,47 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-import ro.changeneers.apprentice.Activities.ChatActivity;
 import ro.changeneers.apprentice.Models.DashboardItem;
-import ro.changeneers.apprentice.Activities.JourneyListActivity;
 import ro.changeneers.apprentice.R;
 
 /**
  * Created by retea on 11-Jul-18.
  */
 
-public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.MyViewHolder>{
+public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.MyViewHolder> {
 
-    private Context mContext;
     private List<DashboardItem> mList;
+    private final OnItemClickListener listener;
 
-    public RecyclerViewAdapter(Context mContext, List<DashboardItem> mList) {
-        this.mContext = mContext;
+    public RecyclerViewAdapter(List<DashboardItem> mList, OnItemClickListener listener) {
         this.mList = mList;
-
+        this.listener = listener;
     }
 
     @Override
-    public MyViewHolder onCreateViewHolder(ViewGroup parent, int i) {
+    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int i) {
 
-        View view;
         LayoutInflater mInflater = LayoutInflater.from(parent.getContext());
-        view = mInflater.inflate(R.layout.cardview_item_dashboard,parent,false);
-        MyViewHolder mvh = new MyViewHolder(view);
-        return mvh;
+        View view = mInflater.inflate(R.layout.cardview_item_dashboard, parent, false);
+        return new MyViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder( MyViewHolder holder, int position) {
-        final int i = position;
-        switch (position){
-            case 0:
-                Picasso.get().load(R.drawable.adventure).into(holder.dashboardItemThumbnail);
-                break;
-            case 1:
-                Picasso.get().load(R.drawable.chatting).into(holder.dashboardItemThumbnail);
-                break;
-        }
-        holder.dashboardItemTitle.setText(mList.get(position).getTitle());
-        holder.dashboardItemDescription.setText(mList.get(position).getDescription());
+    public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+
+        final DashboardItem item = mList.get(position);
+
+        holder.dashboardItemTitle.setText(item.getTitle());
+        holder.dashboardItemDescription.setText(item.getDescription());
+        Picasso.get().load(item.getThumbnail()).into(holder.dashboardItemThumbnail);
+
         holder.dashboardLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(i==0){
-                    Intent intent = new Intent(mContext,JourneyListActivity.class);
-                    mContext.startActivity(intent);
-                }else{
-                    Intent intent = new Intent(mContext,ChatActivity.class);
-                    mContext.startActivity(intent);
-                }
+                listener.onItemClick(item);
             }
         });
+
     }
 
     @Override
@@ -77,15 +61,13 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         return mList.size();
     }
 
-    public static class MyViewHolder extends RecyclerView.ViewHolder{
+    static class MyViewHolder extends RecyclerView.ViewHolder {
+        LinearLayout dashboardLayout;
+        ImageView dashboardItemThumbnail;
+        TextView dashboardItemTitle;
+        TextView dashboardItemDescription;
 
-        public  ImageView dashboardItemThumbnail;
-        public TextView dashboardItemTitle;
-        public TextView dashboardItemDescription;
-        public LinearLayout dashboardLayout;
-
-
-        public MyViewHolder(@NonNull View itemView) {
+        MyViewHolder(@NonNull View itemView) {
             super(itemView);
             dashboardLayout = itemView.findViewById(R.id.LinearLayoutDashboard);
             dashboardItemThumbnail = itemView.findViewById(R.id.ImageViewPresentation);
@@ -93,5 +75,9 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             dashboardItemDescription = itemView.findViewById(R.id.TextViewDescription);
 
         }
+    }
+
+    public interface OnItemClickListener {
+        void onItemClick(DashboardItem item);
     }
 }
