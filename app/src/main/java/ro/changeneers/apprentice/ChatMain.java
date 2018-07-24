@@ -152,6 +152,11 @@ public class ChatMain extends NavDrawer
 
     }
 
+    @Override
+    protected int getNavigationItemID() {
+        return 0;
+    }
+
 }
 
 

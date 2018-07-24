@@ -77,6 +77,11 @@ public class Chat_room extends NavDrawer {
     }
 
     @Override
+    protected int getNavigationItemID() {
+        return 0;
+    }
+
+    @Override
     protected void onStart()
     {
         super.onStart();
