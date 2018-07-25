@@ -23,11 +23,11 @@
             android:id="@+id/TextViewTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Titlu"
+            android:text="@string/titlu"
             android:textSize="20sp"
             android:layout_margin="2dp"/>
         <TextView
-            android:text=" Descriere"
+            android:text="@string/descriere"
             android:id="@+id/TextViewDescription"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

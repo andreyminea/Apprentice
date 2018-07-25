@@ -55,6 +55,14 @@
           }
         },
         {
+          "client_id": "460870423453-1pv6chscvs1es6v9sqe75lmg3uvjte7p.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "ro.changeneers.apprentice",
+            "certificate_hash": "394236051bbc53ce7e6d84670614d42256ad1528"
+          }
+        },
+        {
           "client_id": "460870423453-3h2ftasb1ojgs9n93ffij54fmhiom8rl.apps.googleusercontent.com",
           "client_type": 3
         }
