@@ -5,25 +5,25 @@
     <item
         android:id="@+id/nav_info"
         android:icon="@drawable/ic_info_outline_black_24dp"
-        android:title="Info"/>
+        android:title="@string/info"/>
 
     <item
         android:id="@+id/nav_bani"
         android:icon="@drawable/ic_attach_money_black_24dp"
-        android:title="Bani"/>
+        android:title="@string/bani"/>
 
     <item
         android:id="@+id/nav_stres"
         android:icon="@drawable/ic_stress"
-        android:title="Stres"/>
+        android:title="@string/stres"/>
 
     <item
         android:id="@+id/nav_jobs"
         android:icon="@drawable/ic_work_black_24dp"
-        android:title="Jobs"/>
+        android:title="@string/jobs"/>
 
     <item
         android:id="@+id/nav_start"
         android:icon="@drawable/ic_done_black_24dp"
-        android:title="Start"/>
+        android:title="@string/start"/>
 </menu>
