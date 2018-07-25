@@ -40,6 +40,7 @@ import ro.changeneers.apprentice.R;
 
 public class LogInActivity extends AppCompatActivity {
 
+    private static String TAG = LogInActivity.class.getSimpleName();
 
     SignInButton button;
     public FirebaseAuth mAuth;
@@ -50,8 +51,6 @@ public class LogInActivity extends AppCompatActivity {
 
     //Facebook
     private CallbackManager mCallbackManager;
-    private static String TAG = "FACELOG";
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,16 +64,23 @@ public class LogInActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(isNetworkConnectionAvailable())
-                signIn();
+                if (isNetworkConnectionAvailable()) {
+                    signIn();
+                } else {
+                    checkNetworkConnection();
+                }
             }
         });
 
         mAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                if(firebaseAuth.getCurrentUser() != null){
+                if (firebaseAuth.getCurrentUser() != null) {
                     startActivity(new Intent(LogInActivity.this, MainActivity.class));
+                    finish();
+                } else {
+                    Log.e(TAG, "something went wrong!");
+                    //TODO give feedback to the user
                 }
             }
         };
@@ -126,19 +132,19 @@ public class LogInActivity extends AppCompatActivity {
         mAuth.addAuthStateListener(mAuthListener);
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
-        if(currentUser != null){
+        if (currentUser != null) {
             updateUI();
         }
 
     }
-    private void updateUI() {
-        Toast.makeText(LogInActivity.this,"Te-ai logat!",Toast.LENGTH_LONG).show();
 
-        Intent accountIntent = new Intent(LogInActivity.this,MainActivity.class);
+    private void updateUI() {
+        Toast.makeText(LogInActivity.this, "Te-ai logat!", Toast.LENGTH_LONG).show();
+
+        Intent accountIntent = new Intent(LogInActivity.this, MainActivity.class);
         startActivity(accountIntent);
         finish();
     }
-
 
 
     private void signIn() {
@@ -175,12 +181,12 @@ public class LogInActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
-                            Log.d("TAG", "signInWithCredential:success");
+                            Log.d(TAG, "signInWithCredential:success");
                             FirebaseUser user = mAuth.getCurrentUser();
                             //updateUI(user);
                         } else {
                             // If sign in fails, display a message to the user.
-                            Log.w("TAG", "signInWithCredential:failure", task.getException());
+                            Log.w(TAG, "signInWithCredential:failure", task.getException());
                             Toast.makeText(LogInActivity.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
                             //updateUI(null);
                         }
@@ -215,8 +221,9 @@ public class LogInActivity extends AppCompatActivity {
                     }
                 });
     }
-    public void checkNetworkConnection(){
-        AlertDialog.Builder builder =new AlertDialog.Builder(this);
+
+    public void checkNetworkConnection() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("No internet Connection");
         builder.setMessage("Please turn on internet connection to continue");
         builder.setNegativeButton("close", new DialogInterface.OnClickListener() {
@@ -229,20 +236,18 @@ public class LogInActivity extends AppCompatActivity {
         alertDialog.show();
     }
 
-    public boolean isNetworkConnectionAvailable(){
+    public boolean isNetworkConnectionAvailable() {
         ConnectivityManager cm =
-                (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
+                (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
 
         NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
         boolean isConnected = activeNetwork != null &&
                 activeNetwork.isConnected();
-        if(isConnected) {
-            Log.d("Network", "Connected");
+        if (isConnected) {
+            Log.d(TAG, "Connected");
             return true;
-        }
-        else{
-            checkNetworkConnection();
-            Log.d("Network","Not Connected");
+        } else {
+            Log.d(TAG, "Not Connected");
             return false;
         }
     }

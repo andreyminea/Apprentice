@@ -6,7 +6,6 @@
     android:layout_margin="4dp"
     app:cardCornerRadius="10dp"
     app:cardBackgroundColor="@color/cardview_light_background"
-    android:clickable="true"
     android:foreground="?android:attr/selectableItemBackground">
     
     <LinearLayout

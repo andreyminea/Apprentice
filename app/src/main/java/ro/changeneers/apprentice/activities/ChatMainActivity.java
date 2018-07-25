@@ -156,6 +156,11 @@ public class ChatMainActivity extends NavDrawer
         return R.id.nav_chat;
     }
 
+    @Override
+    protected int getNavigationItemID() {
+        return 0;
+    }
+
 }
 
 
