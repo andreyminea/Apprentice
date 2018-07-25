@@ -13,7 +13,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activities.StartActivity">
+        <activity android:name=".activities.LogInActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -23,8 +23,8 @@
         <activity android:name=".activities.ChatActivity"/>
         <activity android:name=".activities.JourneyActivity" />
         <activity android:name=".activities.BottomNavigationActivity"/>
+        <activity android:name=".activities.StartActivity"/>
         <activity android:name=".activities.MainActivity"/>
-        <activity android:name=".activities.LogInActivity"/>
 
         <activity android:name=".activities.ChatRoomActivity"
             android:windowSoftInputMode="stateHidden"/>
