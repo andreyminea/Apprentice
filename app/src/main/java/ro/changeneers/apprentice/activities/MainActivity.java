@@ -44,6 +44,8 @@ public class MainActivity extends NavDrawer implements RecyclerViewAdapter.OnIte
 
         recyclerView.setAdapter(myAdapter);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
+
+
     }
 
     public void onBackPressed() {

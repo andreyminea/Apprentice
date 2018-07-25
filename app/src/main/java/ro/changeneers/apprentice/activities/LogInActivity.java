@@ -5,6 +5,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -36,6 +37,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 
 import ro.changeneers.apprentice.R;
+import ro.changeneers.apprentice.utils.SharedPrefManager;
 
 
 public class LogInActivity extends AppCompatActivity {
@@ -51,6 +53,15 @@ public class LogInActivity extends AppCompatActivity {
 
     //Facebook
     private CallbackManager mCallbackManager;
+
+    //Shared Preferences
+    private String idToken;
+    public SharedPrefManager sharedPrefManager;
+    private final Context mContext = this;
+    private String name, email;
+    private String photo;
+    private Uri photoUri;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,6 +95,8 @@ public class LogInActivity extends AppCompatActivity {
                 }
             }
         };
+
+
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
@@ -164,9 +177,30 @@ public class LogInActivity extends AppCompatActivity {
             if(result.isSuccess()) {
                 //Google Sign in was successful, authenticate with Firebase
                 GoogleSignInAccount account = result.getSignInAccount();
+
+                idToken = account.getIdToken();
+
+                name = account.getDisplayName();
+                email = account.getEmail();
+                photoUri = account.getPhotoUrl();
+                if (photoUri != null) {
+                    photo = photoUri.toString();
+                }
+
+                // Save Data to SharedPreference
+                sharedPrefManager = new SharedPrefManager(mContext);
+                sharedPrefManager.saveIsLoggedIn(mContext, true);
+
+                sharedPrefManager.saveEmail(mContext, email);
+                sharedPrefManager.saveName(mContext, name);
+                sharedPrefManager.savePhoto(mContext, photo);
+
+                sharedPrefManager.saveToken(mContext, idToken);
+                 String userName = sharedPrefManager.getName();
+
                 firebaseAuthWithGoogle(account);
             } else {
-                Toast.makeText(LogInActivity.this, "Auth went wrong", Toast.LENGTH_SHORT).show();
+                Toast.makeText(LogInActivity.this, "Auth with Google went wrong", Toast.LENGTH_SHORT).show();
             }
         }
 
