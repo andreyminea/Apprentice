@@ -54,7 +54,7 @@ public class ChatRoomActivity extends NavDrawer {
         room_name = getIntent().getExtras().getString("room_name");
         setTitle(" Room - " + room_name);
 
-        adapter = new MessageListAdapter(this,R.layout.my_message, R.layout.their_message, chat, user_name);
+        adapter = new MessageListAdapter(this,R.layout.chat_my_message, R.layout.chat_their_message, chat, user_name);
 
 
         root = FirebaseDatabase.getInstance().getReference().child(room_name);

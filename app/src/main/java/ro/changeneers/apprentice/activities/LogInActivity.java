@@ -45,11 +45,13 @@ public class LogInActivity extends AppCompatActivity {
     private static String TAG = LogInActivity.class.getSimpleName();
 
     SignInButton button;
+    //FireBase
     public FirebaseAuth mAuth;
-    private final static int RC_SIGN_IN = 2;
 
+    //Google
     GoogleApiClient mGoogleApiClient;
     FirebaseAuth.AuthStateListener mAuthListener;
+    private final static int RC_SIGN_IN = 2;
 
     //Facebook
     private CallbackManager mCallbackManager;
@@ -178,8 +180,8 @@ public class LogInActivity extends AppCompatActivity {
                 //Google Sign in was successful, authenticate with Firebase
                 GoogleSignInAccount account = result.getSignInAccount();
 
+                // Save data from google account
                 idToken = account.getIdToken();
-
                 name = account.getDisplayName();
                 email = account.getEmail();
                 photoUri = account.getPhotoUrl();
@@ -190,13 +192,11 @@ public class LogInActivity extends AppCompatActivity {
                 // Save Data to SharedPreference
                 sharedPrefManager = new SharedPrefManager(mContext);
                 sharedPrefManager.saveIsLoggedIn(mContext, true);
-
                 sharedPrefManager.saveEmail(mContext, email);
                 sharedPrefManager.saveName(mContext, name);
                 sharedPrefManager.savePhoto(mContext, photo);
-
                 sharedPrefManager.saveToken(mContext, idToken);
-                 String userName = sharedPrefManager.getName();
+
 
                 firebaseAuthWithGoogle(account);
             } else {
