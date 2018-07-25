@@ -1,7 +1,9 @@
 package ro.changeneers.apprentice.activities;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
@@ -17,10 +19,14 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.squareup.picasso.Picasso;
 
 import ro.changeneers.apprentice.R;
+import ro.changeneers.apprentice.utils.SharedPrefManager;
 
 
 public abstract class NavDrawer extends AppCompatActivity implements OnNavigationItemSelectedListener {
@@ -30,6 +36,12 @@ public abstract class NavDrawer extends AppCompatActivity implements OnNavigatio
     private ActionBarDrawerToggle mDrawerToggle;
     private Menu drawerMenu;
     private String TAG = NavDrawer.class.getSimpleName();
+
+    private String mFullName, mEmail;
+    private TextView mFullNameTextView, mEmailTextView;
+    private ImageView mProfileImageView;
+    SharedPrefManager sharedPrefManager;
+    Context mContext = this;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +56,30 @@ public abstract class NavDrawer extends AppCompatActivity implements OnNavigatio
 
         drawerMenu = navigation_view.getMenu();
         navigation_view.setNavigationItemSelectedListener(this);
+
+        //Initializare nume,email,poza
+        View header = navigation_view.getHeaderView(0);
+        mFullNameTextView = header.findViewById(R.id.nav_header_name);
+        mEmailTextView = header.findViewById(R.id.nav_header_email);
+        mProfileImageView = header.findViewById(R.id.nav_header_photo);
+
+        // create an object of sharedPreferenceManager and get stored user data
+        sharedPrefManager = new SharedPrefManager(mContext);
+        mFullName = sharedPrefManager.getName();
+        mEmail = sharedPrefManager.getUserEmail();
+        String uri = sharedPrefManager.getPhoto();
+        Uri mPhotoUri = Uri.parse(uri);
+
+        //Set data gotten from SharedPref to the Navigation Header view
+        mFullNameTextView.setText(mFullName);
+        mEmailTextView.setText(mEmail);
+
+        Picasso.get().load(mPhotoUri)
+                .placeholder(android.R.drawable.sym_def_app_icon)
+                .error(android.R.drawable.sym_def_app_icon)
+                .into(mProfileImageView);
+
+
     }
 
     @Override
