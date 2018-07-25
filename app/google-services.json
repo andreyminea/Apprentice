@@ -15,11 +15,43 @@
       },
       "oauth_client": [
         {
-          "client_id": "460870423453-dl2ajl9q4bqguce36ifb5d8cogpoakp5.apps.googleusercontent.com",
+          "client_id": "460870423453-eckf3cm9d5cfnjh1ricshql31epqg7a1.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "ro.changeneers.apprentice",
             "certificate_hash": "f70783d8a4446b21a8eea31243c90edf768b530e"
+          }
+        },
+        {
+          "client_id": "460870423453-v0l45nt8m4sv7go1e57rin6qeba769sq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "ro.changeneers.apprentice",
+            "certificate_hash": "6642007d6cf8763958cea780ff49a3f168b1d851"
+          }
+        },
+        {
+          "client_id": "460870423453-pdhbv5nfs3fue1980qeak9ilk5sbh4re.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "ro.changeneers.apprentice",
+            "certificate_hash": "50b97f8af02fec1d82f54429eb57e004ff2a7fd5"
+          }
+        },
+        {
+          "client_id": "460870423453-eshvoj2k9fhdl6u2j6ka3lnn0h7q5pi5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "ro.changeneers.apprentice",
+            "certificate_hash": "f74afd8e7f6c08e10ad2ec0017d35acdf53aee1f"
+          }
+        },
+        {
+          "client_id": "460870423453-p8ddpstuegcgv9co4rshhlktm8lva03o.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "ro.changeneers.apprentice",
+            "certificate_hash": "3e7e203a9cf5403de284145dd395ed80f7a58eb2"
           }
         },
         {

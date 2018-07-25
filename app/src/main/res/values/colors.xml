@@ -6,4 +6,9 @@
     <color name="chatBackground">#C1D0C3</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+    <color name="lightgray">#ededed</color>"
+    <color name="deeppurple">#7c4dff</color>
+    <color name="yello">#ffb300</color>
+    <color name="green">#00fba5</color>
 </resources>
