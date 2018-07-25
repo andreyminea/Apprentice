@@ -78,6 +78,11 @@ public class ChatRoomActivity extends NavDrawer {
     }
 
     @Override
+    protected int getNavigationItemID() {
+        return R.id.nav_chat;
+    }
+
+    @Override
     protected void onStart()
     {
         super.onStart();
