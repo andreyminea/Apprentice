@@ -1,5 +1,6 @@
 package ro.changeneers.apprentice.activities;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.AlertDialog;
@@ -27,18 +28,24 @@ import java.util.Map;
 import java.util.Set;
 
 import ro.changeneers.apprentice.R;
+import ro.changeneers.apprentice.utils.SharedPrefManager;
 
-public class ChatMainActivity extends NavDrawer
-{
+public class ChatMainActivity extends NavDrawer {
     EditText roomName;
     Button createRoom;
     ListView roomList;
     ArrayList<String> roomArrayList;
     ArrayAdapter<String> roomAdapter;
 
+    Context mContext = this;
+
     DatabaseReference databaseReference;
 
+    SharedPrefManager sharedPrefManager;
+
     private String userName;
+
+
 
     private void request_name()
     {
@@ -85,6 +92,8 @@ public class ChatMainActivity extends NavDrawer
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat_main);
 
+
+
         roomName = (EditText) findViewById(R.id.roomName);
         createRoom = (Button) findViewById(R.id.createRoom);
         roomList = (ListView) findViewById(R.id.roomList);
@@ -96,7 +105,10 @@ public class ChatMainActivity extends NavDrawer
 
         databaseReference = FirebaseDatabase.getInstance().getReference().getRoot();
 
-        request_name();
+        sharedPrefManager = new SharedPrefManager(mContext);
+        userName = sharedPrefManager.getName();
+       // request_name();
+
 
         createRoom.setOnClickListener(new View.OnClickListener() {
             @Override
