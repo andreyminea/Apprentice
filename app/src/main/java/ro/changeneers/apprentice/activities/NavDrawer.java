@@ -75,17 +75,22 @@ public abstract class NavDrawer extends AppCompatActivity implements OnNavigatio
         mFullName = sharedPrefManager.getName();
         mEmail = sharedPrefManager.getUserEmail();
         String uri = sharedPrefManager.getPhoto();
-        Uri mPhotoUri = Uri.parse(uri);
+
+        Uri mPhotoUri = null;
+        if (uri != null) {
+            mPhotoUri = Uri.parse(uri);
+        }
 
         //Set data gotten from SharedPref to the Navigation Header view
         mFullNameTextView.setText(mFullName);
         mEmailTextView.setText(mEmail);
 
-        Picasso.get().load(mPhotoUri)
-                .placeholder(android.R.drawable.sym_def_app_icon)
-                .error(android.R.drawable.sym_def_app_icon)
-                .into(mProfileImageView);
-
+        if (mPhotoUri != null) {
+            Picasso.get().load(mPhotoUri)
+                    .placeholder(android.R.drawable.sym_def_app_icon)
+                    .error(android.R.drawable.sym_def_app_icon)
+                    .into(mProfileImageView);
+        }
 
     }
 
