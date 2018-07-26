@@ -38,4 +38,9 @@
         android:textSize="18dp"
         android:text="How are you doing? This is a long message that should probably wrap."
         />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/camera_take_their"/>
 </RelativeLayout>
