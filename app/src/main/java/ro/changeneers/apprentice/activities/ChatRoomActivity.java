@@ -1,6 +1,7 @@
 package ro.changeneers.apprentice.activities;
 
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -35,6 +36,7 @@ import java.util.Map;
 import ro.changeneers.apprentice.models.Message;
 import ro.changeneers.apprentice.adapters.MessageListAdapter;
 import ro.changeneers.apprentice.R;
+import ro.changeneers.apprentice.utils.SharedPrefManager;
 
 
 public class ChatRoomActivity extends NavDrawer {
@@ -55,6 +57,10 @@ public class ChatRoomActivity extends NavDrawer {
     private StorageReference storageReference ;
     private StorageReference images ;
 
+    Context mContext = this;
+
+    SharedPrefManager sharedPrefManager;
+
     private Date currentTime;
 
     @Override
@@ -65,6 +71,7 @@ public class ChatRoomActivity extends NavDrawer {
         storage = FirebaseStorage.getInstance();
         storageReference = storage.getReference();
 
+        sharedPrefManager = new SharedPrefManager(mContext);
 
         listview = (ListView) findViewById(R.id.chatMessages);
         listview.setTranscriptMode(ListView.TRANSCRIPT_MODE_NORMAL);
@@ -77,6 +84,7 @@ public class ChatRoomActivity extends NavDrawer {
 
         user_name = getIntent().getExtras().getString("user_name");
         room_name = getIntent().getExtras().getString("room_name");
+
         setTitle(" Room - " + room_name);
 
         adapter = new MessageListAdapter(this,R.layout.chat_my_message, R.layout.chat_their_message, chat, user_name);
@@ -97,11 +105,16 @@ public class ChatRoomActivity extends NavDrawer {
 
                 DatabaseReference message_root = root.child(temp_key);
 
+
+                String user_pic = sharedPrefManager.getPhoto();
+
                 Map<String, Object> map2 = new HashMap<String, Object>();
+
                 map2.put("name", user_name);
                 map2.put("msg", input_msg.getText().toString());
                 map2.put("link", false);
                 map2.put("date", aux);
+                map2.put("photo",user_pic);
 
                 message_root.updateChildren(map2);
             }
@@ -164,20 +177,26 @@ public class ChatRoomActivity extends NavDrawer {
 
         UploadTask uploadTask = images.putBytes(date);
 
-        String link = images.getDownloadUrl().toString();
+        String link = images.getPath();
 
         Map<String, Object> map = new HashMap<String, Object>();
         temp_key = root.push().getKey();
         root.updateChildren(map);
+
         SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
         String aux = sdf.format(Calendar.getInstance().getTime());
 
         DatabaseReference message_root = root.child(temp_key);
+
+        String user_pic = sharedPrefManager.getPhoto();
+
         Map<String, Object> map2 = new HashMap<String, Object>();
+
         map2.put("name", user_name);
         map2.put("msg", link);
         map2.put("link", true);
         map2.put("date", aux );
+        map2.put("photo",user_pic);
 
         message_root.updateChildren(map2);
     }
@@ -204,7 +223,7 @@ public class ChatRoomActivity extends NavDrawer {
     }
 
     private String chat_msg,chat_user_name;
-    private String date_send;
+    private String date_send, user_picture;
     private Boolean link;
     private TextView.BufferType nimic;
     private Message message;
@@ -214,7 +233,7 @@ public class ChatRoomActivity extends NavDrawer {
     {
 
         Iterator i = dataSnapshot.getChildren().iterator();
-        message = new Message("","", link, date_send);
+        message = new Message("","", link, date_send, user_picture);
 
         while (i.hasNext()){
 
@@ -222,9 +241,10 @@ public class ChatRoomActivity extends NavDrawer {
             link = (Boolean) ((DataSnapshot)i.next()).getValue();
             chat_msg = (String) ((DataSnapshot)i.next()).getValue();
             chat_user_name = (String) ((DataSnapshot)i.next()).getValue();
+            user_picture = (String)((DataSnapshot)i.next()).getValue();
 
 
-            message.setAll(chat_user_name, chat_msg, link, date_send);
+            message.setAll(chat_user_name, chat_msg, link, date_send, user_picture);
 
             chat.add(message);
             scrollMyListViewToBottom();

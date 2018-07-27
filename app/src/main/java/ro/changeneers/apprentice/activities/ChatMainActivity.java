@@ -69,12 +69,10 @@ public class ChatMainActivity extends NavDrawer {
 
         roomList.setAdapter(roomAdapter);
 
-        databaseReference = FirebaseDatabase.getInstance().getReference().getRoot();
-
         sharedPrefManager = new SharedPrefManager(mContext);
         userName = sharedPrefManager.getName();
-        final Uri user_pic = Uri.parse(sharedPrefManager.getPhoto());
-        final String user_mail = sharedPrefManager.getUserEmail();
+
+        databaseReference = FirebaseDatabase.getInstance().getReference().getRoot();
 
         createRoom.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -126,12 +124,9 @@ public class ChatMainActivity extends NavDrawer {
                 Intent intent = new Intent(ChatMainActivity.this, ChatRoomActivity.class);
                 intent.putExtra("room_name", ((TextView) view).getText().toString());
                 intent.putExtra("user_name", userName);
-                intent.putExtra("User_pic", user_pic);
 
                 Map<String,Object> map = new HashMap<>();
                 DatabaseReference root = FirebaseDatabase.getInstance().getReference().child(((TextView) view).getText().toString() + "/Info");
-                map.put("User: "+ userName, user_pic.toString());
-                root.updateChildren(map);
 
                 startActivity(intent);
             }

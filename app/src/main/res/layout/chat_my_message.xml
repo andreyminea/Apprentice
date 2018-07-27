@@ -32,8 +32,13 @@
         android:textSize="18dp" />
 
     <ImageView
+        android:id="@+id/camera_take_my"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/camera_take_my"/>
+        android:layout_alignEnd="@+id/message_body_me"
+        android:layout_alignTop="@+id/message_body_me"
+        android:background="@drawable/my_message"
+        android:padding="10dp"
+        android:visibility="invisible" />
 
 </RelativeLayout>
