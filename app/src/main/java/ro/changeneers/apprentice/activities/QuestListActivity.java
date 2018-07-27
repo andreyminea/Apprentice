@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,6 +25,7 @@ public class QuestListActivity extends AppCompatActivity  {
 
 
     private RecyclerView.LayoutManager layoutManager;
+    private TextView DifficultyTitleTV;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,32 +35,37 @@ public class QuestListActivity extends AppCompatActivity  {
         Intent receivingIntent = getIntent();
         int difficulty = receivingIntent.getIntExtra("DIFFICULTY",0);
 
+
         List<Quest> quests = new ArrayList<>();
+        DifficultyTitleTV = findViewById(R.id.TextViewQuestListTitle);
 
         switch(difficulty){
             case EASY:
+                DifficultyTitleTV.setText("Easy");
                 quests.clear();
-                quests.add(new Quest(0,"Getting Started","Nu stiu de ce e imporant.","Nimic"));
-                quests.add(new Quest(1,"Getting Started","Nu stiu de ce e imporant.","Nimic"));
-                quests.add(new Quest(2,"Getting Started","Nu stiu de ce e imporant.","Nimic"));
-                quests.add(new Quest(3,"Getting Started","Nu stiu de ce e imporant.","Nimic"));
-                quests.add(new Quest(4,"Getting Started","Nu stiu de ce e imporant.","Nimic"));
+                quests.add(new Quest(0,"Getting Started", 0));
+                quests.add(new Quest(1,"Java Basics",1));
+                quests.add(new Quest(2,"Java Basics",2));
+                quests.add(new Quest(3,"Java Basics",4));
+                quests.add(new Quest(4,"Java Basics",5));
                 break;
             case MEDIUM:
+                DifficultyTitleTV.setText("Medium");
                 quests.clear();
-                quests.add(new Quest(0,"MEDIUM","Nu stiu de ce e imporant.","Nimic"));
-                quests.add(new Quest(1,"MEDIUM","Nu stiu de ce e imporant.","Nimic"));
-                quests.add(new Quest(2,"MEDIUM","Nu stiu de ce e imporant.","Nimic"));
-                quests.add(new Quest(3,"MEDIUM","Nu stiu de ce e imporant.","Nimic"));
-                quests.add(new Quest(4,"MEDIUM","Nu stiu de ce e imporant.","Nimic"));
+                quests.add(new Quest(0,"Java Basics",7));
+                quests.add(new Quest(1,"Java Basics",8));
+                quests.add(new Quest(2,"Java Basics",9));
+                quests.add(new Quest(3,"Java Basics",11));
+                quests.add(new Quest(4,"Java Basics",13));
                 break;
             case HARD:
+                DifficultyTitleTV.setText("Hard");
                 quests.clear();
-                quests.add(new Quest(0,"HARD","Nu stiu de ce e imporant.","Nimic"));
-                quests.add(new Quest(1,"HARD","Nu stiu de ce e imporant.","Nimic"));
-                quests.add(new Quest(2,"HARD","Nu stiu de ce e imporant.","Nimic"));
-                quests.add(new Quest(3,"HARD","Nu stiu de ce e imporant.","Nimic"));
-                quests.add(new Quest(4,"HARD","Nu stiu de ce e imporant.","Nimic"));
+                quests.add(new Quest(0,"Java Basics",14));
+                quests.add(new Quest(1,"Java Basics",16));
+                quests.add(new Quest(2,"Java Basics",17));
+                quests.add(new Quest(3,"Java Basics",18));
+                quests.add(new Quest(4,"Java Basics",20));
 
         }
 

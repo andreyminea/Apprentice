@@ -9,20 +9,28 @@ public class Quest {
     private int starsToUnlock;
     private int difficulty;
 
+    private String numeCurs1;
     private String linkCurs1;
     private String proCurs1;
     private String contraCurs1;
 
+    private String numeCurs2;
     private String linkCurs2;
     private String proCurs2;
     private String contraCurs2;
 
+    private String numeCurs3;
     private String linkCurs3;
     private String proCurs3;
     private String contraCurs3;
 
+    public Quest(int id, String title, int starsToUnlock) {
+        this.id = id;
+        this.title = title;
+        this.starsToUnlock = starsToUnlock;
+    }
 
-    public Quest(int id, String title, String importanta, String ceInvat, int starsToUnlock, int difficulty, String linkCurs1, String proCurs1, String contraCurs1, String linkCurs2, String proCurs2, String contraCurs2, String linkCurs3, String proCurs3, String contraCurs3) {
+    public Quest(int id, String title, String importanta, String ceInvat, int starsToUnlock, int difficulty,String numeCurs1, String linkCurs1, String proCurs1, String contraCurs1,String numeCurs2, String linkCurs2, String proCurs2, String contraCurs2, String numeCurs3, String linkCurs3, String proCurs3, String contraCurs3) {
         this.id = id;
         this.title = title;
         this.importanta = importanta;
