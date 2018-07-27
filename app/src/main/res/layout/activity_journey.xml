@@ -16,10 +16,12 @@
         android:layout_height="wrap_content">
         
         <android.support.v7.widget.CardView
+            android:id="@+id/CardEasy"
             android:layout_width="160dp"
             android:layout_height="190dp"
             android:layout_margin="10dp">
             <LinearLayout
+                android:id="@+id/LinearLayoutEasyQuests"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
@@ -53,6 +55,7 @@
         </android.support.v7.widget.CardView>
 
         <android.support.v7.widget.CardView
+            android:id="@+id/CardMedium"
             android:layout_width="160dp"
             android:layout_height="190dp"
             android:layout_margin="10dp">
@@ -100,6 +103,7 @@
         android:layout_height="wrap_content">
 
         <android.support.v7.widget.CardView
+            android:id="@+id/CardHard"
             android:layout_width="160dp"
             android:layout_height="190dp"
             android:layout_margin="10dp">

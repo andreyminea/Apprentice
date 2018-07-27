@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.QuestDetailActivity"
+    android:orientation="vertical">
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="6dp"
+        android:layout_marginRight="6dp"
+        android:orientation="vertical">
+        
+        <TextView
+            android:id="@+id/TextViewQuestDetailTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textStyle="bold"
+            android:textSize="30dp"
+            android:text="EASY"/>
+        
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:text="De ce este important acest lucru?"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp" />
+        
+        <TextView
+            android:id="@+id/TextViewQuestDetailImportanta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginLeft="10dp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:text="Ce invat cu acest curs?"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp" />
+
+        <TextView
+            android:id="@+id/TextViewQuestDetailCeInvat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginLeft="10dp"
+            />
+
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"></ListView>
+
+        
+        
+        
+        
+    </LinearLayout>
+
+</ScrollView>
