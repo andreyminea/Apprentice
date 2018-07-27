@@ -3,9 +3,12 @@ package ro.changeneers.apprentice.activities;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.media.Image;
+import android.net.Uri;
 import android.support.v7.app.AlertDialog;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -14,11 +17,14 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -45,54 +51,14 @@ public class ChatMainActivity extends NavDrawer {
 
     private String userName;
 
-
-
-    private void request_name()
-    {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-
-        builder.setTitle("Enter your name");
-        final EditText editText = new EditText(this);
-
-        builder.setView(editText);
-
-        builder.setPositiveButton("OK", new DialogInterface.OnClickListener()
-        {
-
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i)
-            {
-                userName = editText.getText().toString();
-
-                if(!TextUtils.isEmpty(userName))
-                {
-
-                }
-                else
-                {
-                    request_name();
-                }
-            }
-
-        }).setNegativeButton("Quit", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i)
-            {
-                dialogInterface.cancel();
-                request_name();
-            }
-        });
-
-        builder.show();
-    }
+    private FirebaseStorage storage ;
+    private StorageReference storageReference ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat_main);
-
-
 
         roomName = (EditText) findViewById(R.id.roomName);
         createRoom = (Button) findViewById(R.id.createRoom);
@@ -107,8 +73,8 @@ public class ChatMainActivity extends NavDrawer {
 
         sharedPrefManager = new SharedPrefManager(mContext);
         userName = sharedPrefManager.getName();
-       // request_name();
-
+        final Uri user_pic = Uri.parse(sharedPrefManager.getPhoto());
+        final String user_mail = sharedPrefManager.getUserEmail();
 
         createRoom.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -117,6 +83,11 @@ public class ChatMainActivity extends NavDrawer {
                 Map<String,Object> map = new HashMap<String, Object>();
                 map.put(roomName.getText().toString(), "");
                 databaseReference.updateChildren(map);
+
+                DatabaseReference root = FirebaseDatabase.getInstance().getReference().child(roomName.getText().toString());
+                Map<String,Object> map2 = new HashMap<>();
+                map2.put("Info","");
+                root.updateChildren(map2);
 
             }
         });
@@ -155,6 +126,13 @@ public class ChatMainActivity extends NavDrawer {
                 Intent intent = new Intent(ChatMainActivity.this, ChatRoomActivity.class);
                 intent.putExtra("room_name", ((TextView) view).getText().toString());
                 intent.putExtra("user_name", userName);
+                intent.putExtra("User_pic", user_pic);
+
+                Map<String,Object> map = new HashMap<>();
+                DatabaseReference root = FirebaseDatabase.getInstance().getReference().child(((TextView) view).getText().toString() + "/Info");
+                map.put("User: "+ userName, user_pic.toString());
+                root.updateChildren(map);
+
                 startActivity(intent);
             }
         });
