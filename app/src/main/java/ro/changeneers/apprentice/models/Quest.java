@@ -9,20 +9,12 @@ public class Quest {
     private int starsToUnlock;
     private int difficulty;
 
-    private String numeCurs1;
-    private String linkCurs1;
-    private String proCurs1;
-    private String contraCurs1;
+    private Curs curs1;
 
-    private String numeCurs2;
-    private String linkCurs2;
-    private String proCurs2;
-    private String contraCurs2;
+    private Curs curs2;
 
-    private String numeCurs3;
-    private String linkCurs3;
-    private String proCurs3;
-    private String contraCurs3;
+    private Curs curs3;
+
 
     public Quest(int id, String title, int starsToUnlock) {
         this.id = id;
@@ -30,22 +22,17 @@ public class Quest {
         this.starsToUnlock = starsToUnlock;
     }
 
-    public Quest(int id, String title, String importanta, String ceInvat, int starsToUnlock, int difficulty,String numeCurs1, String linkCurs1, String proCurs1, String contraCurs1,String numeCurs2, String linkCurs2, String proCurs2, String contraCurs2, String numeCurs3, String linkCurs3, String proCurs3, String contraCurs3) {
+    public Quest(int id, String title, String importanta, String ceInvat, int starsToUnlock, int difficulty, Curs curs1, Curs curs2, Curs curs3) {
         this.id = id;
         this.title = title;
         this.importanta = importanta;
         this.ceInvat = ceInvat;
         this.starsToUnlock = starsToUnlock;
         this.difficulty = difficulty;
-        this.linkCurs1 = linkCurs1;
-        this.proCurs1 = proCurs1;
-        this.contraCurs1 = contraCurs1;
-        this.linkCurs2 = linkCurs2;
-        this.proCurs2 = proCurs2;
-        this.contraCurs2 = contraCurs2;
-        this.linkCurs3 = linkCurs3;
-        this.proCurs3 = proCurs3;
-        this.contraCurs3 = contraCurs3;
+        this.curs1 = curs1;
+        this.curs2 = curs2;
+        this.curs3 = curs3;
+
     }
 
     public int getId() {
@@ -78,5 +65,45 @@ public class Quest {
 
     public void setCeInvat(String ceInvat) {
         this.ceInvat = ceInvat;
+    }
+
+    public int getStarsToUnlock() {
+        return starsToUnlock;
+    }
+
+    public void setStarsToUnlock(int starsToUnlock) {
+        this.starsToUnlock = starsToUnlock;
+    }
+
+    public int getDifficulty() {
+        return difficulty;
+    }
+
+    public void setDifficulty(int difficulty) {
+        this.difficulty = difficulty;
+    }
+
+    public Curs getCurs1() {
+        return curs1;
+    }
+
+    public void setCurs1(Curs curs1) {
+        this.curs1 = curs1;
+    }
+
+    public Curs getCurs2() {
+        return curs2;
+    }
+
+    public void setCurs2(Curs curs2) {
+        this.curs2 = curs2;
+    }
+
+    public Curs getCurs3() {
+        return curs3;
+    }
+
+    public void setCurs3(Curs curs3) {
+        this.curs3 = curs3;
     }
 }
