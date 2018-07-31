@@ -58,15 +58,51 @@
             android:layout_marginLeft="10dp"
             />
 
-        <ExpandableListView
-            android:id="@+id/ListViewExpand"
+        <LinearLayout
+            android:id="@+id/LinearLayoutParentCurs1"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"></ExpandableListView>
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_margin="6dp">
 
-        
-        
-        
-        
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_margin="6dp">
+
+                <TextView
+                    android:id="@+id/TextViewTitleCurs1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Cursul de la udemy"
+                    android:textSize="17sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="right"
+                    android:layout_margin="6dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="3"
+                        android:textStyle="bold" />
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@mipmap/ic_launcher"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+        <include layout=""
+
+
+
     </LinearLayout>
 
 </ScrollView>
