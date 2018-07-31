@@ -17,14 +17,14 @@
             android:id="@+id/TextViewJourneyTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Title"
+            android:text="@string/Title"
             android:textSize="20sp"
             android:layout_margin="2dp"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_margin="2dp"
-            android:text="Afla mai multe detalii despre java si ce presupune acest Journey."/>
+            android:text="@string/journey"/>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="100dp"

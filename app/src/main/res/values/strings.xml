@@ -12,10 +12,47 @@
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_title">Utilizator</string>
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
+
+    <string name="Info">Info</string>
+    <string name="Bani">Bani</string>
+    <string name="Stres">Stres</string>
+    <string name="Job">Job</string>
+    <string name="Start">Start</string>
+
+    <string name="Start_Journey">Start Journey</string>
+    <string name="message">Type a message</string>
+
+    <string name="long_text">How are you doing? This is a long message that should probably wrap.</string>
+    <string name="Rose">Rose</string>
+
+    <string name="placeholder">Placeholder message</string>
+
+    <string name="Title">Title</string>
+    <string name="journey">"Afla mai multe detalii despre java si ce presupune acest Journey."</string>
+    <string name="Descriere">Descriere</string>
+    <string name="SignOut">Sign Out</string>
+
+    <string name="Email">Email</string>
+    <string name="Password">Password</string>
+    <string name="SIGN_IN">SIGN IN</string>
+    <string name="SIGN_UP">SIGN UP</string>
+
+    <string name="Easy">Easy</string>
+    <string name="Medium">Medium</string>
+    <string name="Hard">Hard</string>
+    <string name="Mock_Text">Mock Text</string>
+
+
+
+    <string name="type_message">Type a message</string>
+
+    <string name="Send">Send</string>
+    <string name="logged_in">You are logged in !</string>
+
 
     <string name="title_activity_nav_drawer">NavDrawer</string>
 

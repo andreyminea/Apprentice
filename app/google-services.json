@@ -55,6 +55,54 @@
           }
         },
         {
+          "client_id": "460870423453-1pv6chscvs1es6v9sqe75lmg3uvjte7p.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "ro.changeneers.apprentice",
+            "certificate_hash": "394236051bbc53ce7e6d84670614d42256ad1528"
+          }
+        },
+        {
+          "client_id": "460870423453-mgae4mruockgbc99k2te80f6o24ii4ka.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "ro.changeneers.apprentice",
+            "certificate_hash": "27778fd460a2a4fddb6db0b57ed654cb305e5104"
+          }
+        },
+        {
+          "client_id": "460870423453-s1h4l4gj48pc2bo04d8p1lolc3k3q4f6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "ro.changeneers.apprentice",
+            "certificate_hash": "addbee5862f03d5638ffbfa684ba0f9e2af44251"
+          }
+        },
+        {
+          "client_id": "460870423453-oqnb23vmpfbq8mkccn786r755csck32i.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "ro.changeneers.apprentice",
+            "certificate_hash": "63d8d4f7279cbcf143464967fbb8af5b7f5f9f44"
+          }
+        },
+        {
+          "client_id": "460870423453-154l4u2fc8pbq4fm8qpn2r057j5c999f.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "ro.changeneers.apprentice",
+            "certificate_hash": "415c8d6a462074291d48404d01df078b193823ad"
+          }
+        },
+        {
+          "client_id": "460870423453-b4jinkaoi9jv7kma0vvhev5n7ev45ods.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "ro.changeneers.apprentice",
+            "certificate_hash": "cf1bfdc0e7722de00ef759608d321180abf986e7"
+          }
+        },
+        {
           "client_id": "460870423453-3h2ftasb1ojgs9n93ffij54fmhiom8rl.apps.googleusercontent.com",
           "client_type": 3
         }
