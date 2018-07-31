@@ -18,7 +18,7 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-                                      <entry key="url" value="jar:file:/D:/Program%20Files/Android/Android%20Studio/plugins/android/lib/android.jar!/images/material_design_icons/action/ic_lock_outline_black_24dp.xml" />
+                                      <entry key="url" value="jar:file:/D:/Program%20Files/Android/Android%20Studio/plugins/android/lib/android.jar!/images/material_design_icons/content/ic_remove_black_24dp.xml" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -28,7 +28,8 @@
                         </option>
                         <option name="values">
                           <map>
-                            <entry key="outputName" value="ic_lock_outline_black_24dp" />
+                            <entry key="color" value="b00100" />
+                            <entry key="outputName" value="ic_minus_red_24dp" />
                             <entry key="sourceFile" value="C:\Users\Cristian Retea\Downloads\bar_chart.svg" />
                           </map>
                         </option>
