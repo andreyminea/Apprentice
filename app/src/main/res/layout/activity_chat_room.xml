@@ -10,24 +10,40 @@
 
     <ImageButton
         android:id="@+id/sendBtn"
-        android:layout_width="32"
-        android:layout_height="32"
-        android:layout_marginBottom="6dp"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginBottom="12dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/modernbutton"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.973"
+        app:layout_constraintHorizontal_bias="0.974"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.982" />
+        app:layout_constraintVertical_bias="0.98" />
+
+    <ImageButton
+        android:id="@+id/upload_img"
+        android:layout_width="33dp"
+        android:layout_height="32dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/image_upload"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/sendBtn"
+        app:layout_constraintHorizontal_bias="0.809"
+        app:layout_constraintStart_toEndOf="@+id/sendMsg"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
     <EditText
         android:id="@+id/sendMsg"
         android:layout_width="220dp"
-        android:layout_height="36dp"
+        android:layout_height="45dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
@@ -63,19 +79,6 @@
 
     </ListView>
 
-    <ImageButton
-        android:layout_width="33dp"
-        android:layout_height="32dp"
-        android:layout_marginBottom="16dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/image_upload"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/sendBtn"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/sendMsg"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+
 
 </android.support.constraint.ConstraintLayout>

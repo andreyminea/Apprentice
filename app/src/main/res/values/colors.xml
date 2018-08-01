@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#3F51B5</color>
-    <color name="chatPrimary">#783EEA</color>
+    <color name="chatPrimary">#16235A</color>
     <color name="chatSecondary">#FFFFFF</color>
-    <color name="chatBackground">#C1D0C3</color>
+    <color name="sendIcon">#888C46</color>
+    <color name="chatBackground">#DCD9C6</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
 
