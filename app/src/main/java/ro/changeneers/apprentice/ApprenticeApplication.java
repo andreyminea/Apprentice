@@ -25,12 +25,6 @@ public class ApprenticeApplication extends Application
 
         }
 
-        Curs curs  = new Curs(0,"Udemy getting started","https://www.udemy.com/java-tutorial/","se ocupa foarte bine de notiuni de la 0",
-                "dureaza 16 ore");
-
-        dbQuestList.add(new Quest(0,"Getting Started","Este important pentru ca e nevoie sa iti pui bazele programrii intainte sa incepi ceva mai complicat",
-                "Vei invata ce inseamna notiunile de baza ale programarii in general",0,1,curs,curs,curs));
-
     }
 
 

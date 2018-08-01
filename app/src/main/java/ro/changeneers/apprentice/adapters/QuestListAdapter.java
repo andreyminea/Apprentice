@@ -20,11 +20,12 @@ import ro.changeneers.apprentice.models.Quest;
 public class QuestListAdapter extends RecyclerView.Adapter<QuestListAdapter.QuestListViewHolder>{
 
     private List<Quest> qList;
-    private Context qContext;
+    private final OnQuestClickListener onQuestClickListener;
 
-    public QuestListAdapter(List<Quest> qList,Context qContext) {
+
+    public QuestListAdapter(List<Quest> qList,OnQuestClickListener onQuestClickListener) {
         this.qList = qList;
-        this.qContext = qContext;
+        this.onQuestClickListener = onQuestClickListener;
     }
 
     @NonNull
@@ -41,15 +42,13 @@ public class QuestListAdapter extends RecyclerView.Adapter<QuestListAdapter.Ques
 
         final Quest quest = qList.get(position);
 
-        holder.questId.setText(quest.getId()+1+"/"+qList.size());
+        holder.questId.setText(Integer.parseInt(quest.getId())+1+"/"+qList.size());
         holder.questTitle.setText(quest.getTitle());
 
         holder.questLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(qContext, QuestDetailActivity.class);
-                intent.putExtra("position",position);
-                qContext.startActivity(intent);
+                onQuestClickListener.onQuestClick(quest);
             }
         });
 
@@ -75,6 +74,10 @@ public class QuestListAdapter extends RecyclerView.Adapter<QuestListAdapter.Ques
     @Override
     public int getItemCount() {
         return qList.size();
+    }
+
+    public interface OnQuestClickListener {
+        void onQuestClick(Quest quest);
     }
 
 }

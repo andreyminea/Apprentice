@@ -1,45 +1,38 @@
 package ro.changeneers.apprentice.models;
 
+import java.util.List;
+
 public class Quest {
 
-    private int id;
+    private String id;
     private String title;
     private String importanta;
     private String ceInvat;
-    private int starsToUnlock;
-    private int difficulty;
-
-    private Curs curs1;
-
-    private Curs curs2;
-
-    private Curs curs3;
+    private int minimStarsToUnlock;
+    private List<Curs> cursuri;
 
 
-    public Quest(int id, String title, int starsToUnlock) {
+    public Quest(String id, String title, int minimStarsToUnlock) {
         this.id = id;
         this.title = title;
-        this.starsToUnlock = starsToUnlock;
+        this.minimStarsToUnlock = minimStarsToUnlock;
     }
 
-    public Quest(int id, String title, String importanta, String ceInvat, int starsToUnlock, int difficulty, Curs curs1, Curs curs2, Curs curs3) {
+    public Quest(String id, String title, String importanta, String ceInvat, int minimStarsToUnlock,List<Curs> cursuri){
         this.id = id;
         this.title = title;
         this.importanta = importanta;
         this.ceInvat = ceInvat;
-        this.starsToUnlock = starsToUnlock;
-        this.difficulty = difficulty;
-        this.curs1 = curs1;
-        this.curs2 = curs2;
-        this.curs3 = curs3;
+        this.minimStarsToUnlock = minimStarsToUnlock;
+        this.cursuri = cursuri;
 
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -67,43 +60,19 @@ public class Quest {
         this.ceInvat = ceInvat;
     }
 
-    public int getStarsToUnlock() {
-        return starsToUnlock;
+    public int getMinimStarsToUnlock() {
+        return minimStarsToUnlock;
     }
 
-    public void setStarsToUnlock(int starsToUnlock) {
-        this.starsToUnlock = starsToUnlock;
+    public void setMinimStarsToUnlock(int minimStarsToUnlock) {
+        this.minimStarsToUnlock = minimStarsToUnlock;
     }
 
-    public int getDifficulty() {
-        return difficulty;
+    public List<Curs> getCursuri() {
+        return cursuri;
     }
 
-    public void setDifficulty(int difficulty) {
-        this.difficulty = difficulty;
-    }
-
-    public Curs getCurs1() {
-        return curs1;
-    }
-
-    public void setCurs1(Curs curs1) {
-        this.curs1 = curs1;
-    }
-
-    public Curs getCurs2() {
-        return curs2;
-    }
-
-    public void setCurs2(Curs curs2) {
-        this.curs2 = curs2;
-    }
-
-    public Curs getCurs3() {
-        return curs3;
-    }
-
-    public void setCurs3(Curs curs3) {
-        this.curs3 = curs3;
+    public void setCursuri(List<Curs> cursuri) {
+        this.cursuri = cursuri;
     }
 }

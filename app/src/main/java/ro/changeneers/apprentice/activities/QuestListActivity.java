@@ -15,7 +15,7 @@ import ro.changeneers.apprentice.R;
 import ro.changeneers.apprentice.adapters.QuestListAdapter;
 import ro.changeneers.apprentice.models.Quest;
 
-public class QuestListActivity extends AppCompatActivity  {
+public class QuestListActivity extends AppCompatActivity implements QuestListAdapter.OnQuestClickListener {
 
     private static final String TAG = "QuestListActivity";
 
@@ -43,29 +43,29 @@ public class QuestListActivity extends AppCompatActivity  {
             case EASY:
                 DifficultyTitleTV.setText("Easy");
                 quests.clear();
-                quests.add(new Quest(0,"Getting Started", 0));
-                quests.add(new Quest(1,"Java Basics",1));
-                quests.add(new Quest(2,"Java Basics",2));
-                quests.add(new Quest(3,"Java Basics",4));
-                quests.add(new Quest(4,"Java Basics",5));
+                quests.add(new Quest("0","Getting Started", 0));
+                quests.add(new Quest("1","Java Basics",1));
+                quests.add(new Quest("2","Java Basics",2));
+                quests.add(new Quest("3","Java Basics",4));
+                quests.add(new Quest("4","Java Basics",5));
                 break;
             case MEDIUM:
                 DifficultyTitleTV.setText("Medium");
                 quests.clear();
-                quests.add(new Quest(0,"Java Basics",7));
-                quests.add(new Quest(1,"Java Basics",8));
-                quests.add(new Quest(2,"Java Basics",9));
-                quests.add(new Quest(3,"Java Basics",11));
-                quests.add(new Quest(4,"Java Basics",13));
+                quests.add(new Quest("0","Java Basics",7));
+                quests.add(new Quest("1","Java Basics",8));
+                quests.add(new Quest("2","Java Basics",9));
+                quests.add(new Quest("3","Java Basics",11));
+                quests.add(new Quest("4","Java Basics",13));
                 break;
             case HARD:
                 DifficultyTitleTV.setText("Hard");
                 quests.clear();
-                quests.add(new Quest(0,"Java Basics",14));
-                quests.add(new Quest(1,"Java Basics",16));
-                quests.add(new Quest(2,"Java Basics",17));
-                quests.add(new Quest(3,"Java Basics",18));
-                quests.add(new Quest(4,"Java Basics",20));
+                quests.add(new Quest("0","Java Basics",14));
+                quests.add(new Quest("1","Java Basics",16));
+                quests.add(new Quest("2","Java Basics",17));
+                quests.add(new Quest("3","Java Basics",18));
+                quests.add(new Quest("4","Java Basics",20));
 
         }
 
@@ -81,5 +81,13 @@ public class QuestListActivity extends AppCompatActivity  {
         recyclerView.setItemAnimator(new DefaultItemAnimator());
 
 
+    }
+
+
+    @Override
+    public void onQuestClick(Quest quest) {
+        Intent intent = new Intent(this, QuestDetailActivity.class);
+        intent.putExtra("ID",quest.getId());
+        startActivity(intent);
     }
 }
