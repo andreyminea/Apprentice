@@ -13,6 +13,8 @@
         android:id="@+id/theirTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:paddingBottom="4dp"
+        android:text="@string/Rose"/>
         android:layout_alignBottom="@+id/message_body_you"
         android:layout_marginLeft="10dp"
         android:layout_toEndOf="@+id/message_body_you"

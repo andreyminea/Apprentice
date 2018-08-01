@@ -27,9 +27,9 @@
         android:background="@drawable/my_message"
         android:elevation="2dp"
         android:padding="10dp"
-        android:text="Placeholder message"
+        android:text="@string/placeholder"
         android:textColor="#fff"
-        android:textSize="18dp" />
+        android:textSize="18sp" />
 
     <ImageView
         android:id="@+id/camera_take_my"
