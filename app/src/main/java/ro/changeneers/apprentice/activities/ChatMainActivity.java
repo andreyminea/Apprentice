@@ -1,14 +1,8 @@
 package ro.changeneers.apprentice.activities;
 
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.media.Image;
-import android.net.Uri;
-import android.support.v7.app.AlertDialog;
 import android.os.Bundle;
-import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -17,7 +11,6 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -127,6 +120,7 @@ public class ChatMainActivity extends NavDrawer {
 
                 Map<String,Object> map = new HashMap<>();
                 DatabaseReference root = FirebaseDatabase.getInstance().getReference().child(((TextView) view).getText().toString() + "/Info");
+
 
                 startActivity(intent);
             }
