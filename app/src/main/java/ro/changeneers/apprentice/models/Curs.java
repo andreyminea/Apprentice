@@ -2,25 +2,25 @@ package ro.changeneers.apprentice.models;
 
 public class Curs {
 
-    private int id;
+    private String id;
     private String title;
-    private String uri;
+    private String url;
     private String pro;
     private String contra;
 
-    public Curs(int id, String title, String uri, String pro, String contra) {
+    public Curs(String id, String title, String url, String pro, String contra) {
         this.id = id;
         this.title = title;
-        this.uri = uri;
+        this.url = url;
         this.pro = pro;
         this.contra = contra;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -32,12 +32,12 @@ public class Curs {
         this.title = title;
     }
 
-    public String getUri() {
-        return uri;
+    public String getUrl() {
+        return url;
     }
 
-    public void setUri(String uri) {
-        this.uri = uri;
+    public void setUrl(String url) {
+        this.url = url;
     }
 
     public String getPro() {
