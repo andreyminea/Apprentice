@@ -3,8 +3,9 @@
     android:layout_width="match_parent"
     android:layout_height="40dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_margin="6dp"
-    app:cardBackgroundColor="@color/chatBackground"
+    app:cardBackgroundColor="@color/appTurq"
     app:cardCornerRadius="15dp"
     app:cardElevation="6dp">
 
@@ -26,11 +27,12 @@
             android:id="@+id/TextViewQuestId"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="1/9"
+            tools:text="1/9"
             android:layout_marginLeft="10dp"
             android:layout_gravity="center_vertical"
             android:textSize="24dp"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            android:textColor="@color/appTextColor"/>
 
 
         <TextView
@@ -40,7 +42,8 @@
             android:text="Getting started"
             android:textSize="24dp"
             android:layout_marginLeft="10dp"
-            android:layout_gravity="center_vertical"/>
+            android:layout_gravity="center_vertical"
+            android:textColor="@color/appTextColor"/>
 
     </LinearLayout>
 

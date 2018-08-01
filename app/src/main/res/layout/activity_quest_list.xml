@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activities.QuestListActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/appBackgroundColor">
 
     <TextView
         android:id="@+id/TextViewQuestListTitle"
@@ -14,7 +15,8 @@
         android:text="Easy"
         android:textStyle="bold"
         android:textSize="40sp"
-        android:layout_gravity="center"/>
+        android:layout_gravity="center"
+        android:textColor="@color/appTextColor"/>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/RecyclerViewQuestList"

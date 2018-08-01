@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/appBackgroundColor"
     android:orientation="vertical"
     tools:context=".activities.QuestDetailActivity">
 
@@ -15,53 +16,61 @@
         android:layout_marginTop="10dp"
         android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/TextViewQuestDetailTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="EASY"
-        android:textSize="30dp"
-        android:textStyle="bold" />
+        <TextView
+            android:id="@+id/TextViewQuestDetailTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="EASY"
+            android:textColor="@color/appTextColor"
+            android:textSize="30dp"
+            android:textStyle="bold" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="20dp"
-        android:text="De ce este important acest lucru?"
-        android:textSize="20dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:text="De ce este important acest lucru?"
 
-    <TextView
-        android:id="@+id/TextViewQuestDetailImportanta"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="4dp"
-        android:textSize="16dp" />
+            android:textColor="@color/appTextColor"
+            android:textSize="20dp" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="20dp"
-        android:text="Ce invat cu acest curs?"
-        android:textSize="20dp" />
+        <TextView
+            android:id="@+id/TextViewQuestDetailImportanta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
 
-    <TextView
-        android:id="@+id/TextViewQuestDetailCeInvat"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="4dp"
-        android:textSize="16dp" />
+            android:layout_marginTop="4dp"
+            android:textColor="@color/appTextColor"
+            android:textSize="16dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/appTextColor"
+            android:text="Ce invat cu acest curs?"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/TextViewQuestDetailCeInvat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="10dp"
+            android:textColor="@color/appTextColor"
+            android:textSize="16dp" />
 
         <LinearLayout
             android:id="@+id/LinearLayoutParentCurs1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="6dp"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_marginStart="4dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -74,6 +83,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Cursul de la udemy"
+
+                    android:textColor="@color/appTextColor"
                     android:textSize="17sp" />
 
                 <LinearLayout
@@ -87,26 +98,28 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="3"
+                        android:textColor="@color/appTextColor"
                         android:textStyle="bold" />
 
                     <ImageView
                         android:layout_width="20dp"
                         android:layout_height="20dp"
-                        android:src="@drawable/ic_star_black_24dp" />
+                        android:src="@drawable/ic_star_yellow_24dp" />
                 </LinearLayout>
             </LinearLayout>
+
             <include
                 android:id="@+id/childCurs1"
                 layout="@layout/expandable_item_curs"
-                android:visibility="gone"/>
+                android:visibility="gone" />
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/LinearLayoutParentCurs2"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="6dp"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_marginStart="4dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -119,6 +132,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Cursul de la udemy"
+                    android:textColor="@color/appTextColor"
                     android:textSize="17sp" />
 
                 <LinearLayout
@@ -132,26 +146,28 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="2"
+                        android:textColor="@color/appTextColor"
                         android:textStyle="bold" />
 
                     <ImageView
                         android:layout_width="20dp"
                         android:layout_height="20dp"
-                        android:src="@drawable/ic_star_black_24dp" />
+                        android:src="@drawable/ic_star_yellow_24dp" />
                 </LinearLayout>
             </LinearLayout>
+
             <include
                 android:id="@+id/childCurs2"
                 layout="@layout/expandable_item_curs"
-                android:visibility="gone"/>
+                android:visibility="gone" />
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/LinearLayoutParentCurs3"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="6dp"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_marginStart="4dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -164,6 +180,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Cursul de la udemy"
+                    android:textColor="@color/appTextColor"
                     android:textSize="17sp" />
 
                 <LinearLayout
@@ -177,18 +194,20 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="1"
+                        android:textColor="@color/appTextColor"
                         android:textStyle="bold" />
 
                     <ImageView
                         android:layout_width="20dp"
                         android:layout_height="20dp"
-                        android:src="@drawable/ic_star_black_24dp" />
+                        android:src="@drawable/ic_star_yellow_24dp" />
                 </LinearLayout>
             </LinearLayout>
+
             <include
                 android:id="@+id/childCurs3"
                 layout="@layout/expandable_item_curs"
-                android:visibility="gone"/>
+                android:visibility="gone" />
         </LinearLayout>
     </LinearLayout>
 

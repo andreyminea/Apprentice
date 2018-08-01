@@ -11,4 +11,10 @@
     <color name="deeppurple">#7c4dff</color>
     <color name="yello">#ffb300</color>
     <color name="green">#00fba5</color>
+
+    <color name="appTextColor">#333333</color>
+    <color name="appBackgroundColor">#F1F2F3</color>
+    <color name="appUXColor">#6A6A6A</color>
+    <color name="appTurq">#A8ECD7</color>
+    <color name="appDarkBlue">#4A4E69</color>
 </resources>
