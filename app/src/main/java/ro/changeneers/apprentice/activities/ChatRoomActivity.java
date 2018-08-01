@@ -53,9 +53,9 @@ public class ChatRoomActivity extends NavDrawer {
     private DatabaseReference root;
     private String temp_key;
 
-    private FirebaseStorage storage ;
-    private StorageReference storageReference ;
-    private StorageReference images ;
+    private FirebaseStorage storage;
+    private StorageReference storageReference;
+    private StorageReference images;
 
     Context mContext = this;
 
@@ -87,7 +87,7 @@ public class ChatRoomActivity extends NavDrawer {
 
         setTitle(" Room - " + room_name);
 
-        adapter = new MessageListAdapter(this,R.layout.chat_my_message, R.layout.chat_their_message, chat, user_name);
+        adapter = new MessageListAdapter(this, R.layout.chat_my_message, R.layout.chat_their_message, chat, user_name);
 
 
         root = FirebaseDatabase.getInstance().getReference().child(room_name + "/Chat");
@@ -114,7 +114,7 @@ public class ChatRoomActivity extends NavDrawer {
                 map2.put("msg", input_msg.getText().toString());
                 map2.put("link", false);
                 map2.put("date", aux);
-                map2.put("photo",user_pic);
+                map2.put("photo", user_pic);
 
                 message_root.updateChildren(map2);
             }
@@ -122,10 +122,9 @@ public class ChatRoomActivity extends NavDrawer {
 
         btn_upload_img.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view)
-            {
+            public void onClick(View view) {
                 currentTime = Calendar.getInstance().getTime();
-                images = storageReference.child("ChatImages/" + currentTime +".jpg");
+                images = storageReference.child("ChatImages/" + currentTime + ".jpg");
 
                 Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                 startActivityForResult(intent, 0);
@@ -171,7 +170,7 @@ public class ChatRoomActivity extends NavDrawer {
 
         Bitmap bitmap = (Bitmap) data.getExtras().get("data");
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.JPEG ,100 ,   baos );
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
 
         byte[] date = baos.toByteArray();
 
@@ -195,8 +194,8 @@ public class ChatRoomActivity extends NavDrawer {
         map2.put("name", user_name);
         map2.put("msg", link);
         map2.put("link", true);
-        map2.put("date", aux );
-        map2.put("photo",user_pic);
+        map2.put("date", aux);
+        map2.put("photo", user_pic);
 
         message_root.updateChildren(map2);
     }
@@ -206,15 +205,12 @@ public class ChatRoomActivity extends NavDrawer {
         return R.id.nav_chat;
     }
 
-        @Override
-        protected void onStart()
-        {
-            super.onStart();
+    @Override
+    protected void onStart() {
+        super.onStart();
 
 
-
-
-        }
+    }
 
     @Override
     protected void onResume() {
@@ -222,7 +218,7 @@ public class ChatRoomActivity extends NavDrawer {
         scrollMyListViewToBottom();
     }
 
-    private String chat_msg,chat_user_name;
+    private String chat_msg, chat_user_name;
     private String date_send, user_picture;
     private Boolean link;
     private TextView.BufferType nimic;
@@ -233,16 +229,15 @@ public class ChatRoomActivity extends NavDrawer {
     {
 
         Iterator i = dataSnapshot.getChildren().iterator();
-        message = new Message("","", link, date_send, user_picture);
+        message = new Message("", "", link, date_send, user_picture);
 
-        while (i.hasNext()){
+        while (i.hasNext()) {
 
-            date_send = (String) ((DataSnapshot)i.next()).getValue();
-            link = (Boolean) ((DataSnapshot)i.next()).getValue();
-            chat_msg = (String) ((DataSnapshot)i.next()).getValue();
-            chat_user_name = (String) ((DataSnapshot)i.next()).getValue();
-            user_picture = (String)((DataSnapshot)i.next()).getValue();
-
+            date_send = (String) ((DataSnapshot) i.next()).getValue();
+            link = (Boolean) ((DataSnapshot) i.next()).getValue();
+            chat_msg = (String) ((DataSnapshot) i.next()).getValue();
+            chat_user_name = (String) ((DataSnapshot) i.next()).getValue();
+            user_picture = (String) ((DataSnapshot) i.next()).getValue();
 
             message.setAll(chat_user_name, chat_msg, link, date_send, user_picture);
 
@@ -254,10 +249,10 @@ public class ChatRoomActivity extends NavDrawer {
 
         }
         listview.setAdapter(adapter);
-
-
+        scrollMyListViewToBottom();
 
     }
+
     private void scrollMyListViewToBottom() {
         listview.post(new Runnable() {
             @Override

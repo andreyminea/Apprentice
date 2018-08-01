@@ -118,10 +118,6 @@ public class ChatMainActivity extends NavDrawer {
                 intent.putExtra("room_name", ((TextView) view).getText().toString());
                 intent.putExtra("user_name", userName);
 
-                Map<String,Object> map = new HashMap<>();
-                DatabaseReference root = FirebaseDatabase.getInstance().getReference().child(((TextView) view).getText().toString() + "/Info");
-
-
                 startActivity(intent);
             }
         });
