@@ -3,6 +3,8 @@ package ro.changeneers.apprentice.activities;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -26,7 +28,10 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 
+import ro.changeneers.apprentice.DatabaseFunctions;
+import ro.changeneers.apprentice.Quest;
 import ro.changeneers.apprentice.R;
+import ro.changeneers.apprentice.interfaces.CallbackDB;
 import ro.changeneers.apprentice.utils.SharedPrefManager;
 
 public class ChatMainActivity extends NavDrawer {
@@ -47,11 +52,33 @@ public class ChatMainActivity extends NavDrawer {
     private FirebaseStorage storage ;
     private StorageReference storageReference ;
 
+    private DatabaseFunctions handler;
+    Quest quest;
+    DatabaseReference ref;
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat_main);
+
+        handler = new DatabaseFunctions();
+
+        handler.getEasyQuests(new CallbackDB(){
+
+            @Override
+            public void onSuccess(@NonNull ArrayList<Quest> quests) {
+                for (Quest aux : quests){
+                    Log.d("ChatMainAct", "onSuccess: " + aux.toString());
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError var1) {
+
+            }
+        }
+        );
 
         roomName = (EditText) findViewById(R.id.roomName);
         createRoom = (Button) findViewById(R.id.createRoom);

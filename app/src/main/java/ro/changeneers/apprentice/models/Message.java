@@ -1,7 +1,5 @@
 package ro.changeneers.apprentice.models;
 
-import java.util.Calendar;
-
 public class Message
 {
     private String name;
