@@ -64,10 +64,12 @@ public class ChatMainActivity extends NavDrawer {
 
         handler = new DatabaseFunctions();
 
+        //start progress
         handler.getEasyQuests(new CallbackDB(){
 
             @Override
             public void onSuccess(@NonNull ArrayList<Quest> quests) {
+                //stop progress
                 for (Quest aux : quests){
                     Log.d("ChatMainAct", "onSuccess: " + aux.toString());
                 }
@@ -75,7 +77,8 @@ public class ChatMainActivity extends NavDrawer {
 
             @Override
             public void onCancelled(@NonNull DatabaseError var1) {
-
+                //stop progress
+                //show toast var1.getError / var1.getMessage
             }
         }
         );

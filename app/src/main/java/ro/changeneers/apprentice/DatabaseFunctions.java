@@ -11,7 +11,6 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.List;
 
 import ro.changeneers.apprentice.interfaces.CallbackDB;
 
@@ -32,29 +31,46 @@ public class DatabaseFunctions
         this.chat = root.child("ChatROOMS");
     }
 
+    private void getQuests(@NonNull DataSnapshot dataSnapshot, @NonNull CallbackDB callbackDB){
+        Quest quest= null;
+        String keyQuest;
+        String keyCurs;
+        Curs curs;
+        ArrayList<Curs> listaCursuri = new ArrayList<>();
+        ArrayList<Quest> listResult = new ArrayList<>();
+
+        Iterator iteratorQuesturi = dataSnapshot.getChildren().iterator();
+
+        while(iteratorQuesturi.hasNext())
+        {
+            keyQuest = ((DataSnapshot)iteratorQuesturi.next()).getKey();
+            DataSnapshot dataQuest = dataSnapshot.child(keyQuest);
+            quest = dataQuest.getValue(Quest.class);
+            Iterator iteratorCursuri = dataQuest.child("Cursuri").getChildren().iterator();
+
+            while (iteratorCursuri.hasNext())
+            {
+                keyCurs =((DataSnapshot)iteratorCursuri.next()).getKey();
+                curs = dataQuest.child("Cursuri").child(keyCurs).getValue(Curs.class);
+                listaCursuri.add(curs);
+            }
+            quest.setListCursuri(listaCursuri);
+
+            listResult.add(quest);
+        }
+
+        callbackDB.onSuccess(listResult);
+
+        Log.d("DatabaseFunctions", "onDataChange: "+dataSnapshot.toString());
+    }
+
     public void getEasyQuests(@NonNull final CallbackDB callbackDB)
     {
         quests.child("Programare/Easy").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot)
             {
-                Quest quest= null;
-                String sKey;
-                ArrayList<Quest> listResult = new ArrayList<>();
-
-                Iterator i = dataSnapshot.getChildren().iterator();
-
-                while(i.hasNext())
-                {
-                    sKey = ((DataSnapshot)i.next()).getKey();
-                    quest = dataSnapshot.child(sKey).getValue(Quest.class);
-                    listResult.add(quest);
-                }
-
-                callbackDB.onSuccess(listResult);
-
-               Log.d("DatabaseFunctions", "onDataChange: "+dataSnapshot.toString());
-
+                getQuests(dataSnapshot, callbackDB);
             }
 
             @Override
@@ -70,23 +86,7 @@ public class DatabaseFunctions
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot)
             {
-                Quest quest= null;
-                String sKey;
-                ArrayList<Quest> listResult = new ArrayList<>();
-
-                Iterator i = dataSnapshot.getChildren().iterator();
-
-                while(i.hasNext())
-                {
-                    sKey = ((DataSnapshot)i.next()).getKey();
-                    quest = dataSnapshot.child(sKey).getValue(Quest.class);
-                    listResult.add(quest);
-                }
-
-                callbackDB.onSuccess(listResult);
-
-                Log.d("DatabaseFunctions", "onDataChange: "+dataSnapshot.toString());
-
+                getQuests(dataSnapshot, callbackDB);
             }
 
             @Override
@@ -102,23 +102,7 @@ public class DatabaseFunctions
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot)
             {
-                Quest quest= null;
-                String sKey;
-                ArrayList<Quest> listResult = new ArrayList<>();
-
-                Iterator i = dataSnapshot.getChildren().iterator();
-
-                while(i.hasNext())
-                {
-                    sKey = ((DataSnapshot)i.next()).getKey();
-                    quest = dataSnapshot.child(sKey).getValue(Quest.class);
-                    listResult.add(quest);
-                }
-
-                callbackDB.onSuccess(listResult);
-
-                Log.d("DatabaseFunctions", "onDataChange: "+dataSnapshot.toString());
-
+                getQuests(dataSnapshot, callbackDB);
             }
 
             @Override
