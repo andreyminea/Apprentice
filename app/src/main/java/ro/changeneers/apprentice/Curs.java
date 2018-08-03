@@ -1,9 +1,14 @@
 package ro.changeneers.apprentice;
 
-public class Curs
-{
-    public String Titlu;
-    public String Descriere;
+public class Curs {
 
-    public Curs(){}
+    public String id;
+    public String title;
+    public String url;
+    public String pro;
+    public String contra;
+
+    public Curs() {
+    }
 }
+

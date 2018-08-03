@@ -32,7 +32,7 @@ public class DatabaseFunctions
     }
 
     private void getQuests(@NonNull DataSnapshot dataSnapshot, @NonNull CallbackDB callbackDB){
-        Quest quest= null;
+        Quest quest = null;
         String keyQuest;
         String keyCurs;
         Curs curs;

@@ -32,6 +32,7 @@ import ro.changeneers.apprentice.DatabaseFunctions;
 import ro.changeneers.apprentice.Quest;
 import ro.changeneers.apprentice.R;
 import ro.changeneers.apprentice.interfaces.CallbackDB;
+
 import ro.changeneers.apprentice.utils.SharedPrefManager;
 
 public class ChatMainActivity extends NavDrawer {
@@ -72,6 +73,7 @@ public class ChatMainActivity extends NavDrawer {
                 //stop progress
                 for (Quest aux : quests){
                     Log.d("ChatMainAct", "onSuccess: " + aux.toString());
+
                 }
             }
 
