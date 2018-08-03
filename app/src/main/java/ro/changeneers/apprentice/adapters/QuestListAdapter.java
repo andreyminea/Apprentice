@@ -42,8 +42,8 @@ public class QuestListAdapter extends RecyclerView.Adapter<QuestListAdapter.Ques
 
         final Quest quest = qList.get(position);
 
-        holder.questId.setText(Integer.parseInt(quest.getId())+1+"/"+qList.size());
-        holder.questTitle.setText(quest.getTitle());
+        holder.questId.setText(Integer.parseInt(quest.id)+1+"/"+qList.size());
+        holder.questTitle.setText(quest.title);
 
         holder.questLayout.setOnClickListener(new View.OnClickListener() {
             @Override

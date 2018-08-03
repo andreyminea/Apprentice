@@ -30,4 +30,8 @@ public class Quest {
     public String toString() {
         return id + " " + title + " " + importanta + " " + ceInvat + " " + minimStarsToUnlock + " ";
     }
+
+    public List<Curs> getListCursuri() {
+        return listCursuri;
+    }
 }

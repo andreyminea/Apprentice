@@ -11,6 +11,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
+import ro.changeneers.apprentice.ApprenticeApplication;
 import ro.changeneers.apprentice.R;
 import ro.changeneers.apprentice.adapters.QuestListAdapter;
 import ro.changeneers.apprentice.models.Quest;
@@ -22,6 +23,7 @@ public class QuestListActivity extends AppCompatActivity implements QuestListAda
     private static final int EASY = 1;
     private static final int MEDIUM = 2;
     private static final int HARD = 3;
+    private int difficulty;
 
 
     private RecyclerView.LayoutManager layoutManager;
@@ -34,39 +36,21 @@ public class QuestListActivity extends AppCompatActivity implements QuestListAda
 
         Intent receivingIntent = getIntent();
         int difficulty = receivingIntent.getIntExtra("DIFFICULTY",0);
+        this.difficulty = difficulty;
 
 
-        List<Quest> quests = new ArrayList<>();
+        List<Quest> quests = ApprenticeApplication.getQuestListEasyDB();
         DifficultyTitleTV = findViewById(R.id.TextViewQuestListTitle);
 
         switch(difficulty){
             case EASY:
                 DifficultyTitleTV.setText("Easy");
-                quests.clear();
-                quests.add(new Quest("0","Getting Started", 0));
-                quests.add(new Quest("1","Java Basics",1));
-                quests.add(new Quest("2","Java Basics",2));
-                quests.add(new Quest("3","Java Basics",4));
-                quests.add(new Quest("4","Java Basics",5));
                 break;
             case MEDIUM:
                 DifficultyTitleTV.setText("Medium");
-                quests.clear();
-                quests.add(new Quest("0","Java Basics",7));
-                quests.add(new Quest("1","Java Basics",8));
-                quests.add(new Quest("2","Java Basics",9));
-                quests.add(new Quest("3","Java Basics",11));
-                quests.add(new Quest("4","Java Basics",13));
                 break;
             case HARD:
                 DifficultyTitleTV.setText("Hard");
-                quests.clear();
-                quests.add(new Quest("0","Java Basics",14));
-                quests.add(new Quest("1","Java Basics",16));
-                quests.add(new Quest("2","Java Basics",17));
-                quests.add(new Quest("3","Java Basics",18));
-                quests.add(new Quest("4","Java Basics",20));
-
         }
 
 
@@ -87,7 +71,8 @@ public class QuestListActivity extends AppCompatActivity implements QuestListAda
     @Override
     public void onQuestClick(Quest quest) {
         Intent intent = new Intent(this, QuestDetailActivity.class);
-        intent.putExtra("ID",quest.getId());
+        intent.putExtra("ID",quest.id);
+        intent.putExtra("DIFFICULTY",difficulty);
         startActivity(intent);
     }
 }
