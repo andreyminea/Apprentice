@@ -49,16 +49,16 @@ public class QuestDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quest_detail);
 
-        Curs curs  = new Curs("0","Getting started","https://www.udemy.com/java-tutorial/","se ocupa foarte bine de notiuni de la 0",
-                "dureaza 16 ore");
-            Intent intent = getIntent();
-            int incomingQuestId = intent.getExtras().getInt("ID");
-            List<Curs> cursuri = new ArrayList<>();
-            cursuri.add(curs);
-            cursuri.add(curs);
-            cursuri.add(curs);
-            Quest quest = new Quest("0", "Getting Started", "Este important pentru ca e nevoie sa iti pui bazele programrii intainte sa incepi ceva mai complicat",
-                    "Vei invata ce inseamna notiunile de baza ale programarii in general", 0, cursuri);
+//        Curs curs  = new Curs("0","Getting started","https://www.udemy.com/java-tutorial/","se ocupa foarte bine de notiuni de la 0",
+//                "dureaza 16 ore");
+//            Intent intent = getIntent();
+//            int incomingQuestId = intent.getExtras().getInt("ID");
+//            List<Curs> cursuri = new ArrayList<>();
+//            cursuri.add(curs);
+//            cursuri.add(curs);
+//            cursuri.add(curs);
+//            Quest quest = new Quest("0", "Getting Started", "Este important pentru ca e nevoie sa iti pui bazele programrii intainte sa incepi ceva mai complicat",
+//                    "Vei invata ce inseamna notiunile de baza ale programarii in general", 0, cursuri);
 
 
 
