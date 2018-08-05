@@ -115,5 +115,7 @@ elemente de programare funcțională.\n\n
     O statistică recentă arată că în momentul de faţă, pe site-urile cu oportunităţi de angajare din România, sunt disponibile peste 1300 de joburi care se adresează programatorilor specializaţi în limbajul de programare Java, acestea fiind împărţite pe nivele de experienţă şi dificultate.
 </string>
 
+    <string name="chat_activity_title">Room - %s</string>
+
 
 </resources>
