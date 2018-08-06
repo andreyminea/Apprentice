@@ -18,7 +18,7 @@ public class MainActivity extends NavDrawer implements RecyclerViewAdapter.OnIte
     private static final String TAG = "MainActivity";
 
     private RecyclerView.LayoutManager layoutManager;
-    private int backpress = 0;
+
 
     //ids for list items
     public static final int USER_JOURNEY_ID = 23;
@@ -48,12 +48,23 @@ public class MainActivity extends NavDrawer implements RecyclerViewAdapter.OnIte
 
     }
 
+    private int backpress = 0;
+    @Override
     public void onBackPressed() {
         backpress = (backpress + 1);
         Toast.makeText(getApplicationContext(), " Press Back again to Exit ", Toast.LENGTH_SHORT).show();
 
         if (backpress > 1) {
             super.onBackPressed();
+            finishAffinity();
+
+        }else{
+            new android.os.Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    backpress = 0;
+                }
+            }, 2000);
         }
     }
 
@@ -69,7 +80,7 @@ public class MainActivity extends NavDrawer implements RecyclerViewAdapter.OnIte
             Intent intent = new Intent(this, JourneyListActivity.class);
             startActivity(intent);
         } else if (item.getId() == CHAT_ID) {
-            Intent intent = new Intent(this, ChatActivity.class);
+            Intent intent = new Intent(this, ChatMainActivity.class);
             startActivity(intent);
         }
     }

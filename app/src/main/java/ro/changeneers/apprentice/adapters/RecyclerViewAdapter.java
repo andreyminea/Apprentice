@@ -13,9 +13,7 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-import ro.changeneers.apprentice.activities.ChatActivity;
 import ro.changeneers.apprentice.models.DashboardItem;
-import ro.changeneers.apprentice.activities.JourneyListActivity;
 import ro.changeneers.apprentice.R;
 
 /**

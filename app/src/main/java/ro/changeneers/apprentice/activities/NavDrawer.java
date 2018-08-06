@@ -32,7 +32,7 @@ import ro.changeneers.apprentice.utils.SharedPrefManager;
 
 public abstract class NavDrawer extends AppCompatActivity implements OnNavigationItemSelectedListener {
     private LinearLayout view_stub; //This is the framelayout to keep your content view
-    private NavigationView navigation_view; // The new navigation view from Android Design Library. Can inflate menu resources. Easy
+    private NavigationView navigation_view; // The new navigation view from Android Design Library. Can inflate menu resources.
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mDrawerToggle;
     private Menu drawerMenu;
@@ -174,6 +174,16 @@ public abstract class NavDrawer extends AppCompatActivity implements OnNavigatio
                 Intent i = new Intent(this, MainActivity.class);
                 startActivity(i);
                 break;
+            case R.id.nav_jlist:
+                Log.d(TAG, "open Journey List Activity");
+                Intent c = new Intent(this, JourneyListActivity.class);
+                startActivity(c);
+                break;
+            case R.id.nav_profile:
+                Log.d(TAG, "open Profile Activity");
+                Intent b = new Intent(this, MyProfileActivity.class);
+                startActivity(b);
+                break;
             case R.id.nav_chat:
                 Log.d(TAG, "open Chat Activity");
                 Intent j = new Intent(this, ChatMainActivity.class);
@@ -181,24 +191,13 @@ public abstract class NavDrawer extends AppCompatActivity implements OnNavigatio
                 break;
             case R.id.nav_about:
                 Log.d(TAG, "open About Activity");
-                Intent a = new Intent(this, JourneyListActivity.class);
+                Intent a = new Intent(this, MainActivity.class);
                 startActivity(a);
-                break;
-            case R.id.nav_profile:
-                Log.d(TAG, "open Profile Activity");
-                Intent b = new Intent(this, MyProfileActivity.class);
-                startActivity(b);
-                break;
-            case R.id.nav_settings:
-                Log.d(TAG, "open Settings Activity");
-                Intent d = new Intent(this, MainActivity.class);
-                startActivity(d);
                 break;
             case R.id.nav_logout:
                 Log.d(TAG, "open Logout Activity");
                 logout();
                 break;
-            // and so on...
         }
     }
 
