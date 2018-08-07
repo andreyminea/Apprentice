@@ -37,7 +37,7 @@
                     android:layout_height="wrap_content"
                     android:textStyle="bold"
                     android:layout_marginTop="10dp"
-                    android:text="Easy"/>
+                    android:text="@string/Easy"/>
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
@@ -47,7 +47,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="Mock Text"
+                    android:text="@string/Mock_Text"
                     android:padding="5dp"
                     android:textColor="@android:color/darker_gray"/>
 
@@ -75,7 +75,7 @@
                     android:layout_height="wrap_content"
                     android:textStyle="bold"
                     android:layout_marginTop="10dp"
-                    android:text="Medium"/>
+                    android:text="@string/Medium"/>
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
@@ -85,7 +85,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="Mock Text"
+                    android:text="@string/Mock_Text"
                     android:padding="5dp"
                     android:textColor="@android:color/darker_gray"/>
 
@@ -123,7 +123,7 @@
                     android:layout_height="wrap_content"
                     android:textStyle="bold"
                     android:layout_marginTop="10dp"
-                    android:text="Hard"/>
+                    android:text="@string/Hard"/>
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
@@ -133,7 +133,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="Mock Text"
+                    android:text="@string/Mock_Text"
                     android:padding="5dp"
                     android:textColor="@android:color/darker_gray"/>
 
