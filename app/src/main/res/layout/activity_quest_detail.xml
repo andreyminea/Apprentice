@@ -97,6 +97,36 @@
                     android:orientation="horizontal">
 
                     <TextView
+                        android:id="@+id/TextViewDurataCurs1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="3"
+                        android:textColor="@color/appTextColor"
+                        android:textStyle="bold"
+                        android:layout_marginRight="4dp"/>
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/ic_access_time_black_24dp"
+                        android:layout_marginRight="8dp"/>
+
+                    <TextView
+                        android:id="@+id/TextViewCostCurs1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="3"
+                        android:textColor="@color/appTextColor"
+                        android:textStyle="bold"
+                        android:layout_marginRight="4dp"/>
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/ic_monetization_on_black_24dp"
+                        android:layout_marginRight="8dp"/>
+
+                    <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="3"
@@ -146,6 +176,36 @@
                     android:orientation="horizontal">
 
                     <TextView
+                        android:id="@+id/TextViewDurataCurs2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="3"
+                        android:textColor="@color/appTextColor"
+                        android:textStyle="bold"
+                        android:layout_marginRight="4dp"/>
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/ic_access_time_black_24dp"
+                        android:layout_marginRight="8dp"/>
+
+                    <TextView
+                        android:id="@+id/TextViewCostCurs2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="3"
+                        android:textColor="@color/appTextColor"
+                        android:textStyle="bold"
+                        android:layout_marginRight="4dp"/>
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/ic_monetization_on_black_24dp"
+                        android:layout_marginRight="8dp"/>
+
+                    <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="2"
@@ -193,6 +253,36 @@
                     android:layout_margin="6dp"
                     android:gravity="right"
                     android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/TextViewDurataCurs3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="3"
+                        android:textColor="@color/appTextColor"
+                        android:textStyle="bold"
+                        android:layout_marginRight="4dp"/>
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/ic_access_time_black_24dp"
+                        android:layout_marginRight="8dp"/>
+
+                    <TextView
+                        android:id="@+id/TextViewCostCurs3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="3"
+                        android:textColor="@color/appTextColor"
+                        android:textStyle="bold"
+                        android:layout_marginRight="4dp"/>
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/ic_monetization_on_black_24dp"
+                        android:layout_marginRight="8dp"/>
 
                     <TextView
                         android:layout_width="wrap_content"

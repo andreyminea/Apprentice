@@ -33,16 +33,21 @@ public class QuestDetailActivity extends AppCompatActivity {
     TextView ceInvQuest;
 
     TextView titleCurs1;
-    TextView textCurs1Pro;
-    TextView textCurs1Contra;
+    TextView textDescriereCurs1;
+    TextView textCostCurs1;
+    TextView textDurataCurs1;
+
 
     TextView titleCurs2;
-    TextView textCurs2Pro;
-    TextView textCurs2Contra;
+    TextView textDescriereCurs2;
+    TextView textCostCurs2;
+    TextView textDurataCurs2;
 
     TextView titleCurs3;
-    TextView textCurs3Pro;
-    TextView textCurs3Contra;
+    TextView textDescriereCurs3;
+    TextView textCostCurs3;
+    TextView textDurataCurs3;
+
 
     private Quest quest;
     private static final String TAG = "QuestDetailActivity";
@@ -104,30 +109,38 @@ public class QuestDetailActivity extends AppCompatActivity {
 
         titleCurs1 = findViewById(R.id.TextViewTitleCurs1);
         titleCurs1.setText(quest.getListCursuri().get(0).title);
+        textDurataCurs1 = findViewById(R.id.TextViewDurataCurs1);
+        textDurataCurs1.setText(quest.getListCursuri().get(0).durata);
+        textCostCurs1 = findViewById(R.id.TextViewCostCurs1);
+        textCostCurs1.setText(quest.getListCursuri().get(0).cost);
+
         titleCurs2 = findViewById(R.id.TextViewTitleCurs2);
         titleCurs2.setText(quest.getListCursuri().get(1).title);
+        textDurataCurs2 = findViewById(R.id.TextViewDurataCurs2);
+        textDurataCurs2.setText(quest.getListCursuri().get(1).durata);
+        textCostCurs2 = findViewById(R.id.TextViewCostCurs2);
+        textCostCurs2.setText(quest.getListCursuri().get(1).cost);
+
         titleCurs3 = findViewById(R.id.TextViewTitleCurs3);
         titleCurs3.setText(quest.getListCursuri().get(2).title);
+        textDurataCurs3 = findViewById(R.id.TextViewDurataCurs3);
+        textDurataCurs3.setText(quest.getListCursuri().get(2).durata);
+        textCostCurs3 = findViewById(R.id.TextViewCostCurs3);
+        textCostCurs3.setText(quest.getListCursuri().get(2).cost);
 
         final View curs1View = findViewById(R.id.childCurs1);
-        textCurs1Pro = curs1View.findViewById(R.id.TextViewPro);
-        textCurs1Pro.setText(quest.getListCursuri().get(0).pro);
-        textCurs1Contra = curs1View.findViewById(R.id.TextViewContra);
-        textCurs1Contra.setText(quest.getListCursuri().get(0).contra);
+        textDescriereCurs1 = curs1View.findViewById(R.id.TextViewDescriereCurs);
+        textDescriereCurs1.setText(quest.getListCursuri().get(0).descriere);
 
 
         final View curs2View = findViewById(R.id.childCurs2);
-        textCurs2Pro = curs2View.findViewById(R.id.TextViewPro);
-        textCurs2Pro.setText(quest.getListCursuri().get(1).pro);
-        textCurs2Contra = curs2View.findViewById(R.id.TextViewContra);
-        textCurs2Contra.setText(quest.getListCursuri().get(1).pro);
+        textDescriereCurs1 = curs1View.findViewById(R.id.TextViewDescriereCurs);
+        textDescriereCurs1.setText(quest.getListCursuri().get(1).descriere);
 
 
         final View curs3View = findViewById(R.id.childCurs3);
-        textCurs3Pro = curs3View.findViewById(R.id.TextViewPro);
-        textCurs3Pro.setText(quest.getListCursuri().get(2).pro);
-        textCurs3Contra = curs3View.findViewById(R.id.TextViewContra);
-        textCurs3Contra.setText(quest.getListCursuri().get(2).contra);
+        textDescriereCurs1 = curs1View.findViewById(R.id.TextViewDescriereCurs);
+        textDescriereCurs1.setText(quest.getListCursuri().get(2).descriere);
 
         final ViewGroup transitionCurs1 = (ViewGroup) findViewById(R.id.LinearLayoutParentCurs1);
         transitionCurs1.setOnClickListener(new View.OnClickListener() {
