@@ -14,9 +14,19 @@ import ro.changeneers.apprentice.models.Quest;
 public class ApprenticeApplication extends Application
 {
 
-    public static List<Quest> questListEasyDB = new ArrayList<>();
-    public static List<Quest> questListMediumDB = new ArrayList<>();
-    public static List<Quest> questListHardDB = new ArrayList<>();
+    public static ApprenticeApplication applicationInstance;
+
+    public static ApprenticeApplication getInstance(){
+        if (applicationInstance == null){
+
+            applicationInstance = new ApprenticeApplication();
+        }
+        return applicationInstance;
+    }
+
+    private static List<Quest> questListEasyDB = new ArrayList<>();
+    private static List<Quest> questListMediumDB = new ArrayList<>();
+    private static List<Quest> questListHardDB = new ArrayList<>();
 
     private static final int EASY = 1;
     private static final int MEDIUM = 2;
@@ -46,13 +56,21 @@ public class ApprenticeApplication extends Application
                 questListMediumDB.addAll(qList);
                 break;
             case HARD:
-                questListMediumDB.clear();
-                questListMediumDB.addAll(qList);
+                questListHardDB.clear();
+                questListHardDB.addAll(qList);
                 break;
         }
     }
 
     public static List<Quest> getQuestListEasyDB() {
         return questListEasyDB;
+    }
+
+    public static List<Quest> getQuestListMediumDB() {
+        return questListMediumDB;
+    }
+
+    public static List<Quest> getQuestListHardDB() {
+        return questListHardDB;
     }
 }

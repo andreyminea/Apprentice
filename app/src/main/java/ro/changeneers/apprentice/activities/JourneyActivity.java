@@ -17,7 +17,6 @@ public class JourneyActivity extends NavDrawer {
 
     private static final String TAG = "JourneyActivity";
 
-    Utils utils = new Utils(JourneyActivity.this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,12 +29,13 @@ public class JourneyActivity extends NavDrawer {
         CardView hardCard = findViewById(R.id.CardHard);
 
 
+
+
         easyCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                utils.getListQuestEasyDataBase(JourneyActivity.this);
-//                List<Quest> list = utils.getListQuestEasyDataBase(JourneyActivity.this);
-//               ApprenticeApplication.setQuestListDB(list,1);
+
+               Utils.getInstance(JourneyActivity.this).getListQuestFromDataBase(JourneyActivity.this, 1);
 
                 Intent intent = new Intent(JourneyActivity.this,QuestListActivity.class);
                 intent.putExtra("DIFFICULTY",1);
@@ -46,8 +46,9 @@ public class JourneyActivity extends NavDrawer {
         mediumCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                List<Quest> list = utils.getListQuestEasyDataBase(JourneyActivity.this);
-                ApprenticeApplication.setQuestListDB(list,1);
+
+                Utils.getInstance(JourneyActivity.this).getListQuestFromDataBase(JourneyActivity.this, 2);
+
 
                 Intent intent = new Intent(JourneyActivity.this,QuestListActivity.class);
                 intent.putExtra("DIFFICULTY",2);
@@ -58,8 +59,9 @@ public class JourneyActivity extends NavDrawer {
         hardCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                List<Quest> list = utils.getListQuestEasyDataBase(JourneyActivity.this);
-                ApprenticeApplication.setQuestListDB(list,1);
+
+                Utils.getInstance(JourneyActivity.this).getListQuestFromDataBase(JourneyActivity.this, 3);
+
                 Intent intent = new Intent(JourneyActivity.this,QuestListActivity.class);
                 intent.putExtra("DIFFICULTY",3);
                 startActivity(intent);

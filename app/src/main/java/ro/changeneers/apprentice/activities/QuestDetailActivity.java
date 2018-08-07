@@ -72,10 +72,10 @@ public class QuestDetailActivity extends AppCompatActivity {
                 localList = ApprenticeApplication.getQuestListEasyDB();
                 break;
             case MEDIUM:
-                localList = ApprenticeApplication.getQuestListEasyDB();
+                localList = ApprenticeApplication.getQuestListMediumDB();
                 break;
             case HARD:
-                localList = ApprenticeApplication.getQuestListEasyDB();
+                localList = ApprenticeApplication.getQuestListHardDB();
                 break;
         }
 

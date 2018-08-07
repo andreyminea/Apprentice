@@ -14,6 +14,7 @@ import com.google.firebase.database.DatabaseReference;
 import java.util.ArrayList;
 import java.util.List;
 
+import ro.changeneers.apprentice.ApprenticeApplication;
 import ro.changeneers.apprentice.interfaces.CallbackDB;
 import ro.changeneers.apprentice.models.Quest;
 import ro.changeneers.apprentice.networking.DatabaseFunctions;
@@ -24,10 +25,23 @@ import ro.changeneers.apprentice.networking.DatabaseFunctions;
 public class Utils {
     private Context mContext = null;
 
+    private static final int EASY = 1;
+    private static final int MEDIUM = 2;
+    private static final int HARD = 3;
+
     public Utils(Context con) {
         mContext = con;
     }
     private ProgressDialog progressDialog;
+
+    public static Utils utilsInstance;
+
+    public static Utils getInstance(Context context){
+        if(utilsInstance == null){
+            utilsInstance = new Utils(context);
+        }
+        return utilsInstance;
+    }
 
     public boolean isNetworkAvailable() {
 
@@ -43,11 +57,12 @@ public class Utils {
 
     //returneaza lista de questuri easy din db
     //are nevoie progress barul de context
-    public List<Quest> getListQuestEasyDataBase(final Context context) {
+    public void getListQuestFromDataBase(final Context context, final int difficulty) {
+        //ca sa nu facem 3 metode diferite, 1 pentru easy, 2 pt medium, 3 pt hard
+
         DatabaseFunctions handler;
         Quest quest;
         final DatabaseReference ref;
-        final List<Quest> questList = null;
 
         handler = new DatabaseFunctions();
 
@@ -58,6 +73,7 @@ public class Utils {
                                   @Override
                                   public void onSuccess(@NonNull ArrayList<Quest> quests) {
                                       dismissProgressDialog();
+                                      List<Quest> questList = new ArrayList<>();
                                       for (Quest aux : quests) {
                                           Log.d("getListQuestDataBase", "onSuccess: " + aux.toString());
                                           try {
@@ -66,6 +82,20 @@ public class Utils {
                                               Log.d("getListQuestDataBase", "err: " + e.getMessage());
                                           }
                                       }
+                                      ApprenticeApplication.getInstance();
+
+                                      switch (difficulty){
+                                          case EASY:
+                                              ApprenticeApplication.setQuestListDB(questList,1);
+                                              break;
+                                          case MEDIUM:
+                                              ApprenticeApplication.setQuestListDB(questList,2);
+                                              break;
+                                          case HARD:
+                                              ApprenticeApplication.setQuestListDB(questList,3);
+                                              break;
+                                      }
+
                                   }
 
                                   @Override
@@ -77,7 +107,6 @@ public class Utils {
                                   }
                               }
         );
-        return questList;
     }
 
     public void startProgress(Context context){

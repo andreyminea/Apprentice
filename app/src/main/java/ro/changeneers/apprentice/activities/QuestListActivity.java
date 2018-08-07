@@ -39,18 +39,21 @@ public class QuestListActivity extends AppCompatActivity implements QuestListAda
         this.difficulty = difficulty;
 
 
-        List<Quest> quests = ApprenticeApplication.getQuestListEasyDB();
+        List<Quest> quests = new ArrayList<>();
         DifficultyTitleTV = findViewById(R.id.TextViewQuestListTitle);
 
         switch(difficulty){
             case EASY:
                 DifficultyTitleTV.setText("Easy");
+                quests = ApprenticeApplication.getQuestListEasyDB();
                 break;
             case MEDIUM:
                 DifficultyTitleTV.setText("Medium");
+                quests = ApprenticeApplication.getQuestListMediumDB();
                 break;
             case HARD:
                 DifficultyTitleTV.setText("Hard");
+                quests = ApprenticeApplication.getQuestListHardDB();
         }
 
 
