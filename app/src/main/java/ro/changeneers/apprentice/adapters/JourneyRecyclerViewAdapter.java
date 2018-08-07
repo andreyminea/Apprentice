@@ -46,11 +46,6 @@ public class JourneyRecyclerViewAdapter extends RecyclerView.Adapter<JourneyRecy
                 break;
         }
 
-        Picasso.get().load(R.drawable.ico_info).into(holder.journeyOverviewThumbnail);
-        Picasso.get().load(R.drawable.ico_bani).into(holder.journeyBaniThumbnail);
-        Picasso.get().load(R.drawable.ico_stres).into(holder.journeyStresThumbnail);
-        Picasso.get().load(R.drawable.ico_jobs).into(holder.journeyJobsThumbnail);
-
         holder.journeyTitle.setText(jList.get(position).getTitle());
 
     }
