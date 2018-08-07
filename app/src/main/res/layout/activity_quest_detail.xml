@@ -11,7 +11,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="6dp"
         android:layout_marginRight="6dp"
         android:layout_marginTop="10dp"
@@ -22,15 +22,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="EASY"
+            tools:text="EASY"
             android:textColor="@color/appTextColor"
-            android:textSize="30dp"
+            android:textSize="30sp"
             android:textStyle="bold" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
             android:text="De ce este important acest lucru?"
 
@@ -41,11 +41,11 @@
             android:id="@+id/TextViewQuestDetailImportanta"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
 
             android:layout_marginTop="4dp"
             android:textColor="@color/appTextColor"
-            android:textSize="16dp" />
+            android:textSize="16sp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -54,17 +54,17 @@
             android:layout_marginTop="20dp"
             android:textColor="@color/appTextColor"
             android:text="Ce invat cu acest curs?"
-            android:textSize="20dp" />
+            android:textSize="20sp" />
 
         <TextView
             android:id="@+id/TextViewQuestDetailCeInvat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
             android:layout_marginTop="4dp"
             android:layout_marginBottom="10dp"
             android:textColor="@color/appTextColor"
-            android:textSize="16dp" />
+            android:textSize="16sp" />
 
         <LinearLayout
             android:id="@+id/LinearLayoutParentCurs1"
@@ -84,7 +84,7 @@
                     android:id="@+id/TextViewTitleCurs1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Cursul de la udemy"
+                    tools:text="Cursul de la udemy"
 
                     android:textColor="@color/appTextColor"
                     android:textSize="17sp" />
@@ -93,29 +93,29 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="6dp"
-                    android:gravity="right"
+                    android:gravity="end"
                     android:orientation="horizontal">
 
                     <TextView
                         android:id="@+id/TextViewDurataCurs1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="3"
+                        tools:text="3"
                         android:textColor="@color/appTextColor"
                         android:textStyle="bold"
-                        android:layout_marginRight="4dp"/>
+                        android:layout_marginEnd="4dp"/>
 
                     <ImageView
                         android:layout_width="20dp"
                         android:layout_height="20dp"
                         android:src="@drawable/ic_access_time_black_24dp"
-                        android:layout_marginRight="8dp"/>
+                        android:layout_marginEnd="8dp"/>
 
                     <TextView
                         android:id="@+id/TextViewCostCurs1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="3"
+                        tools:text="3"
                         android:textColor="@color/appTextColor"
                         android:textStyle="bold"
                         android:layout_marginRight="4dp"/>
@@ -124,7 +124,7 @@
                         android:layout_width="20dp"
                         android:layout_height="20dp"
                         android:src="@drawable/ic_monetization_on_black_24dp"
-                        android:layout_marginRight="8dp"/>
+                        android:layout_marginEnd="8dp"/>
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -164,7 +164,7 @@
                     android:id="@+id/TextViewTitleCurs2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Cursul de la udemy"
+                    tools:text="Cursul de la udemy"
                     android:textColor="@color/appTextColor"
                     android:textSize="17sp" />
 
@@ -172,38 +172,38 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="6dp"
-                    android:gravity="right"
+                    android:gravity="end"
                     android:orientation="horizontal">
 
                     <TextView
                         android:id="@+id/TextViewDurataCurs2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="3"
+                        tools:text="3"
                         android:textColor="@color/appTextColor"
                         android:textStyle="bold"
-                        android:layout_marginRight="4dp"/>
+                        android:layout_marginEnd="4dp"/>
 
                     <ImageView
                         android:layout_width="20dp"
                         android:layout_height="20dp"
                         android:src="@drawable/ic_access_time_black_24dp"
-                        android:layout_marginRight="8dp"/>
+                        android:layout_marginEnd="8dp"/>
 
                     <TextView
                         android:id="@+id/TextViewCostCurs2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="3"
+                        tools:text="3"
                         android:textColor="@color/appTextColor"
                         android:textStyle="bold"
-                        android:layout_marginRight="4dp"/>
+                        android:layout_marginEnd="4dp"/>
 
                     <ImageView
                         android:layout_width="20dp"
                         android:layout_height="20dp"
                         android:src="@drawable/ic_monetization_on_black_24dp"
-                        android:layout_marginRight="8dp"/>
+                        android:layout_marginEnd="8dp"/>
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -243,7 +243,7 @@
                     android:id="@+id/TextViewTitleCurs3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Cursul de la udemy"
+                    tools:text="Cursul de la udemy"
                     android:textColor="@color/appTextColor"
                     android:textSize="17sp" />
 
@@ -251,29 +251,29 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="6dp"
-                    android:gravity="right"
+                    android:gravity="end"
                     android:orientation="horizontal">
 
                     <TextView
                         android:id="@+id/TextViewDurataCurs3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="3"
+                        tools:text="3"
                         android:textColor="@color/appTextColor"
                         android:textStyle="bold"
-                        android:layout_marginRight="4dp"/>
+                        android:layout_marginEnd="4dp"/>
 
                     <ImageView
                         android:layout_width="20dp"
                         android:layout_height="20dp"
                         android:src="@drawable/ic_access_time_black_24dp"
-                        android:layout_marginRight="8dp"/>
+                        android:layout_marginEnd="8dp"/>
 
                     <TextView
                         android:id="@+id/TextViewCostCurs3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="3"
+                        tools:text="3"
                         android:textColor="@color/appTextColor"
                         android:textStyle="bold"
                         android:layout_marginRight="4dp"/>
@@ -282,7 +282,7 @@
                         android:layout_width="20dp"
                         android:layout_height="20dp"
                         android:src="@drawable/ic_monetization_on_black_24dp"
-                        android:layout_marginRight="8dp"/>
+                        android:layout_marginEnd="8dp"/>
 
                     <TextView
                         android:layout_width="wrap_content"

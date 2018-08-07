@@ -134,13 +134,13 @@ public class QuestDetailActivity extends AppCompatActivity {
 
 
         final View curs2View = findViewById(R.id.childCurs2);
-        textDescriereCurs1 = curs1View.findViewById(R.id.TextViewDescriereCurs);
-        textDescriereCurs1.setText(quest.getListCursuri().get(1).descriere);
+        textDescriereCurs2 = curs2View.findViewById(R.id.TextViewDescriereCurs);
+        textDescriereCurs2.setText(quest.getListCursuri().get(1).descriere);
 
 
         final View curs3View = findViewById(R.id.childCurs3);
-        textDescriereCurs1 = curs1View.findViewById(R.id.TextViewDescriereCurs);
-        textDescriereCurs1.setText(quest.getListCursuri().get(2).descriere);
+        textDescriereCurs3 = curs3View.findViewById(R.id.TextViewDescriereCurs);
+        textDescriereCurs3.setText(quest.getListCursuri().get(2).descriere);
 
         final ViewGroup transitionCurs1 = (ViewGroup) findViewById(R.id.LinearLayoutParentCurs1);
         transitionCurs1.setOnClickListener(new View.OnClickListener() {
