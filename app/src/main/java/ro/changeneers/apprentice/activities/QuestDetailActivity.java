@@ -153,7 +153,6 @@ public class QuestDetailActivity extends AppCompatActivity {
                 curs1View.setVisibility(visible ? View.VISIBLE : View.GONE);
                 curs1View.findViewById(R.id.ButtonBeginQuest).requestFocus();
 
-
             }
         });
 
