@@ -42,13 +42,13 @@ public class DatabaseFunctions
         String keyQuest;
         String keyCurs;
         Curs curs;
-        ArrayList<Curs> listaCursuri = new ArrayList<>();
         ArrayList<Quest> listResult = new ArrayList<>();
 
         Iterator iteratorQuesturi = dataSnapshot.getChildren().iterator();
 
         while(iteratorQuesturi.hasNext())
         {
+            ArrayList<Curs> listaCursuri = new ArrayList<>();
             keyQuest = ((DataSnapshot)iteratorQuesturi.next()).getKey();
             DataSnapshot dataQuest = dataSnapshot.child(keyQuest);
             quest = dataQuest.getValue(Quest.class);
