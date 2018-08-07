@@ -29,6 +29,8 @@ public class FragmentStartJourney extends android.support.v4.app.Fragment {
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(),JourneyActivity.class);
                 startActivity(intent);
+                getActivity().finish();
+
             }
         });
 

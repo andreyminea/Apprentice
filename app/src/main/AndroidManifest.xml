@@ -24,7 +24,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".activities.JourneyListActivity" />
-        <activity android:name=".activities.ChatActivity" />
         <activity android:name=".activities.JourneyActivity" />
         <activity android:name=".activities.BottomNavigationActivity" />
         <activity android:name=".activities.StartActivity" />

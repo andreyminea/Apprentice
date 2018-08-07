@@ -12,7 +12,7 @@ import ro.changeneers.apprentice.adapters.JourneyRecyclerViewAdapter;
 import ro.changeneers.apprentice.models.JourneyItem;
 import ro.changeneers.apprentice.R;
 
-public class JourneyListActivity extends AppCompatActivity {
+public class JourneyListActivity extends NavDrawer {
 
     private static final String TAG = "JourneyListActivity";
 
@@ -32,8 +32,12 @@ public class JourneyListActivity extends AppCompatActivity {
         jLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(myJourneyAdapter);
-
-
     }
+
+    @Override
+    protected int getNavigationItemID() {
+        return R.id.nav_jlist ;
+    }
+
 
 }
