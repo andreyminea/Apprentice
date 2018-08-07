@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.QuestListActivity"
+    android:orientation="vertical"
+    android:background="@color/appBackgroundColor">
+
+    <TextView
+        android:id="@+id/TextViewQuestListTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Easy"
+        android:textStyle="bold"
+        android:textSize="40sp"
+        android:layout_gravity="center"
+        android:textColor="@color/appTextColor"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/RecyclerViewQuestList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="2dp"
+        android:layout_marginTop="10dp">
+    </android.support.v7.widget.RecyclerView>
+
+</LinearLayout>

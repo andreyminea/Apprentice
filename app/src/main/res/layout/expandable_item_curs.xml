@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:background="@color/appBackgroundColor">
+
+        <TextView
+            android:id="@+id/TextViewDescriereCurs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/appTextColor"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp"
+            android:layout_marginRight="12dp"
+            android:layout_marginStart="12dp"/>
+
+        <Button
+            android:id="@+id/ButtonBeginQuest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/appTurq"
+            android:text="Begin"
+            android:textColor="@color/appTextColor"
+            android:layout_marginStart="10dp"
+            android:layout_marginBottom="2dp"
+            android:elevation="2dp"
+            android:focusable="true"
+            android:focusableInTouchMode="true" />
+
+    </LinearLayout>
