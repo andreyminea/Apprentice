@@ -68,45 +68,99 @@ public class Utils {
 
         //start progress
         startProgress(context);
-        handler.getEasyQuests(new CallbackDB() {
+        switch (difficulty){
+            case EASY:
+                handler.getEasyQuests(new CallbackDB() {
 
-                                  @Override
-                                  public void onSuccess(@NonNull ArrayList<Quest> quests) {
-                                      dismissProgressDialog();
-                                      List<Quest> questList = new ArrayList<>();
-                                      for (Quest aux : quests) {
-                                          Log.d("getListQuestDataBase", "onSuccess: " + aux.toString());
-                                          try {
-                                              questList.add(aux);
-                                          }catch (NullPointerException e){
-                                              Log.d("getListQuestDataBase", "err: " + e.getMessage());
+                                          @Override
+                                          public void onSuccess(@NonNull ArrayList<Quest> quests) {
+                                              dismissProgressDialog();
+                                              List<Quest> questList = new ArrayList<>();
+                                              for (Quest aux : quests) {
+                                                  Log.d("getListQuestDataBase", "onSuccess: " + aux.toString());
+                                                  try {
+                                                      questList.add(aux);
+                                                  }catch (NullPointerException e){
+                                                      Log.d("getListQuestDataBase", "err: " + e.getMessage());
+                                                  }
+                                              }
+                                              ApprenticeApplication.getInstance();
+                                              ApprenticeApplication.setQuestListDB(questList,1);
+
+                                          }
+
+                                          @Override
+                                          public void onCancelled(@NonNull DatabaseError var1) {
+                                              //stop progress
+                                              dismissProgressDialog();
+                                              //show toast var1.getError / var1.getMessage
+                                              Toast.makeText(context, var1.getMessage(),Toast.LENGTH_LONG).show();
                                           }
                                       }
-                                      ApprenticeApplication.getInstance();
+                );
+                break;
+            case MEDIUM:
+                handler.getMediumQuests(new CallbackDB() {
 
-                                      switch (difficulty){
-                                          case EASY:
-                                              ApprenticeApplication.setQuestListDB(questList,1);
-                                              break;
-                                          case MEDIUM:
+                                          @Override
+                                          public void onSuccess(@NonNull ArrayList<Quest> quests) {
+                                              dismissProgressDialog();
+                                              List<Quest> questList = new ArrayList<>();
+                                              for (Quest aux : quests) {
+                                                  Log.d("getListQuestDataBase", "onSuccess: " + aux.toString());
+                                                  try {
+                                                      questList.add(aux);
+                                                  }catch (NullPointerException e){
+                                                      Log.d("getListQuestDataBase", "err: " + e.getMessage());
+                                                  }
+                                              }
+                                              ApprenticeApplication.getInstance();
                                               ApprenticeApplication.setQuestListDB(questList,2);
-                                              break;
-                                          case HARD:
-                                              ApprenticeApplication.setQuestListDB(questList,3);
-                                              break;
+
+                                          }
+
+                                          @Override
+                                          public void onCancelled(@NonNull DatabaseError var1) {
+                                              //stop progress
+                                              dismissProgressDialog();
+                                              //show toast var1.getError / var1.getMessage
+                                              Toast.makeText(context, var1.getMessage(),Toast.LENGTH_LONG).show();
+                                          }
                                       }
+                );
+                break;
+            case HARD:
+                handler.getHardQuests(new CallbackDB() {
 
-                                  }
+                                          @Override
+                                          public void onSuccess(@NonNull ArrayList<Quest> quests) {
+                                              dismissProgressDialog();
+                                              List<Quest> questList = new ArrayList<>();
+                                              for (Quest aux : quests) {
+                                                  Log.d("getListQuestDataBase", "onSuccess: " + aux.toString());
+                                                  try {
+                                                      questList.add(aux);
+                                                  }catch (NullPointerException e){
+                                                      Log.d("getListQuestDataBase", "err: " + e.getMessage());
+                                                  }
+                                              }
+                                              ApprenticeApplication.getInstance();
+                                              ApprenticeApplication.setQuestListDB(questList,3);
 
-                                  @Override
-                                  public void onCancelled(@NonNull DatabaseError var1) {
-                                      //stop progress
-                                      dismissProgressDialog();
-                                      //show toast var1.getError / var1.getMessage
-                                      Toast.makeText(context, var1.getMessage(),Toast.LENGTH_LONG).show();
-                                  }
-                              }
-        );
+                                          }
+
+                                          @Override
+                                          public void onCancelled(@NonNull DatabaseError var1) {
+                                              //stop progress
+                                              dismissProgressDialog();
+                                              //show toast var1.getError / var1.getMessage
+                                              Toast.makeText(context, var1.getMessage(),Toast.LENGTH_LONG).show();
+                                          }
+                                      }
+                );
+                break;
+        }
+
     }
 
     public void startProgress(Context context){
@@ -115,7 +169,7 @@ public class Utils {
             progressDialog.setIndeterminate(true);
             progressDialog.setCancelable(false);
         }
-        progressDialog.setMessage("your message");
+        progressDialog.setMessage("Se descarca lista...");
         progressDialog.show();
     }
 

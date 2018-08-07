@@ -35,14 +35,14 @@ public class QuestListActivity extends AppCompatActivity implements QuestListAda
         setContentView(R.layout.activity_quest_list);
 
         Intent receivingIntent = getIntent();
-        int difficulty = receivingIntent.getIntExtra("DIFFICULTY",0);
+        int difficulty = receivingIntent.getIntExtra("DIFFICULTY", 0);
         this.difficulty = difficulty;
 
 
         List<Quest> quests = new ArrayList<>();
         DifficultyTitleTV = findViewById(R.id.TextViewQuestListTitle);
 
-        switch(difficulty){
+        switch (difficulty) {
             case EASY:
                 DifficultyTitleTV.setText("Easy");
                 quests = ApprenticeApplication.getQuestListEasyDB();
@@ -63,8 +63,9 @@ public class QuestListActivity extends AppCompatActivity implements QuestListAda
         QuestListAdapter questListAdapter = new QuestListAdapter(quests, this);
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
-
+        questListAdapter.notifyDataSetChanged();
         recyclerView.setAdapter(questListAdapter);
+
         recyclerView.setItemAnimator(new DefaultItemAnimator());
 
 
@@ -74,8 +75,8 @@ public class QuestListActivity extends AppCompatActivity implements QuestListAda
     @Override
     public void onQuestClick(Quest quest) {
         Intent intent = new Intent(this, QuestDetailActivity.class);
-        intent.putExtra("ID",quest.id);
-        intent.putExtra("DIFFICULTY",difficulty);
+        intent.putExtra("ID", quest.id);
+        intent.putExtra("DIFFICULTY", difficulty);
         startActivity(intent);
     }
 }

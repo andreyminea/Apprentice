@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.transition.TransitionManager;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ScrollView;
@@ -43,9 +44,8 @@ public class QuestDetailActivity extends AppCompatActivity {
     TextView textCurs3Pro;
     TextView textCurs3Contra;
 
-    private List<Quest> localList;
     private Quest quest;
-
+    private static final String TAG = "QuestDetailActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,7 +65,10 @@ public class QuestDetailActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         String incomingQuestId = intent.getExtras().getString("ID");
+        Log.d(TAG, "onCreate: ID FROM INTENT IS "+ incomingQuestId);
         int difficulty = intent.getExtras().getInt("DIFFICULTY");
+
+        List<Quest> localList = new ArrayList<>();
 
         switch (difficulty) {
             case EASY:
@@ -80,9 +83,10 @@ public class QuestDetailActivity extends AppCompatActivity {
         }
 
         for (int i = 0; i < localList.size(); i++) {
-            if(localList.get(i).id ==incomingQuestId){
+            Log.d(TAG, "onCreate: local list size " +localList.size());
+            if (localList.get(i).id.equals(incomingQuestId)) {
                 quest = localList.get(i);
-                break;
+                Log.d(TAG, "onCreate: "+quest.toString());
             }
 
         }
