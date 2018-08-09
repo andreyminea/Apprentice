@@ -12,14 +12,15 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -30,8 +31,8 @@ import ro.changeneers.apprentice.utils.SharedPrefManager;
 
 
 public abstract class NavDrawer extends AppCompatActivity implements OnNavigationItemSelectedListener {
-    private FrameLayout view_stub; //This is the framelayout to keep your content view
-    private NavigationView navigation_view; // The new navigation view from Android Design Library. Can inflate menu resources. Easy
+    private LinearLayout view_stub; //This is the framelayout to keep your content view
+    private NavigationView navigation_view; // The new navigation view from Android Design Library. Can inflate menu resources.
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mDrawerToggle;
     private Menu drawerMenu;
@@ -47,12 +48,18 @@ public abstract class NavDrawer extends AppCompatActivity implements OnNavigatio
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         super.setContentView(R.layout.app_base_layout);// The base layout that contains your navigation drawer.
-        view_stub = (FrameLayout) findViewById(R.id.view_stub);
+        view_stub = (LinearLayout) findViewById(R.id.view_stub);
         navigation_view = (NavigationView) findViewById(R.id.navigation_view);
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, 0, 0);
         mDrawerLayout.setDrawerListener(mDrawerToggle);
+
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        mDrawerToggle.syncState();
 
         drawerMenu = navigation_view.getMenu();
         navigation_view.setNavigationItemSelectedListener(this);
@@ -68,17 +75,22 @@ public abstract class NavDrawer extends AppCompatActivity implements OnNavigatio
         mFullName = sharedPrefManager.getName();
         mEmail = sharedPrefManager.getUserEmail();
         String uri = sharedPrefManager.getPhoto();
-        Uri mPhotoUri = Uri.parse(uri);
+
+        Uri mPhotoUri = null;
+        if (uri != null) {
+            mPhotoUri = Uri.parse(uri);
+        }
 
         //Set data gotten from SharedPref to the Navigation Header view
         mFullNameTextView.setText(mFullName);
         mEmailTextView.setText(mEmail);
 
-        Picasso.get().load(mPhotoUri)
-                .placeholder(android.R.drawable.sym_def_app_icon)
-                .error(android.R.drawable.sym_def_app_icon)
-                .into(mProfileImageView);
-
+        if (mPhotoUri != null) {
+            Picasso.get().load(mPhotoUri)
+                    .placeholder(android.R.drawable.sym_def_app_icon)
+                    .error(android.R.drawable.sym_def_app_icon)
+                    .into(mProfileImageView);
+        }
 
     }
 
@@ -162,6 +174,16 @@ public abstract class NavDrawer extends AppCompatActivity implements OnNavigatio
                 Intent i = new Intent(this, MainActivity.class);
                 startActivity(i);
                 break;
+            case R.id.nav_jlist:
+                Log.d(TAG, "open Journey List Activity");
+                Intent c = new Intent(this, JourneyListActivity.class);
+                startActivity(c);
+                break;
+            case R.id.nav_profile:
+                Log.d(TAG, "open Profile Activity");
+                Intent b = new Intent(this, MyProfileActivity.class);
+                startActivity(b);
+                break;
             case R.id.nav_chat:
                 Log.d(TAG, "open Chat Activity");
                 Intent j = new Intent(this, ChatMainActivity.class);
@@ -169,24 +191,13 @@ public abstract class NavDrawer extends AppCompatActivity implements OnNavigatio
                 break;
             case R.id.nav_about:
                 Log.d(TAG, "open About Activity");
-                Intent a = new Intent(this, JourneyListActivity.class);
+                Intent a = new Intent(this, MainActivity.class);
                 startActivity(a);
-                break;
-            case R.id.nav_profile:
-                Log.d(TAG, "open Profile Activity");
-                Intent b = new Intent(this, MainActivity.class);
-                startActivity(b);
-                break;
-            case R.id.nav_settings:
-                Log.d(TAG, "open Settings Activity");
-                Intent d = new Intent(this, MainActivity.class);
-                startActivity(d);
                 break;
             case R.id.nav_logout:
                 Log.d(TAG, "open Logout Activity");
                 logout();
                 break;
-            // and so on...
         }
     }
 

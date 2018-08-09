@@ -1,17 +1,29 @@
 package ro.changeneers.apprentice.models;
 
-public class Message
-{
+public class Message {
     private String name;
     private String text;
     private String date;
+    private Boolean link;
+    private String userPic;
 
-    public void setBoth(String name, String text)
-    {
+    public Message() {}
+
+    public Message(String name, String text, Boolean link, String date, String userPic) {
         this.name = name;
         this.text = text;
+        this.link = link;
+        this.date = date;
+        this.userPic = userPic;
     }
 
+    public void setAll(String name, String text, Boolean link, String date, String user_pic) {
+        this.name = name;
+        this.text = text;
+        this.link = link;
+        this.date = date;
+        this.userPic = user_pic;
+    }
 
     public String getName() {
         return name;
@@ -37,13 +49,15 @@ public class Message
         this.date = date;
     }
 
-
-
-    public Message(String name, String text)
-    {
-        this.name = name;
-        this.text = text;
+    public Boolean getLink() {
+        return link;
     }
 
+    public String getUserPic() {
+        return userPic;
+    }
 
+    public void setUserPic(String userPic) {
+        this.userPic = userPic;
+    }
 }

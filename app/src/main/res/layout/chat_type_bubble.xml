@@ -17,7 +17,7 @@
         android:layout_marginBottom="8dp"
         android:layout_marginTop="100dp"
         android:background="@drawable/type_bubble"
-        android:hint="Type a message"
+        android:hint="@string/message"
         android:paddingLeft="10dp"
         android:paddingRight="25dp"
         app:layout_constraintBottom_toBottomOf="parent"

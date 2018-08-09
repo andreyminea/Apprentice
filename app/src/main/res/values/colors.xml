@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#3F51B5</color>
-    <color name="chatPrimary">#783EEA</color>
+    <color name="chatPrimary">#16235A</color>
     <color name="chatSecondary">#FFFFFF</color>
-    <color name="chatBackground">#C1D0C3</color>
+    <color name="sendIcon">#888C46</color>
+    <color name="chatBackground">#DCD9C6</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
 
@@ -17,4 +18,12 @@
     <color name="appUXColor">#6A6A6A</color>
     <color name="appTurq">#A8ECD7</color>
     <color name="appDarkBlue">#4A4E69</color>
+
+    <color name="solidCircle">#80FFFFFF</color>
+    <color name="circleBorder">#30FFFFFF</color>
+    <color name="gradEnd">#67EFC8</color>
+    <color name="gradStart">#63C9FF</color>
+    <color name="missWaiting">#65DCE5</color>
+    <color name="missFinished">#49BEFF</color>
+    <color name="grey">#E5E5E5</color>
 </resources>

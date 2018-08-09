@@ -72,6 +72,6 @@ public class JourneyActivity extends NavDrawer {
     @Override
     protected int getNavigationItemID()
     {
-        return R.id.nav_home;
+        return 0;
     }
 }
