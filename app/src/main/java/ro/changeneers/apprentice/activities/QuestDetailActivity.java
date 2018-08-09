@@ -2,12 +2,14 @@ package ro.changeneers.apprentice.activities;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.transition.TransitionManager;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
@@ -36,17 +38,20 @@ public class QuestDetailActivity extends AppCompatActivity {
     TextView textDescriereCurs1;
     TextView textCostCurs1;
     TextView textDurataCurs1;
+    Button buttonBeginCurs1;
 
 
     TextView titleCurs2;
     TextView textDescriereCurs2;
     TextView textCostCurs2;
     TextView textDurataCurs2;
+    Button buttonBeginCurs2;
 
     TextView titleCurs3;
     TextView textDescriereCurs3;
     TextView textCostCurs3;
     TextView textDurataCurs3;
+    Button buttonBeginCurs3;
 
 
     private Quest quest;
@@ -131,16 +136,48 @@ public class QuestDetailActivity extends AppCompatActivity {
         final View curs1View = findViewById(R.id.childCurs1);
         textDescriereCurs1 = curs1View.findViewById(R.id.TextViewDescriereCurs);
         textDescriereCurs1.setText(quest.getListCursuri().get(0).descriere);
+        buttonBeginCurs1 = curs1View.findViewById(R.id.ButtonBeginQuest);
+        buttonBeginCurs1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(quest.getListCursuri().get(0).url));
+                startActivity(intent);
+
+            }
+        });
+
 
 
         final View curs2View = findViewById(R.id.childCurs2);
         textDescriereCurs2 = curs2View.findViewById(R.id.TextViewDescriereCurs);
         textDescriereCurs2.setText(quest.getListCursuri().get(1).descriere);
+        buttonBeginCurs2 = curs2View.findViewById(R.id.ButtonBeginQuest);
+        buttonBeginCurs2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(quest.getListCursuri().get(1).url));
+                startActivity(intent);
+
+            }
+        });
 
 
         final View curs3View = findViewById(R.id.childCurs3);
         textDescriereCurs3 = curs3View.findViewById(R.id.TextViewDescriereCurs);
         textDescriereCurs3.setText(quest.getListCursuri().get(2).descriere);
+        buttonBeginCurs3 = curs3View.findViewById(R.id.ButtonBeginQuest);
+        buttonBeginCurs3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(quest.getListCursuri().get(2).url));
+                startActivity(intent);
+
+
+                }
+        });
 
         final ViewGroup transitionCurs1 = (ViewGroup) findViewById(R.id.LinearLayoutParentCurs1);
         transitionCurs1.setOnClickListener(new View.OnClickListener() {
@@ -183,4 +220,5 @@ public class QuestDetailActivity extends AppCompatActivity {
             }
         });
     }
+
 }

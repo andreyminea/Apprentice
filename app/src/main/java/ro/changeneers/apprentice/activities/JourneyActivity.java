@@ -69,7 +69,6 @@ public class JourneyActivity extends NavDrawer {
         });
 
     }
-
     @Override
     protected int getNavigationItemID()
     {
