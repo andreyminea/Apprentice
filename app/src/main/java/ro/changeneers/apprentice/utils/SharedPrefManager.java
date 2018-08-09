@@ -12,100 +12,95 @@ import java.util.List;
 
 import ro.changeneers.apprentice.models.Quest;
 
+import static ro.changeneers.apprentice.utils.Constants.EASY;
+import static ro.changeneers.apprentice.utils.Constants.HARD;
+import static ro.changeneers.apprentice.utils.Constants.MEDIUM;
+
 public class SharedPrefManager {
 
     private SharedPreferences sharedPreferences;
     private Context mContext;
     private int PRIVATE_MODE = 0;
     private static final String PREF_NAME = "sesionPref";
-    private SharedPreferences.Editor editor;
 
-    private static final int EASY = 1;
-    private static final int MEDIUM = 2;
-    private static final int HARD = 3;
 
-    public SharedPrefManager(Context context) {
-        mContext = context;
-        sharedPreferences = mContext.getSharedPreferences(PREF_NAME, PRIVATE_MODE);
-        editor = sharedPreferences.edit();
+    public static SharedPrefManager sharedPrefManager;
+
+    public static SharedPrefManager getInstance() {
+
+        return sharedPrefManager;
     }
 
-    public void saveIsLoggedIn(Context context, boolean isLoggedIn) {
+    public static void initialize(Context context) {
+
+        sharedPrefManager = new SharedPrefManager(context);
+    }
+
+
+    private SharedPrefManager(Context context) {
         mContext = context;
         sharedPreferences = mContext.getSharedPreferences(PREF_NAME, PRIVATE_MODE);
+    }
+
+    public void saveIsLoggedIn(boolean isLoggedIn) {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putBoolean("IS_LOGGED_IN", isLoggedIn);
         editor.apply();
     }
 
     public boolean getISLogged_IN() {
-        //mContext = context;
-        sharedPreferences = mContext.getSharedPreferences(PREF_NAME, PRIVATE_MODE);
         return sharedPreferences.getBoolean("IS_LOGGED_IN", false);
     }
 
-    public void saveToken(Context context, String toke) {
-        mContext = context;
-        sharedPreferences = mContext.getSharedPreferences(PREF_NAME, PRIVATE_MODE);
+    public void saveToken(String toke) {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString("ID_TOKEN", toke);
         editor.apply();
     }
 
     public String getUserToken() {
-        //mContext = context;
-        sharedPreferences = mContext.getSharedPreferences(PREF_NAME, PRIVATE_MODE);
         return sharedPreferences.getString("ID_TOKEN", "");
     }
 
-    public void saveEmail(Context context, String email) {
-        mContext = context;
-        sharedPreferences = mContext.getSharedPreferences(PREF_NAME, PRIVATE_MODE);
+    public void saveEmail(String email) {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString("EMAIL", email);
         editor.apply();
     }
 
     public String getUserEmail() {
-        sharedPreferences = mContext.getSharedPreferences(PREF_NAME, PRIVATE_MODE);
         return sharedPreferences.getString("EMAIL", null);
     }
 
 
-    public void saveName(Context context, String name) {
-        mContext = context;
-        sharedPreferences = mContext.getSharedPreferences(PREF_NAME, PRIVATE_MODE);
+    public void saveName(String name) {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString("NAME", name);
         editor.apply();
     }
 
     public String getName() {
-        sharedPreferences = mContext.getSharedPreferences(PREF_NAME, PRIVATE_MODE);
         return sharedPreferences.getString("NAME", null);
     }
 
-    public void savePhoto(Context context, String photo) {
-        mContext = context;
-        sharedPreferences = mContext.getSharedPreferences(PREF_NAME, PRIVATE_MODE);
+    public void savePhoto(String photo) {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString("PHOTO", photo);
         editor.apply();
     }
 
     public String getPhoto() {
-        sharedPreferences = mContext.getSharedPreferences(PREF_NAME, PRIVATE_MODE);
         return sharedPreferences.getString("PHOTO", null);
     }
 
     public void clear() {
+        SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.clear();
         editor.apply();
     }
 
-    public void saveQuestListInSharedPrefs(Context context, List<Quest> quests, int difficulty) {
-
-        sharedPreferences = context.getSharedPreferences(PREF_NAME, PRIVATE_MODE);
+    public void saveQuestListInSharedPrefs(List<Quest> quests, int difficulty) {
+        SharedPreferences.Editor editor = sharedPreferences.edit();
         Gson gson = new Gson();
 
         switch (difficulty) {
@@ -126,28 +121,29 @@ public class SharedPrefManager {
                 break;
         }
     }
-        public List<Quest> loadQuestListFromSharedPrefs(Context context, int difficulty) {
 
-            sharedPreferences = context.getSharedPreferences(PREF_NAME, PRIVATE_MODE);
-            Gson gson = new Gson();
-            Type type = new TypeToken<List<Quest>>(){}.getType();
-            List<Quest> list = new ArrayList<>();
-            switch (difficulty) {
-                case EASY:
-                    String jsonEasy = sharedPreferences.getString("QuestListEasy", "");
+    public List<Quest> loadQuestListFromSharedPrefs(int difficulty) {
 
-                    List<Quest> questsEasy = gson.fromJson(jsonEasy, type);
-                    return questsEasy;
-                case MEDIUM:
-                    String jsonMedium = sharedPreferences.getString("QuestListMedium", "");
-                    List<Quest> questsMedium = gson.fromJson(jsonMedium, type);
-                    return questsMedium;
-                case HARD:
-                    String jsonHard = sharedPreferences.getString("QuestListHard", "");
-                    List<Quest> questsHard = gson.fromJson(jsonHard, type);
-                    return questsHard;
+        Gson gson = new Gson();
+        Type type = new TypeToken<List<Quest>>() {
+        }.getType();
+        List<Quest> list = new ArrayList<>();
+        switch (difficulty) {
+            case EASY:
+                String jsonEasy = sharedPreferences.getString("QuestListEasy", "");
 
-            }
-            return list;
+                List<Quest> questsEasy = gson.fromJson(jsonEasy, type);
+                return questsEasy;
+            case MEDIUM:
+                String jsonMedium = sharedPreferences.getString("QuestListMedium", "");
+                List<Quest> questsMedium = gson.fromJson(jsonMedium, type);
+                return questsMedium;
+            case HARD:
+                String jsonHard = sharedPreferences.getString("QuestListHard", "");
+                List<Quest> questsHard = gson.fromJson(jsonHard, type);
+                return questsHard;
+
         }
+        return list;
+    }
 }

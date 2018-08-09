@@ -71,7 +71,7 @@ public abstract class NavDrawer extends AppCompatActivity implements OnNavigatio
         mProfileImageView = header.findViewById(R.id.nav_header_photo);
 
         // create an object of sharedPreferenceManager and get stored user data
-        sharedPrefManager = new SharedPrefManager(mContext);
+        sharedPrefManager = SharedPrefManager.getInstance();
         mFullName = sharedPrefManager.getName();
         mEmail = sharedPrefManager.getUserEmail();
         String uri = sharedPrefManager.getPhoto();

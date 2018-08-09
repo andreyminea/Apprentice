@@ -190,12 +190,12 @@ public class LogInActivity extends AppCompatActivity {
                 }
 
                 // Save Data to SharedPreference
-                sharedPrefManager = new SharedPrefManager(mContext);
-                sharedPrefManager.saveIsLoggedIn(mContext, true);
-                sharedPrefManager.saveEmail(mContext, email);
-                sharedPrefManager.saveName(mContext, name);
-                sharedPrefManager.savePhoto(mContext, photo);
-                sharedPrefManager.saveToken(mContext, idToken);
+                sharedPrefManager = SharedPrefManager.getInstance();
+                sharedPrefManager.saveIsLoggedIn(true);
+                sharedPrefManager.saveEmail(email);
+                sharedPrefManager.saveName(name);
+                sharedPrefManager.savePhoto(photo);
+                sharedPrefManager.saveToken(idToken);
 
 
                 firebaseAuthWithGoogle(account);

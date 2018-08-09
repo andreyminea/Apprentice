@@ -16,6 +16,11 @@
             android:layout_marginRight="12dp"
             android:layout_marginStart="12dp"/>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
         <Button
             android:id="@+id/ButtonBeginQuest"
             android:layout_width="wrap_content"
@@ -29,4 +34,21 @@
             android:focusable="true"
             android:focusableInTouchMode="true" />
 
+        <Button
+            android:id="@+id/ButtonFinishQuest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/appTurq"
+            android:text="Finish"
+            android:textColor="@color/appTextColor"
+            android:layout_marginLeft="20dp"
+            android:layout_marginBottom="2dp"
+            android:elevation="2dp"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:visibility="gone"/>
+
+
+
+    </LinearLayout>
     </LinearLayout>

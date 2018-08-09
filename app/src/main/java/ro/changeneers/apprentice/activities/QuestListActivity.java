@@ -74,6 +74,8 @@ public class QuestListActivity extends AppCompatActivity implements QuestListAda
 
     @Override
     public void onQuestClick(Quest quest) {
+
+
         Intent intent = new Intent(this, QuestDetailActivity.class);
         intent.putExtra("ID", quest.id);
         intent.putExtra("DIFFICULTY", difficulty);

@@ -40,19 +40,19 @@ public class ApprenticeApplication extends Application
     public void onCreate()
     {
         super.onCreate();
-        if(!FirebaseApp.getApps(this).isEmpty())
-        {
+        if(!FirebaseApp.getApps(this).isEmpty()) {
             FirebaseDatabase.getInstance().setPersistenceEnabled(true);
-
         }
+
+        SharedPrefManager.initialize(this);
 
     }
 
 
     public static void setQuestListDB(List<Quest> qList, int difficulty,Context context ){
 
-        SharedPrefManager sharedPrefManager = new SharedPrefManager(context);
-        sharedPrefManager.saveQuestListInSharedPrefs(context,qList,difficulty);
+        SharedPrefManager sharedPrefManager =  SharedPrefManager.getInstance();
+        sharedPrefManager.saveQuestListInSharedPrefs(qList,difficulty);
 
         switch (difficulty){
             case EASY:
