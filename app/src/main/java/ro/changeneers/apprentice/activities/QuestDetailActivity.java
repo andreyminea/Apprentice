@@ -175,7 +175,6 @@ public class QuestDetailActivity extends AppCompatActivity {
                 Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(quest.getListCursuri().get(2).url));
                 startActivity(intent);
 
-
                 }
         });
 
