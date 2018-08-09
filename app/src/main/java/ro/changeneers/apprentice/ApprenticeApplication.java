@@ -1,6 +1,8 @@
 package ro.changeneers.apprentice;
 
 import android.app.Application;
+import android.content.Context;
+import android.util.Log;
 
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.database.FirebaseDatabase;
@@ -10,9 +12,11 @@ import java.util.List;
 
 import ro.changeneers.apprentice.models.Curs;
 import ro.changeneers.apprentice.models.Quest;
+import ro.changeneers.apprentice.utils.SharedPrefManager;
 
 public class ApprenticeApplication extends Application
 {
+    private static final String TAG = "ApprenticeApplication";
 
     public static ApprenticeApplication applicationInstance;
 
@@ -45,7 +49,11 @@ public class ApprenticeApplication extends Application
     }
 
 
-    public static void setQuestListDB(List<Quest> qList, int difficulty ){
+    public static void setQuestListDB(List<Quest> qList, int difficulty,Context context ){
+
+        SharedPrefManager sharedPrefManager = new SharedPrefManager(context);
+        sharedPrefManager.saveQuestListInSharedPrefs(context,qList,difficulty);
+
         switch (difficulty){
             case EASY:
                 questListEasyDB.clear();
@@ -74,3 +82,4 @@ public class ApprenticeApplication extends Application
         return questListHardDB;
     }
 }
+

@@ -3,6 +3,7 @@ package ro.changeneers.apprentice.adapters;
 import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -63,6 +64,8 @@ public class JourneyRecyclerViewAdapter extends RecyclerView.Adapter<JourneyRecy
         public ImageView journeyBaniThumbnail;
         public ImageView journeyStresThumbnail;
         public ImageView journeyJobsThumbnail;
+        public CardView journeyCardView;
+
 
         public MyJourneyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -72,6 +75,18 @@ public class JourneyRecyclerViewAdapter extends RecyclerView.Adapter<JourneyRecy
             journeyBaniThumbnail = itemView.findViewById(R.id.ico_bani);
             journeyStresThumbnail = itemView.findViewById(R.id.ico_stres);
             journeyJobsThumbnail = itemView.findViewById(R.id.ico_job);
+            journeyCardView = itemView.findViewById(R.id.CardViewJourneyGeneral);
+
+            journeyCardView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(v.getContext(),BottomNavigationActivity.class);
+                    intent.putExtra("position",0);
+                    v.getContext().startActivity(intent);
+
+                }
+            });
+
 
             journeyOverviewThumbnail.setOnClickListener(new View.OnClickListener() {
                 @Override

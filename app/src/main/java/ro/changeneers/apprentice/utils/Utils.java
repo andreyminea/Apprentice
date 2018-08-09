@@ -85,7 +85,7 @@ public class Utils {
                                                   }
                                               }
                                               ApprenticeApplication.getInstance();
-                                              ApprenticeApplication.setQuestListDB(questList,1);
+                                              ApprenticeApplication.setQuestListDB(questList,1,context);
 
                                           }
 
@@ -115,7 +115,7 @@ public class Utils {
                                                   }
                                               }
                                               ApprenticeApplication.getInstance();
-                                              ApprenticeApplication.setQuestListDB(questList,2);
+                                              ApprenticeApplication.setQuestListDB(questList,2, context);
 
                                           }
 
@@ -145,7 +145,7 @@ public class Utils {
                                                   }
                                               }
                                               ApprenticeApplication.getInstance();
-                                              ApprenticeApplication.setQuestListDB(questList,3);
+                                              ApprenticeApplication.setQuestListDB(questList,3,context);
 
                                           }
 
