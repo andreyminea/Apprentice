@@ -127,9 +127,10 @@
                         android:layout_marginEnd="8dp"/>
 
                     <TextView
+                        android:id="@+id/TextViewStarsCurs1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="3"
+                        tools:text="3"
                         android:textColor="@color/appTextColor"
                         android:textStyle="bold" />
 
@@ -206,9 +207,10 @@
                         android:layout_marginEnd="8dp"/>
 
                     <TextView
+                        android:id="@+id/TextViewStarsCurs2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="2"
+                        tools:text="2"
                         android:textColor="@color/appTextColor"
                         android:textStyle="bold" />
 
@@ -229,9 +231,9 @@
             android:id="@+id/LinearLayoutParentCurs3"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
             android:layout_marginStart="4dp"
-            android:focusable="true">
+            android:focusable="true"
+            android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -243,9 +245,9 @@
                     android:id="@+id/TextViewTitleCurs3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    tools:text="Cursul de la udemy"
                     android:textColor="@color/appTextColor"
-                    android:textSize="17sp" />
+                    android:textSize="17sp"
+                    tools:text="Cursul de la udemy" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -258,36 +260,37 @@
                         android:id="@+id/TextViewDurataCurs3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        tools:text="3"
+                        android:layout_marginEnd="4dp"
                         android:textColor="@color/appTextColor"
                         android:textStyle="bold"
-                        android:layout_marginEnd="4dp"/>
+                        tools:text="3" />
 
                     <ImageView
                         android:layout_width="20dp"
                         android:layout_height="20dp"
-                        android:src="@drawable/ic_access_time_black_24dp"
-                        android:layout_marginEnd="8dp"/>
+                        android:layout_marginEnd="8dp"
+                        android:src="@drawable/ic_access_time_black_24dp" />
 
                     <TextView
                         android:id="@+id/TextViewCostCurs3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        tools:text="3"
+                        android:layout_marginRight="4dp"
                         android:textColor="@color/appTextColor"
                         android:textStyle="bold"
-                        android:layout_marginRight="4dp"/>
+                        tools:text="3" />
 
                     <ImageView
                         android:layout_width="20dp"
                         android:layout_height="20dp"
-                        android:src="@drawable/ic_monetization_on_black_24dp"
-                        android:layout_marginEnd="8dp"/>
+                        android:layout_marginEnd="8dp"
+                        android:src="@drawable/ic_monetization_on_black_24dp" />
 
                     <TextView
+                        android:id="@+id/TextViewStarsCurs3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="1"
+                        tools:text="1"
                         android:textColor="@color/appTextColor"
                         android:textStyle="bold" />
 

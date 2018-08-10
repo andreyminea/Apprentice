@@ -3,6 +3,7 @@ package ro.changeneers.apprentice.adapters;
 import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,16 +16,17 @@ import com.squareup.picasso.Picasso;
 import java.util.List;
 
 import ro.changeneers.apprentice.activities.BottomNavigationActivity;
+import ro.changeneers.apprentice.models.DashboardItem;
 import ro.changeneers.apprentice.models.JourneyItem;
 import ro.changeneers.apprentice.R;
 
 public class JourneyRecyclerViewAdapter extends RecyclerView.Adapter<JourneyRecyclerViewAdapter.MyJourneyViewHolder> {
-    private static Context jContext;
     private List<JourneyItem> jList;
+    private OnJourneyItemClickListener listener;
 
-    public JourneyRecyclerViewAdapter(Context jContext, List<JourneyItem> jList) {
-        this.jContext = jContext;
+    public JourneyRecyclerViewAdapter(List<JourneyItem> jList, OnJourneyItemClickListener listener) {
         this.jList =jList;
+        this.listener = listener;
     }
 
     @NonNull
@@ -33,7 +35,7 @@ public class JourneyRecyclerViewAdapter extends RecyclerView.Adapter<JourneyRecy
         View view;
         LayoutInflater mInflater = LayoutInflater.from(parent.getContext());
         view = mInflater.inflate(R.layout.cardview_item_journey_list,parent,false);
-        MyJourneyViewHolder mvh = new MyJourneyViewHolder(view);
+        MyJourneyViewHolder mvh = new MyJourneyViewHolder(view, listener);
         return mvh;
     }
 
@@ -63,8 +65,11 @@ public class JourneyRecyclerViewAdapter extends RecyclerView.Adapter<JourneyRecy
         public ImageView journeyBaniThumbnail;
         public ImageView journeyStresThumbnail;
         public ImageView journeyJobsThumbnail;
+        public CardView journeyCardView;
 
-        public MyJourneyViewHolder(@NonNull View itemView) {
+        private OnJourneyItemClickListener listener;
+
+        public MyJourneyViewHolder(@NonNull View itemView, final OnJourneyItemClickListener listener) {
             super(itemView);
             journeyThumbnail = itemView.findViewById(R.id.ImageViewJourney);
             journeyTitle = itemView.findViewById(R.id.TextViewJourneyTitle);
@@ -72,39 +77,61 @@ public class JourneyRecyclerViewAdapter extends RecyclerView.Adapter<JourneyRecy
             journeyBaniThumbnail = itemView.findViewById(R.id.ico_bani);
             journeyStresThumbnail = itemView.findViewById(R.id.ico_stres);
             journeyJobsThumbnail = itemView.findViewById(R.id.ico_job);
+            journeyCardView = itemView.findViewById(R.id.CardViewJourneyGeneral);
+            this.listener = listener;
+
+            journeyCardView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    listener.onJourneyCardClick();
+
+                }
+            });
+
 
             journeyOverviewThumbnail.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(v.getContext(),BottomNavigationActivity.class);
-                    intent.putExtra("position",0);
-                    v.getContext().startActivity(intent);
+
+                    listener.onOverviewIconClick();
+
                 }
             });
             journeyBaniThumbnail.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(v.getContext(),BottomNavigationActivity.class);
-                    intent.putExtra("position",1);
-                    v.getContext().startActivity(intent);
+
+                    listener.onBaniIconClick();
+
                 }
             });
             journeyStresThumbnail.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(v.getContext(),BottomNavigationActivity.class);
-                    intent.putExtra("position",2);
-                    v.getContext().startActivity(intent);
+
+                    listener.onStresIconClick();
+
                 }
             });
             journeyJobsThumbnail.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(v.getContext(),BottomNavigationActivity.class);
-                    intent.putExtra("position",3);
-                    v.getContext().startActivity(intent);
+
+                    listener.onJobsIconClick();
+
                 }
             });
         }
+    }
+
+    public interface OnJourneyItemClickListener {
+
+        void onJourneyCardClick();
+        void onOverviewIconClick();
+        void onBaniIconClick();
+        void onStresIconClick();
+        void onJobsIconClick();
+
     }
 }

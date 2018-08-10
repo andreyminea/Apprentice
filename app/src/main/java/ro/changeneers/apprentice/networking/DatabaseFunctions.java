@@ -54,14 +54,19 @@ public class DatabaseFunctions
             quest = dataQuest.getValue(Quest.class);
             Iterator iteratorCursuri = dataQuest.child("Cursuri").getChildren().iterator();
 
+            int indexCursuri = 1;
+            int sumStarQuest = 0;
             while (iteratorCursuri.hasNext())
             {
                 keyCurs =((DataSnapshot)iteratorCursuri.next()).getKey();
                 curs = dataQuest.child("Cursuri").child(keyCurs).getValue(Curs.class);
+                curs.setStars(indexCursuri++);
+                sumStarQuest += curs.getStars();
                 listaCursuri.add(curs);
             }
             quest.setListCursuri(listaCursuri);
 
+            quest.setMaxStars(sumStarQuest);
             listResult.add(quest);
         }
 

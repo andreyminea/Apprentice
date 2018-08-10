@@ -16,6 +16,9 @@ import ro.changeneers.apprentice.R;
 import ro.changeneers.apprentice.adapters.QuestListAdapter;
 import ro.changeneers.apprentice.models.Quest;
 
+import static ro.changeneers.apprentice.utils.Constants.DIFFICULTY_EXTRA;
+import static ro.changeneers.apprentice.utils.Constants.ID_EXTRA;
+
 public class QuestListActivity extends AppCompatActivity implements QuestListAdapter.OnQuestClickListener {
 
     private static final String TAG = "QuestListActivity";
@@ -35,7 +38,7 @@ public class QuestListActivity extends AppCompatActivity implements QuestListAda
         setContentView(R.layout.activity_quest_list);
 
         Intent receivingIntent = getIntent();
-        int difficulty = receivingIntent.getIntExtra("DIFFICULTY", 0);
+        int difficulty = receivingIntent.getIntExtra(DIFFICULTY_EXTRA, 0);
         this.difficulty = difficulty;
 
 
@@ -74,9 +77,11 @@ public class QuestListActivity extends AppCompatActivity implements QuestListAda
 
     @Override
     public void onQuestClick(Quest quest) {
+
+
         Intent intent = new Intent(this, QuestDetailActivity.class);
-        intent.putExtra("ID", quest.id);
-        intent.putExtra("DIFFICULTY", difficulty);
+        intent.putExtra(ID_EXTRA, quest.id);
+        intent.putExtra(DIFFICULTY_EXTRA, difficulty);
         startActivity(intent);
     }
 }

@@ -84,7 +84,7 @@ public class ChatRoomActivity extends NavDrawer {
         FirebaseStorage storage = FirebaseStorage.getInstance();
         storageReference = storage.getReference();
 
-        sharedPrefManager = new SharedPrefManager(mContext);
+        sharedPrefManager =  SharedPrefManager.getInstance();
 
         listview = (ListView) findViewById(R.id.chatMessages);
         listview.setTranscriptMode(ListView.TRANSCRIPT_MODE_NORMAL);
