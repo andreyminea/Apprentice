@@ -18,6 +18,8 @@ import ro.changeneers.apprentice.interfaces.CallbackDB;
 import ro.changeneers.apprentice.models.Quest;
 import ro.changeneers.apprentice.utils.Utils;
 
+import static ro.changeneers.apprentice.utils.Constants.DIFFICULTY_EXTRA;
+
 public class JourneyActivity extends NavDrawer {
 
     private static final String TAG = "JourneyActivity";
@@ -45,7 +47,7 @@ public class JourneyActivity extends NavDrawer {
                    @Override
                    public void onSuccess(@NonNull ArrayList<Quest> quests) {
                        Intent intent = new Intent(JourneyActivity.this, QuestListActivity.class);
-                       intent.putExtra("DIFFICULTY",1);
+                       intent.putExtra(DIFFICULTY_EXTRA,1);
                        startActivity(intent);
                    }
 
@@ -65,7 +67,7 @@ public class JourneyActivity extends NavDrawer {
                     @Override
                     public void onSuccess(@NonNull ArrayList<Quest> quests) {
                         Intent intent = new Intent(JourneyActivity.this,QuestListActivity.class);
-                        intent.putExtra("DIFFICULTY",2);
+                        intent.putExtra(DIFFICULTY_EXTRA,2);
                         startActivity(intent);
                     }
 
@@ -85,7 +87,7 @@ public class JourneyActivity extends NavDrawer {
                     @Override
                     public void onSuccess(@NonNull ArrayList<Quest> quests) {
                         Intent intent = new Intent(JourneyActivity.this,QuestListActivity.class);
-                        intent.putExtra("DIFFICULTY",3);
+                        intent.putExtra(DIFFICULTY_EXTRA,3);
                         startActivity(intent);
                     }
 

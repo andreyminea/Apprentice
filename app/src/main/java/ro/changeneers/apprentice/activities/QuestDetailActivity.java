@@ -23,9 +23,12 @@ import ro.changeneers.apprentice.models.Curs;
 import ro.changeneers.apprentice.models.Quest;
 import ro.changeneers.apprentice.utils.Utils;
 
+import static ro.changeneers.apprentice.utils.Constants.ACCES_EXTRA;
+import static ro.changeneers.apprentice.utils.Constants.DIFFICULTY_EXTRA;
 import static ro.changeneers.apprentice.utils.Constants.EASY;
 import static ro.changeneers.apprentice.utils.Constants.FINISHED;
 import static ro.changeneers.apprentice.utils.Constants.HARD;
+import static ro.changeneers.apprentice.utils.Constants.ID_EXTRA;
 import static ro.changeneers.apprentice.utils.Constants.IN_PROGRESS;
 import static ro.changeneers.apprentice.utils.Constants.MEDIUM;
 
@@ -84,15 +87,15 @@ public class QuestDetailActivity extends AppCompatActivity {
 //                    "Vei invata ce inseamna notiunile de baza ale programarii in general", 0, cursuri);
 
         Intent intent = getIntent();
-        String incomingQuestId = intent.getExtras().getString("ID");
-        Boolean fromProfile = intent.getExtras().getBoolean("ACCESS",false);
+        String incomingQuestId = intent.getExtras().getString(ID_EXTRA);
+        Boolean fromProfile = intent.getExtras().getBoolean(ACCES_EXTRA,false);
         if(fromProfile){
             buttonFinishCurs1.setVisibility(View.VISIBLE);
             buttonFinishCurs2.setVisibility(View.VISIBLE);
             buttonFinishCurs3.setVisibility(View.VISIBLE);
         }
         Log.d(TAG, "onCreate: ID FROM INTENT IS "+ incomingQuestId);
-        final int difficulty = intent.getExtras().getInt("DIFFICULTY");
+        final int difficulty = intent.getExtras().getInt(DIFFICULTY_EXTRA);
 
         List<Quest> localList = new ArrayList<>();
 

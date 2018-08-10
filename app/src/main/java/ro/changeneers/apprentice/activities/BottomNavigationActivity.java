@@ -17,6 +17,8 @@ import ro.changeneers.apprentice.fragments.FragmentStartJourney;
 import ro.changeneers.apprentice.fragments.FragmentStres;
 import ro.changeneers.apprentice.R;
 
+import static ro.changeneers.apprentice.utils.Constants.POSITION_EXTRA;
+
 public class BottomNavigationActivity extends AppCompatActivity {
 
     private ViewPagerAdapter mViewPagerAdapter;
@@ -34,7 +36,7 @@ public class BottomNavigationActivity extends AppCompatActivity {
 
 
         Intent receivingIntent = getIntent();
-        int position = receivingIntent.getIntExtra("position",0);
+        int position = receivingIntent.getIntExtra(POSITION_EXTRA,0);
         setupViewPager(mViewPager,position,bottomNav);
 
 
