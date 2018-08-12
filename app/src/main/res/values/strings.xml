@@ -63,58 +63,58 @@
     <string name="title_activity_nav_drawer">NavDrawer</string>
 
     <string name="fragment_overview_title">Introducere</string>
-    <string name="fragment_overview_text">   În prezent, Java este considerat unul dintre
+    <string name="fragment_overview_text1"> &#160;&#160; În prezent, Java este considerat unul dintre
 cele mai puternice și importante limbaje de
 programare de pe piață, putând fi utilizat în
 aproape orice aplicații și având ca şi
 caracteristică principală portabilitatea pe orice
 sistem de operare . Este un limbaj de
 programare high-level, orientat pe obiect şi cu
-elemente de programare funcțională.\n\n
+elemente de programare funcțională. </string>
 
-    Așadar trebuie să reținem următoarele caracteristici definitorii ale Java:\n
+    <string name="fragment_overview_text2"> &#160;&#160; Așadar trebuie să reținem următoarele caracteristici definitorii ale Java:\n
         - limbaj de programare OOP: rezultatele rulării sunt obținute în urma interacțiunii unor entități numite obiecte;\n
         - limbaj de programare procedural: este cel în cadrul căruia setul de instrucțiuni scris într-o anumită ordine formează un algoritm;\n
-        - limbaj de programare independent de platformă: programele se execută indiferent de sitemul de operare cu care au fost compilate, deoarece în Java  programele sunt rulate de o masină virtuală, ci nu de un sitem de operare.\n
+        - limbaj de programare independent de platformă: programele se execută indiferent de sitemul de operare cu care au fost compilate, deoarece în Java  programele sunt rulate de o masină virtuală, si nu de un sitem de operare.\n
 \n
-    Targetul de aplicații dezvoltate cu Java este reprezentat în general de aplicații business.</string>
+    &#160;&#160; Targetul de aplicații dezvoltate cu Java este reprezentat în general de aplicații business.</string>
 
     <string name="fragment_bani_title">Venit</string>
-    <string name="fragment_bani_text">    Java va rămâne o primă opțiune pentru cei care doresc să învețe programare, mai ales dacă doresc să facă aplicații de Android.\n
-\n
-    Este binecunoscut faptul că domeniul IT este unul foarte tenant din punct de vedere financiar şi că vine cu o mulţime de beneficii, cum ar fi programul flexibil şi orele suplimentare plătite dublu.\n
-\n
-    Cât despre o sumă concretă şi orietativă, studii recente arată că salariul pentru un programator entry-level într-o companie de top porneşte de la 800-1.000 de euro, iar după 3-5 ani poate ajunge la un nivel de 3.000 de euro sau chiar şi mai mult, în funcţie de cât de solicitant este jobul sau de principiile companiei.</string>
+    <string name="fragment_bani_text"> &#160;&#160; Java va rămâne o primă opțiune pentru cei care doresc să învețe programare, mai ales dacă doresc să facă aplicații de Android.\n
+    &#160;&#160; Este binecunoscut faptul că domeniul IT este unul foarte tenant din punct de vedere financiar şi că vine cu o mulţime de beneficii, cum ar fi programul flexibil şi orele suplimentare plătite dublu.\n
+    &#160;&#160; Cât despre o sumă concretă şi orietativă, studii recente arată că salariul pentru un programator entry-level într-o companie de top porneşte de la 800-1.000 de euro, iar după 3-5 ani poate ajunge la un nivel de 3.000 de euro sau chiar şi mai mult, în funcţie de cât de solicitant este jobul sau de principiile companiei.</string>
 
     <string name="fragment_stres_title">Stres</string>
-    <string name="fragment_stres_text">    Programarea în general este un job stresant - ești presat de termene limită, de cerințe ce necesită o perioadă îndelungată de rezolvare.\n
-\n
-    Specialiştii spun că pentru a fi un bun programator și pentru a avea un bun management al stresului , trebuie să dispui de calităţi precum:\n
-     1.	Pasiune: pentru că este un job solicitant care va deveni cu atât mai plăcut cu cât te implici mai mult şi cu cât munceşti din pasiune;\n
-     2.	Răbdare: pentru că pot să treacă zile întregi până rezolvi o anumită problemă;\n
-     3.	Dorinţa de a învăţa constant lucruri noi: succesul este garantat şi de dorinţa de a fi mereu la curent cu noile schimbări sau inovaţii din domeniu (totodată, este o metodă prin care niciodată nu o să consideri că ai un job monoton);\n
-     4.	Abilităţi de analiză: sunt esenţiale în rezolvarea problemelor;\n
-     5.	Eficienţa muncii în echipă: mai ales în cadrul proiectelor mari, trebuie să te integrezi cât mai uşor şi să cooperezi cât mai eficient cu colegii tăi pentru a garanta succesul echipei</string>
+    <string name="fragment_stres_text1"> &#160;&#160; Programarea în general este un job stresant - ești presat de termene limită, de cerințe ce necesită o perioadă îndelungată de rezolvare.\n </string>
+    <string name="fragment_stres_text2">
+    &#160;&#160; Specialiştii spun că pentru a fi un bun programator și pentru a avea un bun management al stresului , trebuie să dispui de calităţi precum: </string>
+    <string name="fragment_stres_text3">
+     1.	Pasiune:  pentru că este un job solicitant care va deveni cu atât mai plăcut cu cât te implici mai mult şi cu cât munceşti din pasiune;\n
+     2.	Răbdare:  pentru că pot să treacă zile întregi până rezolvi o anumită problemă;\n
+     3.	Dorinţa de a învăţa constant lucruri noi:  succesul este garantat şi de dorinţa de a fi mereu la curent cu noile schimbări sau inovaţii din domeniu (totodată, este o metodă prin care niciodată nu o să consideri că ai un job monoton);\n
+     4.	Abilităţi de analiză:  sunt esenţiale în rezolvarea problemelor;\n
+     5.	Eficienţa muncii în echipă:  mai ales în cadrul proiectelor mari, trebuie să te integrezi cât mai uşor şi să cooperezi cât mai eficient cu colegii tăi pentru a garanta succesul echipei . </string>
 
     <string name="fragment_jobs_title">Jobs</string>
-    <string name="fragment_jobs_text">    Cele mai importante lucruri nu se întâmplă peste noapte - cu atât mai mult cele care sunt legate de cariera ta. Astfel, este total greşit  să crezi că vei reuși să înveți fără efort și în timp record un limbaj de programare care îți va aduce o poziție cheie într-o organizație și un salariu motivant pentru care nu trebuie să-ți faci griji mult timp de acum încolo. Este esenţial să fii perseverent.\n
-\n
-    Câteva sfaturi de bază de care trebuie să ţii cont în cariera ta sunt:\n
+    <string name="fragment_jobs_text1"> &#160;&#160; Cele mai importante lucruri nu se întâmplă peste noapte - cu atât mai mult cele care sunt legate de cariera ta. Astfel, este total greşit  să crezi că vei reuși să înveți fără efort și în timp record un limbaj de programare care îți va aduce o poziție cheie într-o organizație și un salariu motivant pentru care nu trebuie să-ți faci griji mult timp de acum încolo. Este esenţial să fii perseverent.\n </string>
+    <string name="fragment_jobs_text2">
+        &#160;&#160; Câteva sfaturi de bază de care trebuie să ţii cont în cariera ta sunt: </string>
+    <string name="fragment_jobs_text3">
          -	Nu o face pentru că trebuie, ci pentru că îţi place\n
          -	Fii curios, învaţă constant de la ceilalţi şi documentează-te la orice pas\n
          -	Concentrează-te să înţelegi şi să înveţi logic\n
          -	Learn by doing\n
          -	Nu renunţa, oricât de greu sau solicitant ar deveni, aminteşte-ţi de ce ai început\n
-         -	Distrează-te\n
-
-    Iată către ce tipuri de joburi te vei putea orienta atât la început, cât și pe parcurs, odată ce ai mai multă experiență:\n
+        -	Distrează-te </string>
+    <string name="fragment_jobs_text4">
+    &#160;&#160; Iată către ce tipuri de joburi te vei putea orienta atât la început, cât și pe parcurs, odată ce ai mai multă experiență:\n
        - Java Developer\n
        - Mobile Developer\n
        - Front-end Developer\n
        - Back-end Developer\n
 \n
-    O statistică recentă arată că în momentul de faţă, pe site-urile cu oportunităţi de angajare din România, sunt disponibile peste 1300 de joburi care se adresează programatorilor specializaţi în limbajul de programare Java, acestea fiind împărţite pe nivele de experienţă şi dificultate.
-</string>
+    &#160;&#160; O statistică recentă arată că în momentul de faţă, pe site-urile cu oportunităţi de angajare din România, sunt disponibile peste 1300 de joburi care se adresează programatorilor specializaţi în limbajul de programare Java, acestea fiind împărţite pe nivele de experienţă şi dificultate.</string>
+
 
     <string name="chat_activity_title">Room - %s</string>
 
