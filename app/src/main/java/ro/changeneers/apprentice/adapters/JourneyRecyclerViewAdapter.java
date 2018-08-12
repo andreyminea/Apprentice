@@ -44,7 +44,7 @@ public class JourneyRecyclerViewAdapter extends RecyclerView.Adapter<JourneyRecy
         final int i = position;
         switch (position){
             case 0:
-                Picasso.get().load(R.drawable.adventure).into(holder.journeyThumbnail);
+                Picasso.get().load(R.drawable.java).fit().centerInside().into(holder.journeyThumbnail);
                 break;
         }
 
