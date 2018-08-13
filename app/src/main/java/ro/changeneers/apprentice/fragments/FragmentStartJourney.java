@@ -7,7 +7,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-
 import ro.changeneers.apprentice.activities.JourneyActivity;
 import ro.changeneers.apprentice.R;
 
@@ -23,6 +22,10 @@ public class FragmentStartJourney extends android.support.v4.app.Fragment {
 
         View view = inflater.inflate(R.layout.fragment_start_journey_layout,container,false);
         startJourneyBtn = view.findViewById(R.id.ButtonStartJourney);
+
+
+
+
 
         startJourneyBtn.setOnClickListener(new View.OnClickListener() {
             @Override
