@@ -191,7 +191,7 @@ public abstract class NavDrawer extends AppCompatActivity implements OnNavigatio
                 break;
             case R.id.nav_about:
                 Log.d(TAG, "open About Activity");
-                Intent a = new Intent(this, MainActivity.class);
+                Intent a = new Intent(this, AboutUsActivity.class);
                 startActivity(a);
                 break;
             case R.id.nav_logout:
