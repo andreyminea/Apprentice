@@ -7,6 +7,7 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,6 +16,7 @@ import ro.changeneers.apprentice.ApprenticeApplication;
 import ro.changeneers.apprentice.R;
 import ro.changeneers.apprentice.adapters.QuestListAdapter;
 import ro.changeneers.apprentice.models.Quest;
+import ro.changeneers.apprentice.utils.SharedPrefManager;
 
 import static ro.changeneers.apprentice.utils.Constants.DIFFICULTY_EXTRA;
 import static ro.changeneers.apprentice.utils.Constants.ID_EXTRA;
@@ -62,8 +64,8 @@ public class QuestListActivity extends AppCompatActivity implements QuestListAda
 
         RecyclerView recyclerView = findViewById(R.id.RecyclerViewQuestList);
         recyclerView.setHasFixedSize(true);
-
-        QuestListAdapter questListAdapter = new QuestListAdapter(quests, this);
+        int stars = SharedPrefManager.getInstance().getStarsFromSharedPrefs();
+        QuestListAdapter questListAdapter = new QuestListAdapter(quests, this, stars );
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
         questListAdapter.notifyDataSetChanged();
@@ -78,10 +80,18 @@ public class QuestListActivity extends AppCompatActivity implements QuestListAda
     @Override
     public void onQuestClick(Quest quest) {
 
+        if(SharedPrefManager.getInstance().getStarsFromSharedPrefs()<quest.minimStarsToUnlock){
 
-        Intent intent = new Intent(this, QuestDetailActivity.class);
-        intent.putExtra(ID_EXTRA, quest.id);
-        intent.putExtra(DIFFICULTY_EXTRA, difficulty);
-        startActivity(intent);
+            Toast.makeText(QuestListActivity.this,"Aduna mai multe stelute!", Toast.LENGTH_SHORT).show();
+
+        }else {
+
+
+            Intent intent = new Intent(this, QuestDetailActivity.class);
+            intent.putExtra(ID_EXTRA, quest.id);
+            intent.putExtra(DIFFICULTY_EXTRA, difficulty);
+            startActivity(intent);
+
+        }
     }
 }
