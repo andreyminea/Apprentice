@@ -37,7 +37,7 @@ public class SharedPrefManager {
     }
 
 
-    private SharedPrefManager(Context context) {
+    public SharedPrefManager(Context context) {
         mContext = context;
         sharedPreferences = mContext.getSharedPreferences(PREF_NAME, PRIVATE_MODE);
     }
