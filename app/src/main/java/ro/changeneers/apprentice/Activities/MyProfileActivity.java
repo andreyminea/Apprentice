@@ -45,6 +45,8 @@ public class MyProfileActivity extends NavDrawer implements View.OnClickListener
     private String nume;
     private String profile;
     private Button signOut;
+    private TextView starsTextView;
+    private int stars;
 
 
     ImageView imageView;
@@ -65,6 +67,9 @@ public class MyProfileActivity extends NavDrawer implements View.OnClickListener
         sharedPrefManager = new SharedPrefManager(mContext);
         nume = sharedPrefManager.getName();
         mFullNameTextView.setText(nume);
+        stars = sharedPrefManager.getStarsFromSharedPrefs();
+        starsTextView = findViewById(R.id.TextViewStarsMyProfile);
+        starsTextView.setText(Integer.toString(stars));
 
         mProfileImageView = findViewById(R.id.profile);
 

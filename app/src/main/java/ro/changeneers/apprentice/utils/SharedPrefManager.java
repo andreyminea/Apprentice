@@ -146,4 +146,18 @@ public class SharedPrefManager {
         }
         return list;
     }
+
+    public void updateStarsInSharedPrefs(int starsObtained){
+
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+
+        editor.putInt("STARS",getStarsFromSharedPrefs() + starsObtained);
+        editor.apply();
+
+    }
+
+    public int getStarsFromSharedPrefs(){
+
+        return sharedPreferences.getInt("STARS",0);
+    }
 }
