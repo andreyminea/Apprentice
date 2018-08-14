@@ -1,30 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@android:color/white">
+    android:layout_height="match_parent">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-        <TextView
-            android:id="@+id/TextViewBaniTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="@string/fragment_bani_title"
-            android:textSize="60sp"
-            android:layout_gravity="center"/>
+        android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/TextViewBaniText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/fragment_bani_text"
-            android:layout_marginLeft="6dp"
-            />
-    </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#F1F2F3"
+            android:orientation="vertical">
 
+            <TextView
+                android:id="@+id/TextViewBaniTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_margin="@dimen/com_facebook_likeboxcountview_border_width"
+                android:padding="@dimen/cardview_default_elevation"
+                android:text="@string/fragment_bani_title"
+                android:textSize="60sp"
+                tools:textColor="#333333" />
+
+            <TextView
+                android:id="@+id/TextViewBaniText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:padding="4dp"
+                android:text="@string/fragment_bani_text"
+                tools:layout_margin="10dp"
+                android:textSize="15sp"
+                tools:textColor="#6A6A6A"
+                android:orientation="horizontal"
+                android:gravity="fill_horizontal"
+                android:breakStrategy="balanced"/>
+
+            <ImageView
+                android:id="@+id/money_fragment"
+                android:layout_width="match_parent"
+                android:layout_height="164dp"
+                android:src="@drawable/money3"
+                tools:background="#F1F2F3" />
+        </LinearLayout>
+
+    </ScrollView>
 </android.support.v7.widget.CardView>
