@@ -130,19 +130,21 @@ public class SharedPrefManager {
         List<Quest> list = new ArrayList<>();
         switch (difficulty) {
             case EASY:
-                String jsonEasy = sharedPreferences.getString("QuestListEasy", "");
-
-                List<Quest> questsEasy = gson.fromJson(jsonEasy, type);
-                return questsEasy;
+                String jsonEasy = sharedPreferences.getString("QuestListEasy", null);
+                list = gson.fromJson(jsonEasy, type);
+                break;
             case MEDIUM:
-                String jsonMedium = sharedPreferences.getString("QuestListMedium", "");
-                List<Quest> questsMedium = gson.fromJson(jsonMedium, type);
-                return questsMedium;
+                String jsonMedium = sharedPreferences.getString("QuestListMedium", null);
+                list = gson.fromJson(jsonMedium, type);
+                break;
             case HARD:
-                String jsonHard = sharedPreferences.getString("QuestListHard", "");
-                List<Quest> questsHard = gson.fromJson(jsonHard, type);
-                return questsHard;
+                String jsonHard = sharedPreferences.getString("QuestListHard", null);
+                list = gson.fromJson(jsonHard, type);
+                break;
 
+        }
+        if(list==null){
+            list = new ArrayList<>();
         }
         return list;
     }

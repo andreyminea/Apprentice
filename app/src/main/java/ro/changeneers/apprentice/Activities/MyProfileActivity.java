@@ -34,6 +34,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Transformation;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import ro.changeneers.apprentice.R;
@@ -142,8 +143,13 @@ public class MyProfileActivity extends NavDrawer implements View.OnClickListener
             }
         });
 
-        List<Quest> questsInProgress = Utils.getQuestsInProgress();
-        List<Quest> questsDone = Utils.getQuestsDone();
+
+
+        List<Quest> questsInProgress = new ArrayList<>();
+        List<Quest> questsDone = new ArrayList<>();
+
+        questsInProgress.addAll(Utils.getQuestsInProgress());
+        questsDone.addAll(Utils.getQuestsDone());
 
         RecyclerView questsDoneRV = findViewById(R.id.RecyclerViewQuestsDone);
         questsDoneRV.setHasFixedSize(true);
