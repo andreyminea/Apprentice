@@ -62,7 +62,7 @@ public class ChatMainActivity extends NavDrawer {
 
         roomList.setAdapter(roomAdapter);
 
-        sharedPrefManager = new SharedPrefManager(mContext);
+        sharedPrefManager =  SharedPrefManager.getInstance();
         userName = sharedPrefManager.getName();
 
         databaseReference = FirebaseDatabase.getInstance().getReference().getRoot();

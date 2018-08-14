@@ -71,7 +71,7 @@ public abstract class NavDrawer extends AppCompatActivity implements OnNavigatio
         mProfileImageView = header.findViewById(R.id.nav_header_photo);
 
         // create an object of sharedPreferenceManager and get stored user data
-        sharedPrefManager = new SharedPrefManager(mContext);
+        sharedPrefManager = SharedPrefManager.getInstance();
         mFullName = sharedPrefManager.getName();
         mEmail = sharedPrefManager.getUserEmail();
         String uri = sharedPrefManager.getPhoto();
@@ -157,8 +157,7 @@ public abstract class NavDrawer extends AppCompatActivity implements OnNavigatio
         mDrawerLayout.closeDrawer(GravityCompat.START);
 
         final int mItemId = menuItem.getItemId();
-        if (mItemId == getNavigationItemID())
-        {
+        if (mItemId == getNavigationItemID()) {
             return true;
         }
         onMenuItemClick(mItemId);
@@ -191,13 +190,10 @@ public abstract class NavDrawer extends AppCompatActivity implements OnNavigatio
                 break;
             case R.id.nav_about:
                 Log.d(TAG, "open About Activity");
-                Intent a = new Intent(this, MainActivity.class);
+                Intent a = new Intent(this, AboutUsActivity.class);
                 startActivity(a);
                 break;
-            case R.id.nav_logout:
-                Log.d(TAG, "open Logout Activity");
-                logout();
-                break;
+
         }
     }
 
@@ -233,11 +229,4 @@ public abstract class NavDrawer extends AppCompatActivity implements OnNavigatio
         Log.d(TAG, "onDestroy callback");
     }
 
-    private void logout() {
-        FirebaseAuth.getInstance().signOut();
-        Intent intent = new Intent(this, LogInActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        startActivity(intent);
-        finish();
-    }
 }
