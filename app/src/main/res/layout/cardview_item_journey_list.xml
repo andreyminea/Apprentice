@@ -27,21 +27,25 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="10dp">
-        <TextView
-            android:id="@+id/TextViewJourneyTitle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/Title"
-            android:textSize="20sp"
-            android:layout_margin="2dp"
-            android:textColor="@color/appTextColor"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_margin="2dp"
-            android:layout_marginStart="5dp"
-            android:textColor="@color/appTextColor"
-            android:text="@string/journey"/>
+
+            <TextView
+                android:id="@+id/TextViewJourneyTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="2dp"
+                android:fontFamily="@font/source_sans_pro"
+                android:text="@string/Title"
+                android:textColor="@color/appTextColor"
+                android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_margin="2dp"
+                android:layout_marginStart="5dp"
+                android:fontFamily="@font/source_sans_pro"
+                android:text="@string/journey"
+                android:textColor="@color/appTextColor" />
         </LinearLayout>
         <LinearLayout
             android:layout_width="wrap_content"
