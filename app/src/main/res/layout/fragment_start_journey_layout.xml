@@ -5,17 +5,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#F1F2F3">
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="#F1F2F3">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="#F1F2F3"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:id="@+id/transitions_container">
 
             <TextView
                 android:id="@+id/titlu_start"
@@ -64,7 +67,8 @@
                 android:paddingRight="@dimen/com_facebook_profilepictureview_preset_size_small"
                 android:text="@string/fragment_start_descriere2"
                 android:textSize="25sp"
-                tools:textColor="@color/appDarkBlue" />
+                tools:textColor="@color/appDarkBlue"
+                android:visibility="gone"/>
 
 
         </LinearLayout>

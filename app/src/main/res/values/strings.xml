@@ -120,9 +120,9 @@ elemente de programare funcțională. </string>
     &#160;&#160; O statistică recentă arată că în momentul de faţă, pe site-urile cu oportunităţi de angajare din România, sunt disponibile peste 1300 de joburi care se adresează programatorilor specializaţi în limbajul de programare Java, acestea fiind împărţite pe nivele de experienţă şi dificultate.</string>
 
     <string name="fragment_start_titlu">Start your journey</string>
-    <string name="fragment_start_descriere"> &#160;&#160; În continure, vei găsi 3 categorii de dificultate : Easy, Medium, Hard. Fiecare categorie conține questuri pentru o anumită ramură a programării. \n\n
-    &#160;&#160; Intrând pe un quest, vei găsi 3 cursuri diferite pe același topic. Fiecare are un anumit număr de steluțe, în funcție de durată și cost . \n\n
-    &#160;&#160; După terminarea unuia sau a mai multor cursuri, acestea trebuie să fie validate (prin upload-area unei poze) pentru a putea primi numărul de steluțe aferent și astfel vei putea debloca următoarele questuri.\n\n
+    <string name="fragment_start_descriere"> &#160;&#160; În continure, vei găsi 3 categorii de dificultate : Easy, Medium, Hard. Fiecare categorie conține questuri pentru o anumită ramură a programării. \n
+    &#160;&#160; Intrând pe un quest, vei găsi 3 cursuri diferite pe același topic. Fiecare are un anumit număr de steluțe, în funcție de durată și cost . \n
+    &#160;&#160; După terminarea unuia sau a mai multor cursuri, acestea trebuie să fie validate (prin upload-area unei poze) pentru a putea primi numărul de steluțe aferent și astfel vei putea debloca următoarele questuri.\n
     </string>
     <string name="fragment_start_descriere2">MULTĂ  BAFTĂ !!!</string>
 
