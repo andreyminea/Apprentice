@@ -48,9 +48,13 @@
     <string name="SIGN_UP">SIGN UP</string>
 
     <string name="Easy">Easy</string>
+    <string name="Easy_MockText">First steps...</string>
+
     <string name="Medium">Medium</string>
+    <string name="Medium_MockText">Keep going !</string>
+
     <string name="Hard">Hard</string>
-    <string name="Mock_Text">Mock Text</string>
+    <string name="Hard_MockText">On your way to the top</string>
 
 
 
@@ -114,6 +118,8 @@ elemente de programare funcțională. </string>
        - Back-end Developer\n
 \n
     &#160;&#160; O statistică recentă arată că în momentul de faţă, pe site-urile cu oportunităţi de angajare din România, sunt disponibile peste 1300 de joburi care se adresează programatorilor specializaţi în limbajul de programare Java, acestea fiind împărţite pe nivele de experienţă şi dificultate.</string>
+
+    <string name="fragment_start_descriere"> &#160;&#160;  bla bla bla blabla bla bla blabla bla bla blabla bla bla blabla bla bla blabla bla bla blabla bla bla blabla bla bla blabla bla bla blabla bla bla bla</string>
 
 
     <string name="chat_activity_title">Room - %s</string>

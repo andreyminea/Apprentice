@@ -1,15 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@android:color/white">
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#F1F2F3"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/desc_journey"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:padding="4dp"
+            android:text="@string/fragment_start_descriere"
+            tools:layout_margin="10dp"
+            android:textSize="16sp"
+            tools:textColor="#6A6A6A"
+            android:orientation="horizontal"
+            android:gravity="fill_horizontal"
+            android:breakStrategy="balanced" />
 
 
-<Button
-        android:id="@+id/ButtonStartJourney"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/Start_Journey"/>
+        <Button
+            android:id="@+id/ButtonStartJourney"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Start_Journey" />
+
+    </LinearLayout>
+    </ScrollView>
 
 </android.support.v7.widget.CardView>
