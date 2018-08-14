@@ -345,6 +345,7 @@ public class QuestDetailActivity extends AppCompatActivity {
         if (requestCode == 2){
             //FIXME : de adaugat aici metoda facuta de cristi
             SharedPrefManager.getInstance().updateStarsInSharedPrefs(mStarsCurrentCourse);
+            finish();
         }
     }
 }
