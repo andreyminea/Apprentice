@@ -9,6 +9,10 @@
             android:title="@string/Home"
             android:icon="@drawable/ic_home_black_24dp"/>
         <item
+            android:id="@+id/nav_jlist"
+            android:title="@string/Journey_List"
+            android:icon="@drawable/j_list"/>
+        <item
             android:id="@+id/nav_profile"
             android:icon="@drawable/ic_profile_black_24dp"
             android:title="@string/My_Profile" />
@@ -18,24 +22,16 @@
             android:icon="@drawable/ic_chat_black_24dp"
             android:title="@string/Chat" />
     </group>
-    <group android:checkableBehavior="single">
-    <item android:title="@string/Others">
 
+    <item android:title="@string/Others">
+        <menu>
             <item
                 android:id="@+id/nav_about"
                 android:icon="@drawable/about_us_24dp"
                 android:title="@string/About_us" />
-            <item
-                android:id="@+id/nav_settings"
-                android:icon="@drawable/ic_settings_black_24dp"
-                android:title="Settings" />
-            <item
-                android:icon="@drawable/ic_exit_to_app_black_24dp"
-                android:id="@+id/nav_logout"
-                android:title="@string/Logout" />
 
-
+        </menu>
     </item>
-    </group>
+
 
 </menu>

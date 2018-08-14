@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="260dp">
+    android:layout_height="310dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/appBackgroundColor"
+    android:id="@+id/CardViewJourneyGeneral"
+    android:layout_margin="10dp"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="8dp"
+    app:cardBackgroundColor="@color/cardview_light_background"
+    android:foreground="?android:attr/selectableItemBackground">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -11,46 +19,66 @@
         <ImageView
             android:id="@+id/ImageViewJourney"
             android:layout_width="match_parent"
-            android:layout_height="100dp" />
-
-        <TextView
-            android:id="@+id/TextViewJourneyTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Title"
-            android:textSize="20sp"
-            android:layout_margin="2dp"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_margin="2dp"
-            android:text="Afla mai multe detalii despre java si ce presupune acest Journey."/>
+            android:layout_height="120dp"
+            android:scaleType="fitXY"
+            android:background="@android:color/darker_gray"/>
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:orientation="horizontal">
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/TextViewJourneyTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="2dp"
+                android:fontFamily="@font/source_sans_pro"
+                android:text="@string/Title"
+                android:textColor="@color/appTextColor"
+                android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_margin="2dp"
+                android:layout_marginStart="5dp"
+                android:fontFamily="@font/source_sans_pro"
+                android:text="@string/journey"
+                android:textColor="@color/appTextColor" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_gravity="center">
 
             <ImageView
                 android:id="@+id/ico_overview"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_margin="10dp"
-                android:clickable="true"/>
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_margin="15dp"
+                android:clickable="true"
+                android:src="@drawable/ic_info_outline_black_24dp"/>
             <ImageView
                 android:id="@+id/ico_bani"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_margin="10dp"/>
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_margin="15dp"
+                android:src="@drawable/ic_attach_money_black_24dp"/>
             <ImageView
                 android:id="@+id/ico_stres"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_margin="10dp"/>
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_margin="15dp"
+                android:src="@drawable/ic_stress"/>
             <ImageView
                 android:id="@+id/ico_job"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_margin="10dp"/>
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_margin="15dp"
+                android:src="@drawable/ic_work_black_24dp" />
         </LinearLayout>
     </LinearLayout>
 </android.support.v7.widget.CardView>
