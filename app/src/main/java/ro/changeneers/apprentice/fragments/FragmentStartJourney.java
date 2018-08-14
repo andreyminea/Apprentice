@@ -4,12 +4,12 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.transition.TransitionManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import ro.changeneers.apprentice.activities.JourneyActivity;
 import android.widget.Toast;
 
 import ro.changeneers.apprentice.R;
@@ -39,6 +39,10 @@ public class FragmentStartJourney extends android.support.v4.app.Fragment {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             descriere.setJustificationMode(JUSTIFICATION_MODE_INTER_WORD);
         }
+
+
+
+
 
         startJourneyBtn.setOnClickListener(new View.OnClickListener() {
 

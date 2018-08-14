@@ -6,7 +6,6 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.Toast;
-
 import java.util.ArrayList;
 import java.util.List;
 import ro.changeneers.apprentice.adapters.RecyclerViewAdapter;
@@ -24,15 +23,20 @@ public class MainActivity extends NavDrawer implements RecyclerViewAdapter.OnIte
     public static final int USER_JOURNEY_ID = 23;
     public static final int CHAT_ID = 24;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         List<DashboardItem> items = new ArrayList<>();
-        items.add(new DashboardItem(USER_JOURNEY_ID, "User Journeys", " Un User Journey este un mod organizat de a te dezvolta spre obiectivul tău, astfel încât la fiecare pas vei fi îndrumat spre activități relevante nivelului la care te afli.\n" +
+
+
+
+
+        items.add(new DashboardItem(USER_JOURNEY_ID, "User Journeys", "Un User Journey este un mod organizat de a te dezvolta spre obiectivul tău, astfel încât la fiecare pas vei fi îndrumat spre activități relevante nivelului la care te afli.\n" +
                 "Descoperă User Journey-urile disponibile", R.drawable.adventure));
-        items.add(new DashboardItem(CHAT_ID, "Grup de Chat", " Ai o întrebare sau vrei să oferi la rândul tău ajutor?\n" +
+        items.add(new DashboardItem(CHAT_ID, "Grup de Chat", "Ai o întrebare sau vrei să oferi la rândul tău ajutor?\n" +
                 "Te poți folosi de grupurile de chat pentru a comunica cu ceilalți membri.", R.drawable.chatting));
 
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerViewDashboard);

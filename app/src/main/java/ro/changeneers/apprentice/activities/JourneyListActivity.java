@@ -26,7 +26,7 @@ public class JourneyListActivity extends NavDrawer implements JourneyRecyclerVie
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_journey_list);
         journeys = new ArrayList<>();
-        journeys.add(new JourneyItem("Programare","Afla mai multe detalii despre java si ce presupune acest Journey."));
+        journeys.add(new JourneyItem("Invata Java","Afla mai multe detalii despre java si ce presupune acest Journey."));
 
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.RecyclerViewJourneyList);
         recyclerView.setHasFixedSize(true);

@@ -24,6 +24,7 @@ import ro.changeneers.apprentice.ApprenticeApplication;
 import ro.changeneers.apprentice.R;
 import ro.changeneers.apprentice.models.Curs;
 import ro.changeneers.apprentice.models.Quest;
+import ro.changeneers.apprentice.utils.SharedPrefManager;
 import ro.changeneers.apprentice.utils.Utils;
 
 import static ro.changeneers.apprentice.utils.Constants.ACCES_EXTRA;
@@ -72,6 +73,7 @@ public class QuestDetailActivity extends AppCompatActivity {
     Button buttonFinishCurs3;
     ImageView expUpDown3;
 
+    int mStarsCurrentCourse =0;
 
     private Quest quest;
     private static final String TAG = "QuestDetailActivity";
@@ -82,7 +84,7 @@ public class QuestDetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_quest_detail);
 
 
-        Intent intent = getIntent();
+        final Intent intent = getIntent();
         String incomingQuestId = intent.getExtras().getString(ID_EXTRA);
         Boolean fromProfile = intent.getExtras().getBoolean(ACCES_EXTRA,false);
         Log.d(TAG, "onCreate: ID FROM INTENT IS "+ incomingQuestId);
@@ -190,7 +192,12 @@ public class QuestDetailActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                mStarsCurrentCourse = quest.getListCursuri().get(0).getStars();
+
                 Utils.updateQuestStatus(quest.id,difficulty,FINISHED);
+                Intent intent1 = new Intent(QuestDetailActivity.this,QuestFinishActivity.class);
+                startActivityForResult(intent1,2);
+
 
             }
         });
@@ -228,7 +235,11 @@ public class QuestDetailActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                mStarsCurrentCourse = quest.getListCursuri().get(1).getStars();
+
                 Utils.updateQuestStatus(quest.id,difficulty,FINISHED);
+                Intent intent1 = new Intent(QuestDetailActivity.this,QuestFinishActivity.class);
+                startActivityForResult(intent1,2);
 
             }
         });
@@ -264,8 +275,11 @@ public class QuestDetailActivity extends AppCompatActivity {
         buttonFinishCurs3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                mStarsCurrentCourse = quest.getListCursuri().get(1).getStars();
 
                 Utils.updateQuestStatus(quest.id,difficulty,FINISHED);
+                Intent intent1 = new Intent(QuestDetailActivity.this,QuestFinishActivity.class);
+                startActivityForResult(intent1,2);
 
             }
         });
@@ -326,4 +340,11 @@ public class QuestDetailActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == 2){
+            //FIXME : de adaugat aici metoda facuta de cristi
+            SharedPrefManager.getInstance().updateStarsInSharedPrefs(mStarsCurrentCourse);
+        }
+    }
 }
