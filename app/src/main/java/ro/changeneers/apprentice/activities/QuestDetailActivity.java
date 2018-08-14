@@ -24,6 +24,7 @@ import ro.changeneers.apprentice.ApprenticeApplication;
 import ro.changeneers.apprentice.R;
 import ro.changeneers.apprentice.models.Curs;
 import ro.changeneers.apprentice.models.Quest;
+import ro.changeneers.apprentice.utils.SharedPrefManager;
 import ro.changeneers.apprentice.utils.Utils;
 
 import static ro.changeneers.apprentice.utils.Constants.ACCES_EXTRA;
@@ -343,7 +344,7 @@ public class QuestDetailActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == 2){
             //FIXME : de adaugat aici metoda facuta de cristi
-//            Utils.getInstance(this).updateStars(mcuurenteStars);
+            SharedPrefManager.getInstance().updateStarsInSharedPrefs(mStarsCurrentCourse);
         }
     }
 }
