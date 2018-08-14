@@ -10,8 +10,11 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ScrollView;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -48,6 +51,7 @@ public class QuestDetailActivity extends AppCompatActivity {
     TextView textStarsCurs1;
     Button buttonBeginCurs1;
     Button buttonFinishCurs1;
+    ImageView expUpDown1;
 
 
     TextView titleCurs2;
@@ -57,6 +61,7 @@ public class QuestDetailActivity extends AppCompatActivity {
     TextView textStarsCurs2;
     Button buttonBeginCurs2;
     Button buttonFinishCurs2;
+    ImageView expUpDown2;
 
     TextView titleCurs3;
     TextView textDescriereCurs3;
@@ -65,6 +70,7 @@ public class QuestDetailActivity extends AppCompatActivity {
     TextView textStarsCurs3;
     Button buttonBeginCurs3;
     Button buttonFinishCurs3;
+    ImageView expUpDown3;
 
 
     private Quest quest;
@@ -75,16 +81,6 @@ public class QuestDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quest_detail);
 
-//        Curs curs  = new Curs("0","Getting started","https://www.udemy.com/java-tutorial/","se ocupa foarte bine de notiuni de la 0",
-//                "dureaza 16 ore");
-//            Intent intent = getIntent();
-//            int incomingQuestId = intent.getExtras().getInt("ID");
-//            List<Curs> cursuri = new ArrayList<>();
-//            cursuri.add(curs);
-//            cursuri.add(curs);
-//            cursuri.add(curs);
-//            Quest quest = new Quest("0", "Getting Started", "Este important pentru ca e nevoie sa iti pui bazele programrii intainte sa incepi ceva mai complicat",
-//                    "Vei invata ce inseamna notiunile de baza ale programarii in general", 0, cursuri);
 
         Intent intent = getIntent();
         String incomingQuestId = intent.getExtras().getString(ID_EXTRA);
@@ -138,6 +134,8 @@ public class QuestDetailActivity extends AppCompatActivity {
         textCostCurs1.setText(quest.getListCursuri().get(0).cost);
         textStarsCurs1 = findViewById(R.id.TextViewStarsCurs1);
         textStarsCurs1.setText(Integer.toString(quest.getListCursuri().get(0).getStars()));
+        expUpDown1 = findViewById(R.id.ImageViewExpUpDown1);
+        expUpDown1.setImageResource(R.drawable.ic_expand_more_black_24dp);
 
         titleCurs2 = findViewById(R.id.TextViewTitleCurs2);
         titleCurs2.setText(quest.getListCursuri().get(1).title);
@@ -147,6 +145,8 @@ public class QuestDetailActivity extends AppCompatActivity {
         textCostCurs2.setText(quest.getListCursuri().get(1).cost);
         textStarsCurs2 = findViewById(R.id.TextViewStarsCurs2);
         textStarsCurs2.setText(Integer.toString(quest.getListCursuri().get(1).getStars()));
+        expUpDown2 = findViewById(R.id.ImageViewExpUpDown2);
+        expUpDown2.setImageResource(R.drawable.ic_expand_more_black_24dp);
 
 
         titleCurs3 = findViewById(R.id.TextViewTitleCurs3);
@@ -157,6 +157,8 @@ public class QuestDetailActivity extends AppCompatActivity {
         textCostCurs3.setText(quest.getListCursuri().get(2).cost);
         textStarsCurs3 = findViewById(R.id.TextViewStarsCurs3);
         textStarsCurs3.setText(Integer.toString(quest.getListCursuri().get(2).getStars()));
+        expUpDown3 = findViewById(R.id.ImageViewExpUpDown3);
+        expUpDown3.setImageResource(R.drawable.ic_expand_more_black_24dp);
 
 
         final View curs1View = findViewById(R.id.childCurs1);
@@ -251,7 +253,11 @@ public class QuestDetailActivity extends AppCompatActivity {
                 visible = !visible;
                 curs1View.setVisibility(visible ? View.VISIBLE : View.GONE);
                 curs1View.findViewById(R.id.ButtonBeginQuest).requestFocus();
-
+                if(visible){
+                expUpDown1.setImageResource(R.drawable.ic_expand_less_black_24dp);
+                }else{
+                    expUpDown1.setImageResource(R.drawable.ic_expand_more_black_24dp);
+                }
             }
         });
 
@@ -265,6 +271,11 @@ public class QuestDetailActivity extends AppCompatActivity {
                 visible = !visible;
                 curs2View.setVisibility(visible ? View.VISIBLE : View.GONE);
                 curs2View.findViewById(R.id.ButtonBeginQuest).requestFocus();
+                if(visible){
+                    expUpDown2.setImageResource(R.drawable.ic_expand_less_black_24dp);
+                }else{
+                    expUpDown2.setImageResource(R.drawable.ic_expand_more_black_24dp);
+                }
 
             }
         });
@@ -279,6 +290,11 @@ public class QuestDetailActivity extends AppCompatActivity {
                 visible = !visible;
                 curs3View.setVisibility(visible ? View.VISIBLE : View.GONE);
                 curs3View.findViewById(R.id.ButtonBeginQuest).requestFocus();
+                if(visible){
+                    expUpDown3.setImageResource(R.drawable.ic_expand_less_black_24dp);
+                }else{
+                    expUpDown3.setImageResource(R.drawable.ic_expand_more_black_24dp);
+                }
             }
         });
     }
