@@ -239,7 +239,7 @@ public class Utils {
         }
 
         sharedPrefsQuests.clear();
-        sharedPrefsQuests = SharedPrefManager.getInstance().loadQuestListFromSharedPrefs(EASY);
+        sharedPrefsQuests = SharedPrefManager.getInstance().loadQuestListFromSharedPrefs(MEDIUM);
 
         for (Quest aux : sharedPrefsQuests) {
             if(aux.getStatus() == IN_PROGRESS){
@@ -248,7 +248,7 @@ public class Utils {
         }
 
         sharedPrefsQuests.clear();
-        sharedPrefsQuests = SharedPrefManager.getInstance().loadQuestListFromSharedPrefs(EASY);
+        sharedPrefsQuests = SharedPrefManager.getInstance().loadQuestListFromSharedPrefs(HARD);
 
         for (Quest aux : sharedPrefsQuests) {
             if(aux.getStatus() == IN_PROGRESS){
@@ -275,7 +275,7 @@ public class Utils {
         }
 
         sharedPrefsQuests.clear();
-        sharedPrefsQuests = SharedPrefManager.getInstance().loadQuestListFromSharedPrefs(EASY);
+        sharedPrefsQuests = SharedPrefManager.getInstance().loadQuestListFromSharedPrefs(MEDIUM);
 
         for (Quest aux : sharedPrefsQuests) {
             if(aux.getStatus() == FINISHED){
@@ -284,7 +284,7 @@ public class Utils {
         }
 
         sharedPrefsQuests.clear();
-        sharedPrefsQuests = SharedPrefManager.getInstance().loadQuestListFromSharedPrefs(EASY);
+        sharedPrefsQuests = SharedPrefManager.getInstance().loadQuestListFromSharedPrefs(HARD);
 
         for (Quest aux : sharedPrefsQuests) {
             if(aux.getStatus() == FINISHED){
