@@ -228,33 +228,40 @@ public class Utils {
     public static List<Quest> getQuestsInProgress() {
 
         List<Quest> questsInProgress = new ArrayList<>();
+
         List<Quest> sharedPrefsQuests;
 
         sharedPrefsQuests = SharedPrefManager.getInstance().loadQuestListFromSharedPrefs(EASY);
 
-        for (Quest aux : sharedPrefsQuests) {
-            if(aux.getStatus() == IN_PROGRESS){
-                questsInProgress.add(aux);
+            for (Quest aux : sharedPrefsQuests) {
+                if (aux.getStatus() == IN_PROGRESS) {
+                    questsInProgress.add(aux);
+                }
             }
-        }
+
+
+
+            sharedPrefsQuests.clear();
+
+        sharedPrefsQuests = SharedPrefManager.getInstance().loadQuestListFromSharedPrefs(MEDIUM);
+
+
+            for (Quest aux : sharedPrefsQuests) {
+                if (aux.getStatus() == IN_PROGRESS) {
+                    questsInProgress.add(aux);
+                }
+            }
 
         sharedPrefsQuests.clear();
-        sharedPrefsQuests = SharedPrefManager.getInstance().loadQuestListFromSharedPrefs(EASY);
+        sharedPrefsQuests = SharedPrefManager.getInstance().loadQuestListFromSharedPrefs(HARD);
 
-        for (Quest aux : sharedPrefsQuests) {
-            if(aux.getStatus() == IN_PROGRESS){
-                questsInProgress.add(aux);
+
+
+            for (Quest aux : sharedPrefsQuests) {
+                if (aux.getStatus() == IN_PROGRESS) {
+                    questsInProgress.add(aux);
+                }
             }
-        }
-
-        sharedPrefsQuests.clear();
-        sharedPrefsQuests = SharedPrefManager.getInstance().loadQuestListFromSharedPrefs(EASY);
-
-        for (Quest aux : sharedPrefsQuests) {
-            if(aux.getStatus() == IN_PROGRESS){
-                questsInProgress.add(aux);
-            }
-        }
 
 
         return questsInProgress;
@@ -268,29 +275,37 @@ public class Utils {
 
         sharedPrefsQuests = SharedPrefManager.getInstance().loadQuestListFromSharedPrefs(EASY);
 
-        for (Quest aux : sharedPrefsQuests) {
-            if(aux.getStatus() == FINISHED){
-                questsFinished.add(aux);
+
+
+            for (Quest aux : sharedPrefsQuests) {
+                if (aux.getStatus() == FINISHED) {
+                    questsFinished.add(aux);
+                }
             }
-        }
+
 
         sharedPrefsQuests.clear();
-        sharedPrefsQuests = SharedPrefManager.getInstance().loadQuestListFromSharedPrefs(EASY);
+        sharedPrefsQuests = SharedPrefManager.getInstance().loadQuestListFromSharedPrefs(MEDIUM);
 
-        for (Quest aux : sharedPrefsQuests) {
-            if(aux.getStatus() == FINISHED){
-                questsFinished.add(aux);
+
+
+            for (Quest aux : sharedPrefsQuests) {
+                if (aux.getStatus() == FINISHED) {
+                    questsFinished.add(aux);
+                }
             }
-        }
+
 
         sharedPrefsQuests.clear();
-        sharedPrefsQuests = SharedPrefManager.getInstance().loadQuestListFromSharedPrefs(EASY);
+        sharedPrefsQuests = SharedPrefManager.getInstance().loadQuestListFromSharedPrefs(HARD);
 
-        for (Quest aux : sharedPrefsQuests) {
-            if(aux.getStatus() == FINISHED){
-                questsFinished.add(aux);
+
+
+            for (Quest aux : sharedPrefsQuests) {
+                if (aux.getStatus() == FINISHED) {
+                    questsFinished.add(aux);
+                }
             }
-        }
 
 
         return questsFinished;
