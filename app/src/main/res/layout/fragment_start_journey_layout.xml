@@ -1,16 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white">
+    android:background="#F1F2F3">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#F1F2F3">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#F1F2F3"
+            android:orientation="vertical"
+            android:id="@+id/transitions_container">
+
+            <TextView
+                android:id="@+id/titlu_start"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/com_facebook_likeboxcountview_border_width"
+                android:gravity="center"
+                android:padding="@dimen/cardview_default_elevation"
+                android:text="@string/fragment_start_titlu"
+                android:textSize="60sp"
+                tools:textColor="#333333" />
+
+            <TextView
+                android:id="@+id/desc_start"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:breakStrategy="balanced"
+                android:gravity="fill_horizontal"
+                android:orientation="horizontal"
+                android:padding="4dp"
+                android:text="@string/fragment_start_descriere"
+                android:textSize="16sp"
+                tools:layout_margin="10dp"
+                tools:textColor="#6A6A6A" />
+
+            <android.support.v7.widget.AppCompatButton
+                android:id="@+id/ButtonStartJourney"
+                android:layout_width="160dp"
+                android:layout_height="120dp"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/Start_Journey"
+                android:textColor="@color/appTextColor"
+                app:backgroundTint="@color/appTurq" />
+
+            <TextView
+                android:id="@+id/mesaj_start"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:breakStrategy="balanced"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal"
+                android:paddingLeft="@dimen/com_facebook_profilepictureview_preset_size_small"
+                android:paddingRight="@dimen/com_facebook_profilepictureview_preset_size_small"
+                android:text="@string/fragment_start_descriere2"
+                android:textSize="25sp"
+                tools:textColor="@color/appDarkBlue"
+                android:visibility="gone"/>
 
 
-<Button
-        android:id="@+id/ButtonStartJourney"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/Start_Journey"/>
+        </LinearLayout>
+    </ScrollView>
 
 
 </android.support.v7.widget.CardView>

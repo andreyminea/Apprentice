@@ -10,8 +10,11 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ScrollView;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -48,6 +51,7 @@ public class QuestDetailActivity extends AppCompatActivity {
     TextView textStarsCurs1;
     Button buttonBeginCurs1;
     Button buttonFinishCurs1;
+    ImageView expUpDown1;
 
 
     TextView titleCurs2;
@@ -57,6 +61,7 @@ public class QuestDetailActivity extends AppCompatActivity {
     TextView textStarsCurs2;
     Button buttonBeginCurs2;
     Button buttonFinishCurs2;
+    ImageView expUpDown2;
 
     TextView titleCurs3;
     TextView textDescriereCurs3;
@@ -65,6 +70,7 @@ public class QuestDetailActivity extends AppCompatActivity {
     TextView textStarsCurs3;
     Button buttonBeginCurs3;
     Button buttonFinishCurs3;
+    ImageView expUpDown3;
 
     int mStarsCurrentCourse =0;
 
@@ -76,42 +82,33 @@ public class QuestDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quest_detail);
 
-//        Curs curs  = new Curs("0","Getting started","https://www.udemy.com/java-tutorial/","se ocupa foarte bine de notiuni de la 0",
-//                "dureaza 16 ore");
-//            Intent intent = getIntent();
-//            int incomingQuestId = intent.getExtras().getInt("ID");
-//            List<Curs> cursuri = new ArrayList<>();
-//            cursuri.add(curs);
-//            cursuri.add(curs);
-//            cursuri.add(curs);
-//            Quest quest = new Quest("0", "Getting Started", "Este important pentru ca e nevoie sa iti pui bazele programrii intainte sa incepi ceva mai complicat",
-//                    "Vei invata ce inseamna notiunile de baza ale programarii in general", 0, cursuri);
 
         final Intent intent = getIntent();
         String incomingQuestId = intent.getExtras().getString(ID_EXTRA);
         Boolean fromProfile = intent.getExtras().getBoolean(ACCES_EXTRA,false);
-        if(fromProfile){
-            buttonFinishCurs1.setVisibility(View.VISIBLE);
-            buttonFinishCurs2.setVisibility(View.VISIBLE);
-            buttonFinishCurs3.setVisibility(View.VISIBLE);
-        }
         Log.d(TAG, "onCreate: ID FROM INTENT IS "+ incomingQuestId);
         final int difficulty = intent.getExtras().getInt(DIFFICULTY_EXTRA);
 
         List<Quest> localList = new ArrayList<>();
 
-        switch (difficulty) {
-            case EASY:
-                localList = ApprenticeApplication.getQuestListEasyDB();
-                break;
-            case MEDIUM:
-                localList = ApprenticeApplication.getQuestListMediumDB();
-                break;
-            case HARD:
-                localList = ApprenticeApplication.getQuestListHardDB();
-                break;
-        }
+        if(fromProfile){
+            localList = Utils.getQuestsDone();
+            localList.addAll(Utils.getQuestsInProgress());
 
+        }else {
+
+            switch (difficulty) {
+                case EASY:
+                    localList = ApprenticeApplication.getQuestListEasyDB();
+                    break;
+                case MEDIUM:
+                    localList = ApprenticeApplication.getQuestListMediumDB();
+                    break;
+                case HARD:
+                    localList = ApprenticeApplication.getQuestListHardDB();
+                    break;
+            }
+        }
         for (int i = 0; i < localList.size(); i++) {
             Log.d(TAG, "onCreate: local list size " +localList.size());
             if (localList.get(i).id.equals(incomingQuestId)) {
@@ -139,6 +136,8 @@ public class QuestDetailActivity extends AppCompatActivity {
         textCostCurs1.setText(quest.getListCursuri().get(0).cost);
         textStarsCurs1 = findViewById(R.id.TextViewStarsCurs1);
         textStarsCurs1.setText(Integer.toString(quest.getListCursuri().get(0).getStars()));
+        expUpDown1 = findViewById(R.id.ImageViewExpUpDown1);
+        expUpDown1.setImageResource(R.drawable.ic_expand_more_black_24dp);
 
         titleCurs2 = findViewById(R.id.TextViewTitleCurs2);
         titleCurs2.setText(quest.getListCursuri().get(1).title);
@@ -148,6 +147,8 @@ public class QuestDetailActivity extends AppCompatActivity {
         textCostCurs2.setText(quest.getListCursuri().get(1).cost);
         textStarsCurs2 = findViewById(R.id.TextViewStarsCurs2);
         textStarsCurs2.setText(Integer.toString(quest.getListCursuri().get(1).getStars()));
+        expUpDown2 = findViewById(R.id.ImageViewExpUpDown2);
+        expUpDown2.setImageResource(R.drawable.ic_expand_more_black_24dp);
 
 
         titleCurs3 = findViewById(R.id.TextViewTitleCurs3);
@@ -158,25 +159,34 @@ public class QuestDetailActivity extends AppCompatActivity {
         textCostCurs3.setText(quest.getListCursuri().get(2).cost);
         textStarsCurs3 = findViewById(R.id.TextViewStarsCurs3);
         textStarsCurs3.setText(Integer.toString(quest.getListCursuri().get(2).getStars()));
+        expUpDown3 = findViewById(R.id.ImageViewExpUpDown3);
+        expUpDown3.setImageResource(R.drawable.ic_expand_more_black_24dp);
 
 
         final View curs1View = findViewById(R.id.childCurs1);
         textDescriereCurs1 = curs1View.findViewById(R.id.TextViewDescriereCurs);
         textDescriereCurs1.setText(quest.getListCursuri().get(0).descriere);
         buttonBeginCurs1 = curs1View.findViewById(R.id.ButtonBeginQuest);
-        buttonBeginCurs1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        if(fromProfile){
+            buttonBeginCurs1.setVisibility(View.GONE);
+        }else {
+            buttonBeginCurs1.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
 
-                Utils.updateQuestStatus(quest.id,difficulty,IN_PROGRESS);
-                buttonFinishCurs1.setVisibility(View.VISIBLE);
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(quest.getListCursuri().get(0).url));
-                startActivity(intent);
+                    Utils.updateQuestStatus(quest.id, difficulty, IN_PROGRESS);
+                    buttonFinishCurs1.setVisibility(View.VISIBLE);
+                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(quest.getListCursuri().get(0).url));
+                    startActivity(intent);
 
-            }
-        });
+                }
+            });
+        }
 
         buttonFinishCurs1 = curs1View.findViewById(R.id.ButtonFinishQuest);
+        if(fromProfile){
+            buttonFinishCurs1.setVisibility(View.VISIBLE);
+        }
         buttonFinishCurs1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -197,20 +207,29 @@ public class QuestDetailActivity extends AppCompatActivity {
         textDescriereCurs2 = curs2View.findViewById(R.id.TextViewDescriereCurs);
         textDescriereCurs2.setText(quest.getListCursuri().get(1).descriere);
         buttonBeginCurs2 = curs2View.findViewById(R.id.ButtonBeginQuest);
-        buttonBeginCurs2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        if (fromProfile){
+            buttonBeginCurs2.setVisibility(View.GONE);
+        }else {
+            buttonBeginCurs2.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
 
-                Utils.updateQuestStatus(quest.id,difficulty,IN_PROGRESS);
-                buttonFinishCurs2.setVisibility(View.VISIBLE);
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(quest.getListCursuri().get(1).url));
-                startActivity(intent);
+                    Utils.updateQuestStatus(quest.id, difficulty, IN_PROGRESS);
+                    buttonFinishCurs2.setVisibility(View.VISIBLE);
+                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(quest.getListCursuri().get(1).url));
+                    startActivity(intent);
 
 
-            }
-        });
+                }
+            });
+        }
 
         buttonFinishCurs2 = curs2View.findViewById(R.id.ButtonFinishQuest);
+
+        if(fromProfile){
+
+            buttonFinishCurs2.setVisibility(View.VISIBLE);
+        }
         buttonFinishCurs2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -229,19 +248,29 @@ public class QuestDetailActivity extends AppCompatActivity {
         textDescriereCurs3 = curs3View.findViewById(R.id.TextViewDescriereCurs);
         textDescriereCurs3.setText(quest.getListCursuri().get(2).descriere);
         buttonBeginCurs3 = curs3View.findViewById(R.id.ButtonBeginQuest);
-        buttonBeginCurs3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        if(fromProfile){
+            buttonBeginCurs3.setVisibility(View.GONE);
+        }else {
 
-                Utils.updateQuestStatus(quest.id,difficulty,IN_PROGRESS);
-                buttonFinishCurs3.setVisibility(View.VISIBLE);
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(quest.getListCursuri().get(2).url));
-                startActivity(intent);
 
-            }
-        });
+            buttonBeginCurs3.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    Utils.updateQuestStatus(quest.id, difficulty, IN_PROGRESS);
+                    buttonFinishCurs3.setVisibility(View.VISIBLE);
+                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(quest.getListCursuri().get(2).url));
+                    startActivity(intent);
+
+                }
+            });
+        }
 
         buttonFinishCurs3 = curs3View.findViewById(R.id.ButtonFinishQuest);
+        if(fromProfile){
+
+            buttonFinishCurs3.setVisibility(View.VISIBLE);
+        }
         buttonFinishCurs3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -264,7 +293,11 @@ public class QuestDetailActivity extends AppCompatActivity {
                 visible = !visible;
                 curs1View.setVisibility(visible ? View.VISIBLE : View.GONE);
                 curs1View.findViewById(R.id.ButtonBeginQuest).requestFocus();
-
+                if(visible){
+                expUpDown1.setImageResource(R.drawable.ic_expand_less_black_24dp);
+                }else{
+                    expUpDown1.setImageResource(R.drawable.ic_expand_more_black_24dp);
+                }
             }
         });
 
@@ -278,6 +311,11 @@ public class QuestDetailActivity extends AppCompatActivity {
                 visible = !visible;
                 curs2View.setVisibility(visible ? View.VISIBLE : View.GONE);
                 curs2View.findViewById(R.id.ButtonBeginQuest).requestFocus();
+                if(visible){
+                    expUpDown2.setImageResource(R.drawable.ic_expand_less_black_24dp);
+                }else{
+                    expUpDown2.setImageResource(R.drawable.ic_expand_more_black_24dp);
+                }
 
             }
         });
@@ -292,6 +330,11 @@ public class QuestDetailActivity extends AppCompatActivity {
                 visible = !visible;
                 curs3View.setVisibility(visible ? View.VISIBLE : View.GONE);
                 curs3View.findViewById(R.id.ButtonBeginQuest).requestFocus();
+                if(visible){
+                    expUpDown3.setImageResource(R.drawable.ic_expand_less_black_24dp);
+                }else{
+                    expUpDown3.setImageResource(R.drawable.ic_expand_more_black_24dp);
+                }
             }
         });
     }

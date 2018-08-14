@@ -1,31 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@android:color/white">
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="#F1F2F3">
+
         <TextView
             android:id="@+id/TextViewJobsTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:gravity="center"
+            android:layout_margin="@dimen/com_facebook_likeboxcountview_border_width"
+            android:padding="@dimen/cardview_default_elevation"
             android:text="@string/fragment_jobs_title"
             android:textSize="60sp"
-            android:layout_gravity="center"/>
+            tools:textColor="#333333"/>
 
         <TextView
-            android:id="@+id/TextViewJobsText"
+            android:id="@+id/TextViewJobsText1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/fragment_jobs_text"
-            android:layout_marginLeft="6dp"
-            />
+            android:layout_margin="10dp"
+            android:padding="4dp"
+            android:text="@string/fragment_jobs_text1"
+            tools:layout_margin="10dp"
+            android:textSize="16sp"
+            tools:textColor="#6A6A6A"
+            android:orientation="horizontal"
+            android:gravity="fill_horizontal"
+            android:breakStrategy="balanced" />
+
+        <ImageView
+            android:id="@+id/img_job"
+            android:layout_width="match_parent"
+            android:layout_height="492dp"
+            android:src="@drawable/job_big"
+            tools:background="#F1F2F3" />
+
+        <TextView
+            android:id="@+id/TextViewJobsText2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:padding="4dp"
+            android:text="@string/fragment_jobs_text2"
+            tools:layout_margin="10dp"
+            android:textSize="16sp"
+            tools:textColor="#6A6A6A"
+            android:orientation="horizontal"
+            android:gravity="fill_horizontal"
+            android:breakStrategy="balanced" />
+        <TextView
+            android:id="@+id/TextViewJobsText3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:padding="4dp"
+            android:text="@string/fragment_jobs_text3"
+            tools:layout_margin="10dp"
+            android:textSize="16sp"
+            tools:textColor="#6A6A6A"
+            android:orientation="horizontal"
+            android:gravity="fill_horizontal"
+            android:breakStrategy="balanced" />
+        <TextView
+            android:id="@+id/TextViewJobsText4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:padding="4dp"
+            android:text="@string/fragment_jobs_text4"
+            tools:layout_margin="10dp"
+            android:textSize="16sp"
+            tools:textColor="#6A6A6A"
+            android:orientation="horizontal"
+            android:gravity="fill_horizontal"
+            android:breakStrategy="balanced" />
+
     </LinearLayout>
-
-
+    </ScrollView>
 </android.support.v7.widget.CardView>
