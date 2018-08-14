@@ -86,7 +86,7 @@ public class QuestDetailActivity extends AppCompatActivity {
 //            Quest quest = new Quest("0", "Getting Started", "Este important pentru ca e nevoie sa iti pui bazele programrii intainte sa incepi ceva mai complicat",
 //                    "Vei invata ce inseamna notiunile de baza ale programarii in general", 0, cursuri);
 
-        Intent intent = getIntent();
+        final Intent intent = getIntent();
         String incomingQuestId = intent.getExtras().getString(ID_EXTRA);
         Boolean fromProfile = intent.getExtras().getBoolean(ACCES_EXTRA,false);
         if(fromProfile){
@@ -181,6 +181,9 @@ public class QuestDetailActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 Utils.updateQuestStatus(quest.id,difficulty,FINISHED);
+                Intent intent1 = new Intent(QuestDetailActivity.this,QuestFinishActivity.class);
+                startActivityForResult(intent1,2);
+
 
             }
         });

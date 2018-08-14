@@ -28,6 +28,7 @@
         <activity android:name=".activities.BottomNavigationActivity" />
         <activity android:name=".activities.StartActivity" />
         <activity android:name=".activities.MainActivity" />
+        <activity android:name=".activities.QuestFinishActivity"></activity>
         <activity
             android:name=".activities.ChatRoomActivity"
             android:windowSoftInputMode="stateHidden" />
