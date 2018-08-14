@@ -66,6 +66,7 @@ public class QuestDetailActivity extends AppCompatActivity {
     Button buttonBeginCurs3;
     Button buttonFinishCurs3;
 
+    int mStarsCurrentCourse =0;
 
     private Quest quest;
     private static final String TAG = "QuestDetailActivity";
@@ -180,6 +181,8 @@ public class QuestDetailActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                mStarsCurrentCourse = quest.getListCursuri().get(0).getStars();
+
                 Utils.updateQuestStatus(quest.id,difficulty,FINISHED);
                 Intent intent1 = new Intent(QuestDetailActivity.this,QuestFinishActivity.class);
                 startActivityForResult(intent1,2);
@@ -212,7 +215,11 @@ public class QuestDetailActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                mStarsCurrentCourse = quest.getListCursuri().get(1).getStars();
+
                 Utils.updateQuestStatus(quest.id,difficulty,FINISHED);
+                Intent intent1 = new Intent(QuestDetailActivity.this,QuestFinishActivity.class);
+                startActivityForResult(intent1,2);
 
             }
         });
@@ -238,8 +245,11 @@ public class QuestDetailActivity extends AppCompatActivity {
         buttonFinishCurs3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                mStarsCurrentCourse = quest.getListCursuri().get(1).getStars();
 
                 Utils.updateQuestStatus(quest.id,difficulty,FINISHED);
+                Intent intent1 = new Intent(QuestDetailActivity.this,QuestFinishActivity.class);
+                startActivityForResult(intent1,2);
 
             }
         });
@@ -286,4 +296,11 @@ public class QuestDetailActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == 2){
+            //FIXME : de adaugat aici metoda facuta de cristi
+//            Utils.getInstance(this).updateStars(mcuurenteStars);
+        }
+    }
 }

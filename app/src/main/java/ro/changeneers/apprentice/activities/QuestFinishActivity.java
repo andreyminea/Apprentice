@@ -46,9 +46,9 @@ public class QuestFinishActivity extends AppCompatActivity {
         questFinish.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent();
-                new LongOperation().execute();
-                setResult(2,intent);
+            if(requestStoragePermission()) {
+                choseImage();
+            }
             }
         });
     }
@@ -61,18 +61,21 @@ public class QuestFinishActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK
+        if(requestCode == SELECT_FILE && resultCode == RESULT_OK
                 && data != null && data.getData() != null )
         {
-            filePath = data.getData();
-            try {
-                Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), filePath);
-                imageView.setImageBitmap(bitmap);
-            }
-            catch (IOException e)
-            {
-                e.printStackTrace();
-            }
+//            filePath = data.getData();
+//            try {
+//                Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), filePath);
+//                if(bitmap != null){
+//                 imageView.setImageBitmap(bitmap);
+//            }
+//            }
+//            catch (IOException e)
+//            {
+//                e.printStackTrace();
+//            }
+            startProgress();
         }
     }
     private Boolean requestStoragePermission() {
@@ -107,11 +110,12 @@ public class QuestFinishActivity extends AppCompatActivity {
                 try {
                     while (progressDialog.getProgress() <= progressDialog
                             .getMax()) {
-                        Thread.sleep(200);
+                        Thread.sleep(100);
                         handle.sendMessage(handle.obtainMessage());
                         if (progressDialog.getProgress() == progressDialog
                                 .getMax()) {
                             progressDialog.dismiss();
+                            QuestFinishActivity.this.finish();
                         }
                     }
                 } catch (Exception e) {
@@ -129,29 +133,6 @@ public class QuestFinishActivity extends AppCompatActivity {
         }
     };
 
-    private class LongOperation extends AsyncTask<String, Void, String> {
-
-        @Override
-        protected String doInBackground(String... params) {
-            return null;
-        }
-
-        @Override
-        protected void onPostExecute(String result) {
-            startProgress();
-        }
-
-        @Override
-        protected void onPreExecute() {
-            if(requestStoragePermission()) {
-                choseImage();
-            }
-
-        }
-
-        @Override
-        protected void onProgressUpdate(Void... values) {}
-    }
 
 
 }
