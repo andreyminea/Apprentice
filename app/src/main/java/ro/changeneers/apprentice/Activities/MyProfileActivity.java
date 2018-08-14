@@ -13,6 +13,9 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -31,14 +34,21 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Transformation;
 
+import java.util.List;
+
 import ro.changeneers.apprentice.R;
+import ro.changeneers.apprentice.adapters.QuestListAdapter;
+import ro.changeneers.apprentice.models.Quest;
 import ro.changeneers.apprentice.utils.SharedPrefManager;
+import ro.changeneers.apprentice.utils.Utils;
 
 import static android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
+import static ro.changeneers.apprentice.utils.Constants.ACCES_EXTRA;
+import static ro.changeneers.apprentice.utils.Constants.DIFFICULTY_EXTRA;
+import static ro.changeneers.apprentice.utils.Constants.ID_EXTRA;
 
 
-
-public class MyProfileActivity extends NavDrawer implements View.OnClickListener {
+public class MyProfileActivity extends NavDrawer implements View.OnClickListener, QuestListAdapter.OnQuestClickListener {
 
     private TextView mFullNameTextView;
     private ImageView mProfileImageView;
@@ -47,6 +57,9 @@ public class MyProfileActivity extends NavDrawer implements View.OnClickListener
     private Button signOut;
     private TextView starsTextView;
     private int stars;
+
+    private RecyclerView.LayoutManager mLayoutManagerQProg;
+    private RecyclerView.LayoutManager mLayoutManagerQDone;
 
 
     ImageView imageView;
@@ -128,6 +141,34 @@ public class MyProfileActivity extends NavDrawer implements View.OnClickListener
                         });
             }
         });
+
+        List<Quest> questsInProgress = Utils.getQuestsInProgress();
+        List<Quest> questsDone = Utils.getQuestsDone();
+
+        RecyclerView questsDoneRV = findViewById(R.id.RecyclerViewQuestsDone);
+        questsDoneRV.setHasFixedSize(true);
+        RecyclerView questsInProgressRV = findViewById(R.id.RecyclerViewQuestsInProgress);
+        questsInProgressRV.setHasFixedSize(true);
+
+        int stars = SharedPrefManager.getInstance().getStarsFromSharedPrefs();
+        QuestListAdapter questsInProgressAdapter = new QuestListAdapter(questsInProgress, this, stars );
+        mLayoutManagerQProg = new LinearLayoutManager(this);
+        questsInProgressRV.setLayoutManager(mLayoutManagerQProg);
+        questsInProgressAdapter.notifyDataSetChanged();
+        questsInProgressRV.setAdapter(questsInProgressAdapter);
+
+        questsInProgressRV.setItemAnimator(new DefaultItemAnimator());
+
+        QuestListAdapter questsDoneAdapter = new QuestListAdapter(questsDone, this, stars );
+        mLayoutManagerQDone = new LinearLayoutManager(this);
+        questsDoneRV.setLayoutManager(mLayoutManagerQDone);
+        questsDoneAdapter.notifyDataSetChanged();
+        questsDoneRV.setAdapter(questsDoneAdapter);
+
+        questsDoneRV.setItemAnimator(new DefaultItemAnimator());
+
+
+
     }
 
     @Override
@@ -212,6 +253,18 @@ public class MyProfileActivity extends NavDrawer implements View.OnClickListener
 
             }
         }
+    }
+
+    @Override
+    public void onQuestClick(Quest quest) {
+
+        Intent intent = new Intent(this, QuestDetailActivity.class);
+        intent.putExtra(ID_EXTRA, quest.id);
+        intent.putExtra(ACCES_EXTRA, true);
+        intent.putExtra(DIFFICULTY_EXTRA, quest.getDifficulty());
+        startActivity(intent);
+        MyProfileActivity.this.finish();
+
     }
 
 
