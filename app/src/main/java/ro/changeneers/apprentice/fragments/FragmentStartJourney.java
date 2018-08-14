@@ -1,6 +1,7 @@
 package ro.changeneers.apprentice.fragments;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -12,12 +13,16 @@ import android.widget.TextView;
 import ro.changeneers.apprentice.R;
 import ro.changeneers.apprentice.activities.JourneyActivity;
 
+import static android.text.Layout.JUSTIFICATION_MODE_INTER_WORD;
+
 public class FragmentStartJourney extends android.support.v4.app.Fragment {
 
     private static final String TAG = "FragmentStartJourney";
 
     private Button startJourneyBtn;
-    private TextView txview;
+    private TextView titlu;
+    private TextView descriere;
+    private TextView mesaj;
 
     @Nullable
     @Override
@@ -25,9 +30,13 @@ public class FragmentStartJourney extends android.support.v4.app.Fragment {
         View view = inflater.inflate(R.layout.fragment_start_journey_layout,container,false);
 
         startJourneyBtn = view.findViewById(R.id.ButtonStartJourney);
-        txview = view.findViewById(R.id.desc_journey);
+        titlu = view.findViewById(R.id.titlu_start);
+        descriere = view.findViewById(R.id.desc_start);
+        mesaj = view.findViewById(R.id.mesaj_start);
 
-
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            descriere.setJustificationMode(JUSTIFICATION_MODE_INTER_WORD);
+        }
 
         startJourneyBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -40,7 +49,6 @@ public class FragmentStartJourney extends android.support.v4.app.Fragment {
 
             }
         });
-
 
         return view;
     }
