@@ -140,9 +140,11 @@
                 android:id="@+id/btn_logout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/Logout"
                 android:layout_below="@+id/linlay2"
-                android:gravity="center"/>
+                android:background="@color/colorPrimaryDark"
+                android:gravity="center"
+                android:text="@string/Logout"
+                android:textColor="#ffffff"/>
 
         </RelativeLayout>
 
