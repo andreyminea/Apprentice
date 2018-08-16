@@ -22,18 +22,20 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            tools:text="EASY"
+            android:fontFamily="@font/quando"
             android:textColor="@color/appTextColor"
             android:textSize="30sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            tools:text="EASY" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
-            android:text="De ce este important acest lucru?"
+            android:fontFamily="@font/quando"
 
+            android:text="De ce este important acest lucru?"
             android:textColor="@color/appTextColor"
             android:textSize="20dp" />
 
@@ -42,7 +44,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-
+            android:fontFamily="@font/quando"
             android:layout_marginTop="4dp"
             android:textColor="@color/appTextColor"
             android:textSize="16sp" />
@@ -54,7 +56,8 @@
             android:layout_marginTop="20dp"
             android:textColor="@color/appTextColor"
             android:text="Ce invat cu acest curs?"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:fontFamily="@font/quando"/>
 
         <TextView
             android:id="@+id/TextViewQuestDetailCeInvat"
@@ -64,7 +67,8 @@
             android:layout_marginTop="4dp"
             android:layout_marginBottom="10dp"
             android:textColor="@color/appTextColor"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            android:fontFamily="@font/quando"/>
 
         <LinearLayout
             android:id="@+id/LinearLayoutParentCurs1"
@@ -95,7 +99,8 @@
                     android:layout_marginStart="2dp"
                     android:textColor="@color/appTextColor"
                     android:textSize="17sp"
-                    android:layout_gravity="center_vertical"/>
+                    android:layout_gravity="center_vertical"
+                    android:fontFamily="@font/quando"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -111,7 +116,8 @@
                         tools:text="3"
                         android:textColor="@color/appTextColor"
                         android:textStyle="bold"
-                        android:layout_marginEnd="4dp"/>
+                        android:layout_marginEnd="4dp"
+                        android:fontFamily="@font/quando"/>
 
                     <ImageView
                         android:layout_width="20dp"
@@ -126,7 +132,8 @@
                         tools:text="3"
                         android:textColor="@color/appTextColor"
                         android:textStyle="bold"
-                        android:layout_marginRight="4dp"/>
+                        android:layout_marginRight="4dp"
+                        android:fontFamily="@font/quando"/>
 
                     <ImageView
                         android:layout_width="20dp"
@@ -140,7 +147,8 @@
                         android:layout_height="wrap_content"
                         tools:text="3"
                         android:textColor="@color/appTextColor"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        android:fontFamily="@font/quando"/>
 
                     <ImageView
                         android:layout_width="20dp"
@@ -182,7 +190,7 @@
                     tools:text="Cursul de la udemy"
                     android:textColor="@color/appTextColor"
                     android:layout_gravity="center_vertical"
-
+                    android:fontFamily="@font/quando"
                     android:textSize="17sp" />
 
                 <LinearLayout
@@ -199,7 +207,8 @@
                         tools:text="3"
                         android:textColor="@color/appTextColor"
                         android:textStyle="bold"
-                        android:layout_marginEnd="4dp"/>
+                        android:layout_marginEnd="4dp"
+                        android:fontFamily="@font/quando"/>
 
                     <ImageView
                         android:layout_width="20dp"
@@ -214,7 +223,8 @@
                         tools:text="3"
                         android:textColor="@color/appTextColor"
                         android:textStyle="bold"
-                        android:layout_marginEnd="4dp"/>
+                        android:layout_marginEnd="4dp"
+                        android:fontFamily="@font/quando"/>
 
                     <ImageView
                         android:layout_width="20dp"
@@ -228,7 +238,8 @@
                         android:layout_height="wrap_content"
                         tools:text="2"
                         android:textColor="@color/appTextColor"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        android:fontFamily="@font/quando"/>
 
                     <ImageView
                         android:layout_width="20dp"
@@ -270,7 +281,8 @@
                     android:textColor="@color/appTextColor"
                     android:textSize="17sp"
                     android:layout_gravity="center_vertical"
-                    tools:text="Cursul de la udemy" />
+                    tools:text="Cursul de la udemy"
+                    android:fontFamily="@font/quando"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"

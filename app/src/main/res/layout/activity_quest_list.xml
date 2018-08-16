@@ -12,11 +12,12 @@
         android:id="@+id/TextViewQuestListTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Easy"
-        android:textStyle="bold"
-        android:textSize="40sp"
         android:layout_gravity="center"
-        android:textColor="@color/appTextColor"/>
+        android:fontFamily="@font/quando"
+        android:text="Easy"
+        android:textColor="@color/appTextColor"
+        android:textSize="40sp"
+        android:textStyle="bold" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/RecyclerViewQuestList"
