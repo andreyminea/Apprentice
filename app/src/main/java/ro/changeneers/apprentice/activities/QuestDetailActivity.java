@@ -1,6 +1,5 @@
 package ro.changeneers.apprentice.activities;
 
-import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
@@ -14,16 +13,12 @@ import android.widget.ImageView;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
-import com.squareup.picasso.Picasso;
-
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 import ro.changeneers.apprentice.ApprenticeApplication;
 import ro.changeneers.apprentice.R;
-import ro.changeneers.apprentice.models.Curs;
-import ro.changeneers.apprentice.models.Quest;
+import ro.changeneers.apprentice.models.MQuest;
 import ro.changeneers.apprentice.utils.SharedPrefManager;
 import ro.changeneers.apprentice.utils.Utils;
 
@@ -75,7 +70,7 @@ public class QuestDetailActivity extends AppCompatActivity {
 
     int mStarsCurrentCourse =0;
 
-    private Quest quest;
+    private MQuest quest;
     private static final String TAG = "QuestDetailActivity";
 
     @Override
@@ -90,7 +85,7 @@ public class QuestDetailActivity extends AppCompatActivity {
         Log.d(TAG, "onCreate: ID FROM INTENT IS "+ incomingQuestId);
         final int difficulty = intent.getExtras().getInt(DIFFICULTY_EXTRA);
 
-        List<Quest> localList = new ArrayList<>();
+        List<MQuest> localList = new ArrayList<>();
 
         if(fromProfile){
             localList = Utils.getQuestsDone();

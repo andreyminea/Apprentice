@@ -3,13 +3,9 @@ package ro.changeneers.apprentice.activities;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -18,26 +14,16 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
-import java.util.Map;
 import java.util.Set;
 
-import ro.changeneers.apprentice.DatabaseFunctions;
-import ro.changeneers.apprentice.Quest;
 import ro.changeneers.apprentice.R;
-import ro.changeneers.apprentice.interfaces.CallbackDB;
-
 import ro.changeneers.apprentice.utils.SharedPrefManager;
 
-public class ChatMainActivity extends ro.changeneers.apprentice.activities.NavDrawer {
-    EditText roomName;
-    Button createRoom;
+public class ChatMainActivity extends NavDrawer {
     ListView roomList;
     ArrayList<String> roomArrayList;
     ArrayAdapter<String> roomAdapter;
@@ -50,43 +36,12 @@ public class ChatMainActivity extends ro.changeneers.apprentice.activities.NavDr
 
     private String userName;
 
-    private FirebaseStorage storage ;
-    private StorageReference storageReference ;
-
-    private DatabaseFunctions handler;
-    Quest quest;
-    DatabaseReference ref;
-
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat_main);
 
-        handler = new DatabaseFunctions();
-
-        //start progress
-        handler.getEasyQuests(new CallbackDB(){
-
-            @Override
-            public void onSuccess(@NonNull ArrayList<Quest> quests) {
-                //stop progress
-                for (Quest aux : quests){
-                    Log.d("ChatMainAct", "onSuccess: " + aux.toString());
-
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError var1) {
-                //stop progress
-                //show toast var1.getError / var1.getMessage
-            }
-        }
-        );
-
-        roomName = (EditText) findViewById(R.id.roomName);
-        createRoom = (Button) findViewById(R.id.createRoom);
         roomList = (ListView) findViewById(R.id.roomList);
 
         roomArrayList = new ArrayList<String>();
@@ -94,26 +49,10 @@ public class ChatMainActivity extends ro.changeneers.apprentice.activities.NavDr
 
         roomList.setAdapter(roomAdapter);
 
-        sharedPrefManager =  SharedPrefManager.getInstance();
+        sharedPrefManager = new SharedPrefManager(mContext);
         userName = sharedPrefManager.getName();
 
-        databaseReference = FirebaseDatabase.getInstance().getReference().getRoot();
-
-        createRoom.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view)
-            {
-                Map<String,Object> map = new HashMap<String, Object>();
-                map.put(roomName.getText().toString(), "");
-                databaseReference.updateChildren(map);
-
-                DatabaseReference root = FirebaseDatabase.getInstance().getReference().child(roomName.getText().toString());
-                Map<String,Object> map2 = new HashMap<>();
-                map2.put("Info","");
-                root.updateChildren(map2);
-
-            }
-        });
+        databaseReference = FirebaseDatabase.getInstance().getReference().getRoot().child("Chat");
 
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -146,7 +85,7 @@ public class ChatMainActivity extends ro.changeneers.apprentice.activities.NavDr
             public void onItemClick(AdapterView<?> parent, View view, int position, long id)
             {
 
-                Intent intent = new Intent(ChatMainActivity.this, ro.changeneers.apprentice.activities.ChatRoomActivity.class);
+                Intent intent = new Intent(ChatMainActivity.this, ChatRoomActivity.class);
                 intent.putExtra("room_name", ((TextView) view).getText().toString());
                 intent.putExtra("user_name", userName);
 
@@ -166,13 +105,3 @@ public class ChatMainActivity extends ro.changeneers.apprentice.activities.NavDr
 
 
 }
-
-
-
-
-
-
-
-
-
-

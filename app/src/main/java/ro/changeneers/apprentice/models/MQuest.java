@@ -7,7 +7,7 @@ import java.util.List;
 
 import static ro.changeneers.apprentice.utils.Constants.NOT_STARTED;
 
-public class Quest {
+public class MQuest {
 
     //NU MODIFICA DIN PUBLIC SI LISTA PRIVATA
 
@@ -67,7 +67,7 @@ public class Quest {
     public HashMap<String , Curs> Cursuri;
 
     //Are nevoie FirebaseDatabase de acest constructor NU STERGE!
-    public Quest(){ }
+    public MQuest(){ }
 
     public void setListCursuri(List<Curs> cursuri) {
         listCursuri = cursuri;

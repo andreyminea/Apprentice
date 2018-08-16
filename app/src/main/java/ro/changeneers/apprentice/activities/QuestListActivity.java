@@ -15,7 +15,7 @@ import java.util.List;
 import ro.changeneers.apprentice.ApprenticeApplication;
 import ro.changeneers.apprentice.R;
 import ro.changeneers.apprentice.adapters.QuestListAdapter;
-import ro.changeneers.apprentice.models.Quest;
+import ro.changeneers.apprentice.models.MQuest;
 import ro.changeneers.apprentice.utils.SharedPrefManager;
 
 import static ro.changeneers.apprentice.utils.Constants.DIFFICULTY_EXTRA;
@@ -44,7 +44,7 @@ public class QuestListActivity extends AppCompatActivity implements QuestListAda
         this.difficulty = difficulty;
 
 
-        List<Quest> quests = new ArrayList<>();
+        List<MQuest> quests = new ArrayList<>();
         DifficultyTitleTV = findViewById(R.id.TextViewQuestListTitle);
 
         switch (difficulty) {
@@ -78,7 +78,7 @@ public class QuestListActivity extends AppCompatActivity implements QuestListAda
 
 
     @Override
-    public void onQuestClick(Quest quest) {
+    public void onQuestClick(MQuest quest) {
 
         if(SharedPrefManager.getInstance().getStarsFromSharedPrefs()<quest.minimStarsToUnlock){
 

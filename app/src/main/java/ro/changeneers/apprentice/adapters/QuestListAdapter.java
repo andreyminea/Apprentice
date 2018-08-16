@@ -1,7 +1,5 @@
 package ro.changeneers.apprentice.adapters;
 
-import android.content.Context;
-import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -11,13 +9,10 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.squareup.picasso.Picasso;
-
 import java.util.List;
 
 import ro.changeneers.apprentice.R;
-import ro.changeneers.apprentice.activities.QuestDetailActivity;
-import ro.changeneers.apprentice.models.Quest;
+import ro.changeneers.apprentice.models.MQuest;
 
 import static ro.changeneers.apprentice.utils.Constants.FINISHED;
 import static ro.changeneers.apprentice.utils.Constants.IN_PROGRESS;
@@ -25,12 +20,12 @@ import static ro.changeneers.apprentice.utils.Constants.NOT_STARTED;
 
 public class QuestListAdapter extends RecyclerView.Adapter<QuestListAdapter.QuestListViewHolder>{
 
-    private List<Quest> qList;
+    private List<MQuest> qList;
     private final OnQuestClickListener onQuestClickListener;
     private  int stars;
 
 
-    public QuestListAdapter(List<Quest> qList,OnQuestClickListener onQuestClickListener, int stars) {
+    public QuestListAdapter(List<MQuest> qList, OnQuestClickListener onQuestClickListener, int stars) {
         this.qList = qList;
         this.onQuestClickListener = onQuestClickListener;
         this.stars = stars;
@@ -48,7 +43,7 @@ public class QuestListAdapter extends RecyclerView.Adapter<QuestListAdapter.Ques
     @Override
     public void onBindViewHolder(@NonNull QuestListAdapter.QuestListViewHolder holder, final int position) {
 
-        final Quest quest = qList.get(position);
+        final MQuest quest = qList.get(position);
         String s = position +1+"/"+qList.size();
         holder.questId.setText(s);
         holder.questTitle.setText(quest.title);
@@ -101,7 +96,7 @@ public class QuestListAdapter extends RecyclerView.Adapter<QuestListAdapter.Ques
     }
 
     public interface OnQuestClickListener {
-        void onQuestClick(Quest quest);
+        void onQuestClick(MQuest quest);
     }
 
 }

@@ -16,7 +16,7 @@ import java.util.List;
 
 import ro.changeneers.apprentice.ApprenticeApplication;
 import ro.changeneers.apprentice.interfaces.CallbackDB;
-import ro.changeneers.apprentice.models.Quest;
+import ro.changeneers.apprentice.models.MQuest;
 import ro.changeneers.apprentice.networking.DatabaseFunctions;
 
 import static ro.changeneers.apprentice.utils.Constants.EASY;
@@ -67,7 +67,7 @@ public class Utils {
         //ca sa nu facem 3 metode diferite, 1 pentru easy, 2 pt medium, 3 pt hard
 
         DatabaseFunctions handler;
-        Quest quest;
+        MQuest quest;
         final DatabaseReference ref;
 
         handler = new DatabaseFunctions();
@@ -80,10 +80,10 @@ public class Utils {
                         new CallbackDB() {
 
                             @Override
-                            public void onSuccess(@NonNull ArrayList<Quest> quests) {
+                            public void onSuccess(@NonNull ArrayList<MQuest> quests) {
                                 dismissProgressDialog();
-                                List<Quest> questList = new ArrayList<>();
-                                for (Quest aux : quests) {
+                                List<MQuest> questList = new ArrayList<>();
+                                for (MQuest aux : quests) {
                                     Log.d("getListQuestDataBase", "onSuccess: " + aux.toString());
                                     try {
                                         aux.setDifficulty(1);
@@ -113,10 +113,10 @@ public class Utils {
                         new CallbackDB() {
 
                             @Override
-                            public void onSuccess(@NonNull ArrayList<Quest> quests) {
+                            public void onSuccess(@NonNull ArrayList<MQuest> quests) {
                                 dismissProgressDialog();
-                                List<Quest> questList = new ArrayList<>();
-                                for (Quest aux : quests) {
+                                List<MQuest> questList = new ArrayList<>();
+                                for (MQuest aux : quests) {
                                     Log.d("getListQuestDataBase", "onSuccess: " + aux.toString());
                                     try {
                                         aux.setDifficulty(2);
@@ -145,10 +145,10 @@ public class Utils {
                         new CallbackDB() {
 
                             @Override
-                            public void onSuccess(@NonNull ArrayList<Quest> quests) {
+                            public void onSuccess(@NonNull ArrayList<MQuest> quests) {
                                 dismissProgressDialog();
-                                List<Quest> questList = new ArrayList<>();
-                                for (Quest aux : quests) {
+                                List<MQuest> questList = new ArrayList<>();
+                                for (MQuest aux : quests) {
                                     Log.d("getListQuestDataBase", "onSuccess: " + aux.toString());
                                     try {
                                         aux.setDifficulty(3);
@@ -195,8 +195,8 @@ public class Utils {
 
     public static void updateQuestStatus(String id, int difficulty, int newStatus) {
 
-        List<Quest> list;
-        Quest quest;
+        List<MQuest> list;
+        MQuest quest;
 
         switch (difficulty) {
             case EASY:
@@ -225,15 +225,15 @@ public class Utils {
 
     }
 
-    public static List<Quest> getQuestsInProgress() {
+    public static List<MQuest> getQuestsInProgress() {
 
-        List<Quest> questsInProgress = new ArrayList<>();
+        List<MQuest> questsInProgress = new ArrayList<>();
 
-        List<Quest> sharedPrefsQuests;
+        List<MQuest> sharedPrefsQuests;
 
         sharedPrefsQuests = SharedPrefManager.getInstance().loadQuestListFromSharedPrefs(EASY);
 
-            for (Quest aux : sharedPrefsQuests) {
+            for (MQuest aux : sharedPrefsQuests) {
                 if (aux.getStatus() == IN_PROGRESS) {
                     questsInProgress.add(aux);
                 }
@@ -246,7 +246,7 @@ public class Utils {
         sharedPrefsQuests = SharedPrefManager.getInstance().loadQuestListFromSharedPrefs(MEDIUM);
 
 
-            for (Quest aux : sharedPrefsQuests) {
+            for (MQuest aux : sharedPrefsQuests) {
                 if (aux.getStatus() == IN_PROGRESS) {
                     questsInProgress.add(aux);
                 }
@@ -257,7 +257,7 @@ public class Utils {
 
 
 
-            for (Quest aux : sharedPrefsQuests) {
+            for (MQuest aux : sharedPrefsQuests) {
                 if (aux.getStatus() == IN_PROGRESS) {
                     questsInProgress.add(aux);
                 }
@@ -268,16 +268,16 @@ public class Utils {
 
     }
 
-    public static List<Quest> getQuestsDone() {
+    public static List<MQuest> getQuestsDone() {
 
-        List<Quest> questsFinished = new ArrayList<>();
-        List<Quest> sharedPrefsQuests;
+        List<MQuest> questsFinished = new ArrayList<>();
+        List<MQuest> sharedPrefsQuests;
 
         sharedPrefsQuests = SharedPrefManager.getInstance().loadQuestListFromSharedPrefs(EASY);
 
 
 
-            for (Quest aux : sharedPrefsQuests) {
+            for (MQuest aux : sharedPrefsQuests) {
                 if (aux.getStatus() == FINISHED) {
                     questsFinished.add(aux);
                 }
@@ -289,7 +289,7 @@ public class Utils {
 
 
 
-            for (Quest aux : sharedPrefsQuests) {
+            for (MQuest aux : sharedPrefsQuests) {
                 if (aux.getStatus() == FINISHED) {
                     questsFinished.add(aux);
                 }
@@ -301,7 +301,7 @@ public class Utils {
 
 
 
-            for (Quest aux : sharedPrefsQuests) {
+            for (MQuest aux : sharedPrefsQuests) {
                 if (aux.getStatus() == FINISHED) {
                     questsFinished.add(aux);
                 }

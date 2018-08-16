@@ -10,12 +10,10 @@ import android.widget.LinearLayout;
 import com.google.firebase.database.DatabaseError;
 
 import java.util.ArrayList;
-import java.util.List;
 
-import ro.changeneers.apprentice.ApprenticeApplication;
 import ro.changeneers.apprentice.R;
 import ro.changeneers.apprentice.interfaces.CallbackDB;
-import ro.changeneers.apprentice.models.Quest;
+import ro.changeneers.apprentice.models.MQuest;
 import ro.changeneers.apprentice.utils.Utils;
 
 import static ro.changeneers.apprentice.utils.Constants.DIFFICULTY_EXTRA;
@@ -45,7 +43,7 @@ public class JourneyActivity extends NavDrawer {
                Utils.getInstance(JourneyActivity.this).getListQuestFromDataBase(JourneyActivity.this, 1, new CallbackDB(){
 
                    @Override
-                   public void onSuccess(@NonNull ArrayList<Quest> quests) {
+                   public void onSuccess(@NonNull ArrayList<MQuest> quests) {
                        Intent intent = new Intent(JourneyActivity.this, QuestListActivity.class);
                        intent.putExtra(DIFFICULTY_EXTRA,1);
                        startActivity(intent);
@@ -65,7 +63,7 @@ public class JourneyActivity extends NavDrawer {
 
                 Utils.getInstance(JourneyActivity.this).getListQuestFromDataBase(JourneyActivity.this, 2, new CallbackDB() {
                     @Override
-                    public void onSuccess(@NonNull ArrayList<Quest> quests) {
+                    public void onSuccess(@NonNull ArrayList<MQuest> quests) {
                         Intent intent = new Intent(JourneyActivity.this,QuestListActivity.class);
                         intent.putExtra(DIFFICULTY_EXTRA,2);
                         startActivity(intent);
@@ -85,7 +83,7 @@ public class JourneyActivity extends NavDrawer {
 
                 Utils.getInstance(JourneyActivity.this).getListQuestFromDataBase(JourneyActivity.this, 3, new CallbackDB() {
                     @Override
-                    public void onSuccess(@NonNull ArrayList<Quest> quests) {
+                    public void onSuccess(@NonNull ArrayList<MQuest> quests) {
                         Intent intent = new Intent(JourneyActivity.this,QuestListActivity.class);
                         intent.putExtra(DIFFICULTY_EXTRA,3);
                         startActivity(intent);

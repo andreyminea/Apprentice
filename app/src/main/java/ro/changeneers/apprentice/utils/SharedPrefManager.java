@@ -10,7 +10,7 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
-import ro.changeneers.apprentice.models.Quest;
+import ro.changeneers.apprentice.models.MQuest;
 
 import static ro.changeneers.apprentice.utils.Constants.EASY;
 import static ro.changeneers.apprentice.utils.Constants.HARD;
@@ -99,7 +99,7 @@ public class SharedPrefManager {
         editor.apply();
     }
 
-    public void saveQuestListInSharedPrefs(List<Quest> quests, int difficulty) {
+    public void saveQuestListInSharedPrefs(List<MQuest> quests, int difficulty) {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         Gson gson = new Gson();
 
@@ -122,12 +122,12 @@ public class SharedPrefManager {
         }
     }
 
-    public List<Quest> loadQuestListFromSharedPrefs(int difficulty) {
+    public List<MQuest> loadQuestListFromSharedPrefs(int difficulty) {
 
         Gson gson = new Gson();
-        Type type = new TypeToken<List<Quest>>() {
+        Type type = new TypeToken<List<MQuest>>() {
         }.getType();
-        List<Quest> list = new ArrayList<>();
+        List<MQuest> list = new ArrayList<>();
         switch (difficulty) {
             case EASY:
                 String jsonEasy = sharedPreferences.getString("QuestListEasy", null);

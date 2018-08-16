@@ -1,15 +1,14 @@
 package ro.changeneers.apprentice.adapters;
 
 import android.content.Context;
+import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -22,130 +21,108 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 
 import jp.wasabeef.picasso.transformations.CropCircleTransformation;
+import jp.wasabeef.picasso.transformations.RoundedCornersTransformation;
 import ro.changeneers.apprentice.R;
 import ro.changeneers.apprentice.models.Message;
 
-public class MessageListAdapter extends BaseAdapter {
+public class MessageListAdapter extends ArrayAdapter<Message>
 
-    private String currentUser;
-    private ArrayList<Message> messages;
+{
+    private Context mContext;
+    private int mResource1;
+    private int mResource2;
+    private String UserName;
 
 
-    public MessageListAdapter(String currentUser, ArrayList<Message> messages) {
-        this.currentUser = currentUser;
-        this.messages = messages;
-    }
-
-    @Override
-    public int getCount() {
-        return messages.size();
-    }
-
-    @Override
-    public Message getItem(int position) {
-        return messages.get(position);
-    }
-
-    @Override
-    public long getItemId(int i) {
-        return i;
+    public MessageListAdapter(@NonNull Context context, int resource1, int resource2, @NonNull ArrayList<Message> objects, String user_name)
+    {
+        super(context, resource1,resource2, objects);
+        mContext = context;
+        mResource1 = resource1;
+        mResource2 = resource2;
+        UserName = user_name;
     }
 
     @NonNull
     @Override
-    public View getView(int position, @Nullable View view, @NonNull ViewGroup parent) {
+    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent)
+    {
+        String name = getItem(position).getName();
+        String text = getItem(position).getText();
+        Boolean link = getItem(position).getLink();
+        String date = getItem(position).getDate();
+        String user_pic = getItem(position).getUser_pic();
 
-        Context context = parent.getContext();
 
-        Message currentMessage = messages.get(position);
+        LayoutInflater inflater = LayoutInflater.from(mContext);
 
-        LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        ViewHolder viewHolder;
+        if(UserName.equals(name))
 
-        if (view == null) {
-            view = inflater.inflate(R.layout.chat_message_item, parent, false);
+        {
+            convertView = inflater.inflate(mResource1, parent, false);
 
-            viewHolder = new ViewHolder();
-            viewHolder.myMessageContent = (RelativeLayout) view.findViewById(R.id.myChatContent);
-            viewHolder.myTimeTextView = (TextView) view.findViewById(R.id.myTimeTv);
-            viewHolder.myMessageTextView = (TextView) view.findViewById(R.id.myMessageTv);
-            viewHolder.myTakePicImageView = (ImageView) view.findViewById(R.id.myTakePictureIv);
+            TextView txtView_txtMe = (TextView) convertView.findViewById(R.id.message_body_me);
 
-            viewHolder.theirMessageContent = (RelativeLayout) view.findViewById(R.id.theiChatContent);
-            viewHolder.theirTimeTextView = (TextView) view.findViewById(R.id.theirTimeTv);
-            viewHolder.theirMessageTextView = (TextView) view.findViewById(R.id.theirMessageTv);
-            viewHolder.theirTakePicImageView = (ImageView) view.findViewById(R.id.theirTakePicIm);
-            viewHolder.theirAvatar = (ImageView) view.findViewById(R.id.avatar);
-            viewHolder.theirName = (TextView) view.findViewById(R.id.name);
+            if(link) {
+                ImageView pic = (ImageView) convertView.findViewById(R.id.camera_take_my);
 
-            view.setTag(viewHolder);
-        } else {
-            viewHolder = (ViewHolder) view.getTag(); // this is used to re-use views
+                StorageReference reference = FirebaseStorage.getInstance().getReference();
+
+                Glide.with(mContext).using(new FirebaseImageLoader())
+                        .load(reference.child(text)).override(1280, 720).into(pic);
+
+                txtView_txtMe.setVisibility(View.INVISIBLE);
+                pic.setVisibility(View.VISIBLE);
+            }
+            else
+            {
+                txtView_txtMe.setText(text);
+            }
+
+            TextView time = (TextView) convertView.findViewById(R.id.myTime);
+            time.setText(date);
+
         }
+        else {
 
-        // populate list item
-        String name = currentMessage.getName();
-        String text = currentMessage.getText();
-        Boolean link = currentMessage.getLink();
-        String date = currentMessage.getDate();
-        String userPicUrl = currentMessage.getUserPic();
+            convertView= inflater.inflate(mResource2, parent, false);
 
-        StorageReference reference = FirebaseStorage.getInstance().getReference();
+            TextView txtView_txtYou = (TextView) convertView.findViewById(R.id.message_body_you);
 
-        Log.d("===adapter==", "name="+ name + " message=" + text + " link=" + link + " userPic=" + userPicUrl);
-        if (currentUser.equals(name)) {
+            if(link) {
+                ImageView pic = (ImageView) convertView.findViewById(R.id.camera_take_their);
+                pic.setVisibility(View.VISIBLE);
+                StorageReference reference = FirebaseStorage.getInstance().getReference();
+                Glide.with(mContext).using(new FirebaseImageLoader())
+                        .load(reference.child(text)).override(1280, 720).into(pic);
 
-            viewHolder.myMessageContent.setVisibility(View.VISIBLE);
-            viewHolder.theirMessageContent.setVisibility(View.GONE);
+                txtView_txtYou.setVisibility(View.INVISIBLE);
+            }
+            else {
 
-            if (link != null && link) {
-                Glide.with(context).using(new FirebaseImageLoader())
-                        .load(reference.child(text)).override(1280, 720).into(viewHolder.myTakePicImageView);
-
-                viewHolder.myTakePicImageView.setVisibility(View.VISIBLE);
-            } else {
-                viewHolder.myTakePicImageView.setVisibility(View.GONE);
+                txtView_txtYou.setText(text);
             }
 
-            viewHolder.myTimeTextView.setText(date);
-            viewHolder.myMessageTextView.setText(text);
-        } else {
+            TextView txtView_name = (TextView) convertView.findViewById(R.id.name);
+            txtView_name.setText(name);
 
-            if (link != null && link) {
-                Glide.with(context).using(new FirebaseImageLoader())
-                        .load(reference.child(text)).override(1280, 720).into(viewHolder.theirTakePicImageView);
-                viewHolder.theirTakePicImageView.setVisibility(View.VISIBLE);
-            } else {
-                viewHolder.theirTakePicImageView.setVisibility(View.GONE);
-            }
+            TextView time = (TextView) convertView.findViewById(R.id.theirTime);
+            time.setText(date);
 
-            viewHolder.theirName.setText(name);
-            viewHolder.theirTimeTextView.setText(date);
-            viewHolder.theirMessageTextView.setText(text);
-
-            Picasso.get().load(userPicUrl)
+            ImageView icon = (ImageView) convertView.findViewById(R.id.avatar);
+            String imageUri = user_pic;
+            Picasso.get().load(imageUri)
                     .transform(new CropCircleTransformation()).fit()
-                    .into(viewHolder.theirAvatar);
+                    .into(icon);
         }
-
-        return view;
-
-    }
-
-    class ViewHolder {
-
-        RelativeLayout myMessageContent;
-        RelativeLayout theirMessageContent;
-
-        TextView myTimeTextView;
-        TextView myMessageTextView;
-        ImageView myTakePicImageView;
-
-        TextView theirTimeTextView;
-        TextView theirMessageTextView;
-        ImageView theirTakePicImageView;
-        ImageView theirAvatar;
-        TextView theirName;
+        return  convertView;
 
     }
+    /*Picasso.get().load(mPhotoUri)
+                .placeholder(android.R.drawable.sym_def_app_icon)
+                .error(android.R.drawable.sym_def_app_icon)
+                .into(mProfileImageView);
+                */
+
+
 }

@@ -18,7 +18,7 @@ import java.util.Iterator;
 
 import ro.changeneers.apprentice.interfaces.CallbackDB;
 import ro.changeneers.apprentice.models.Curs;
-import ro.changeneers.apprentice.models.Quest;
+import ro.changeneers.apprentice.models.MQuest;
 
 public class DatabaseFunctions
 {
@@ -38,11 +38,11 @@ public class DatabaseFunctions
     }
 
     private void getQuests(@NonNull DataSnapshot dataSnapshot, @NonNull CallbackDB callbackDB){
-        Quest quest = null;
+        MQuest quest = null;
         String keyQuest;
         String keyCurs;
         Curs curs;
-        ArrayList<Quest> listResult = new ArrayList<>();
+        ArrayList<MQuest> listResult = new ArrayList<>();
 
         Iterator iteratorQuesturi = dataSnapshot.getChildren().iterator();
 
@@ -51,7 +51,7 @@ public class DatabaseFunctions
             ArrayList<Curs> listaCursuri = new ArrayList<>();
             keyQuest = ((DataSnapshot)iteratorQuesturi.next()).getKey();
             DataSnapshot dataQuest = dataSnapshot.child(keyQuest);
-            quest = dataQuest.getValue(Quest.class);
+            quest = dataQuest.getValue(MQuest.class);
             Iterator iteratorCursuri = dataQuest.child("Cursuri").getChildren().iterator();
 
             int indexCursuri = 1;

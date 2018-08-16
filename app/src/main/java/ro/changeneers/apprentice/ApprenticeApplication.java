@@ -2,7 +2,6 @@ package ro.changeneers.apprentice;
 
 import android.app.Application;
 import android.content.Context;
-import android.util.Log;
 
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.database.FirebaseDatabase;
@@ -10,8 +9,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.ArrayList;
 import java.util.List;
 
-import ro.changeneers.apprentice.models.Curs;
-import ro.changeneers.apprentice.models.Quest;
+import ro.changeneers.apprentice.models.MQuest;
 import ro.changeneers.apprentice.utils.SharedPrefManager;
 
 public class ApprenticeApplication extends Application
@@ -28,9 +26,9 @@ public class ApprenticeApplication extends Application
         return applicationInstance;
     }
 
-    private static List<Quest> questListEasyDB = new ArrayList<>();
-    private static List<Quest> questListMediumDB = new ArrayList<>();
-    private static List<Quest> questListHardDB = new ArrayList<>();
+    private static List<MQuest> questListEasyDB = new ArrayList<>();
+    private static List<MQuest> questListMediumDB = new ArrayList<>();
+    private static List<MQuest> questListHardDB = new ArrayList<>();
 
     private static final int EASY = 1;
     private static final int MEDIUM = 2;
@@ -49,7 +47,7 @@ public class ApprenticeApplication extends Application
     }
 
 
-    public static void setQuestListDB(List<Quest> qList, int difficulty,Context context ){
+    public static void setQuestListDB(List<MQuest> qList, int difficulty, Context context ){
 
         SharedPrefManager sharedPrefManager =  SharedPrefManager.getInstance();
         sharedPrefManager.saveQuestListInSharedPrefs(qList,difficulty);
@@ -70,15 +68,15 @@ public class ApprenticeApplication extends Application
         }
     }
 
-    public static List<Quest> getQuestListEasyDB() {
+    public static List<MQuest> getQuestListEasyDB() {
         return questListEasyDB;
     }
 
-    public static List<Quest> getQuestListMediumDB() {
+    public static List<MQuest> getQuestListMediumDB() {
         return questListMediumDB;
     }
 
-    public static List<Quest> getQuestListHardDB() {
+    public static List<MQuest> getQuestListHardDB() {
         return questListHardDB;
     }
 }

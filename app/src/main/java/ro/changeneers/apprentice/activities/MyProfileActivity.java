@@ -23,7 +23,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.facebook.login.Login;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.ConnectionResult;
@@ -39,7 +38,7 @@ import java.util.List;
 
 import ro.changeneers.apprentice.R;
 import ro.changeneers.apprentice.adapters.QuestListAdapter;
-import ro.changeneers.apprentice.models.Quest;
+import ro.changeneers.apprentice.models.MQuest;
 import ro.changeneers.apprentice.utils.SharedPrefManager;
 import ro.changeneers.apprentice.utils.Utils;
 
@@ -145,8 +144,8 @@ public class MyProfileActivity extends NavDrawer implements View.OnClickListener
 
 
 
-        List<Quest> questsInProgress = new ArrayList<>();
-        List<Quest> questsDone = new ArrayList<>();
+        List<MQuest> questsInProgress = new ArrayList<>();
+        List<MQuest> questsDone = new ArrayList<>();
 
         questsInProgress.addAll(Utils.getQuestsInProgress());
         questsDone.addAll(Utils.getQuestsDone());
@@ -262,7 +261,7 @@ public class MyProfileActivity extends NavDrawer implements View.OnClickListener
     }
 
     @Override
-    public void onQuestClick(Quest quest) {
+    public void onQuestClick(MQuest quest) {
 
         Intent intent = new Intent(this, QuestDetailActivity.class);
         intent.putExtra(ID_EXTRA, quest.id);
