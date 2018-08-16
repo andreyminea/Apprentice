@@ -11,6 +11,7 @@ import com.google.firebase.database.DatabaseError;
 
 import java.util.ArrayList;
 
+import ro.changeneers.apprentice.Quest;
 import ro.changeneers.apprentice.R;
 import ro.changeneers.apprentice.interfaces.CallbackDB;
 import ro.changeneers.apprentice.models.MQuest;

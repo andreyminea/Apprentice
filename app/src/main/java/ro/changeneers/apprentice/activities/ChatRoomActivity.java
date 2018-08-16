@@ -13,6 +13,7 @@ import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -175,29 +176,35 @@ public class ChatRoomActivity extends NavDrawer {
         byte[] date = baos.toByteArray();
 
         UploadTask uploadTask = images.putBytes(date);
+        uploadTask.addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                String link = images.getPath();
 
-        String link = images.getPath();
+                Map<String, Object> map = new HashMap<String, Object>();
+                temp_key = root.push().getKey();
+                root.updateChildren(map);
 
-        Map<String, Object> map = new HashMap<String, Object>();
-        temp_key = root.push().getKey();
-        root.updateChildren(map);
+                SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
+                String aux = sdf.format(Calendar.getInstance().getTime());
 
-        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
-        String aux = sdf.format(Calendar.getInstance().getTime());
+                DatabaseReference message_root = root.child(temp_key);
 
-        DatabaseReference message_root = root.child(temp_key);
+                String user_pic = sharedPrefManager.getPhoto();
 
-        String user_pic = sharedPrefManager.getPhoto();
+                Map<String, Object> map2 = new HashMap<String, Object>();
 
-        Map<String, Object> map2 = new HashMap<String, Object>();
+                map2.put("name", user_name);
+                map2.put("msg", link);
+                map2.put("link", true);
+                map2.put("date", aux);
+                map2.put("photo", user_pic);
 
-        map2.put("name", user_name);
-        map2.put("msg", link);
-        map2.put("link", true);
-        map2.put("date", aux);
-        map2.put("photo", user_pic);
+                message_root.updateChildren(map2);
+            }
+        });
 
-        message_root.updateChildren(map2);
+
     }
 
     @Override

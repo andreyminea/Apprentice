@@ -11,8 +11,11 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
 import ro.changeneers.apprentice.interfaces.CallbackDB;
+import ro.changeneers.apprentice.models.Curs;
+import ro.changeneers.apprentice.models.MQuest;
 
 public class DatabaseFunctions
 {
@@ -32,12 +35,12 @@ public class DatabaseFunctions
     }
 
     private void getQuests(@NonNull DataSnapshot dataSnapshot, @NonNull CallbackDB callbackDB){
-        Quest quest = null;
+        MQuest quest = null;
         String keyQuest;
         String keyCurs;
-        Curs curs;
-        ArrayList<Curs> listaCursuri = new ArrayList<>();
-        ArrayList<Quest> listResult = new ArrayList<>();
+        ro.changeneers.apprentice.models.Curs curs;
+        ArrayList<ro.changeneers.apprentice.models.Curs> listaCursuri = new ArrayList<>();
+        ArrayList<MQuest> listResult = new ArrayList<>();
 
         Iterator iteratorQuesturi = dataSnapshot.getChildren().iterator();
 
@@ -45,7 +48,7 @@ public class DatabaseFunctions
         {
             keyQuest = ((DataSnapshot)iteratorQuesturi.next()).getKey();
             DataSnapshot dataQuest = dataSnapshot.child(keyQuest);
-            quest = dataQuest.getValue(Quest.class);
+            quest = dataQuest.getValue(MQuest.class);
             Iterator iteratorCursuri = dataQuest.child("Cursuri").getChildren().iterator();
 
             while (iteratorCursuri.hasNext())

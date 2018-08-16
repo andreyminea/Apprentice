@@ -16,6 +16,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import ro.changeneers.apprentice.Quest;
 import ro.changeneers.apprentice.interfaces.CallbackDB;
 import ro.changeneers.apprentice.models.Curs;
 import ro.changeneers.apprentice.models.MQuest;

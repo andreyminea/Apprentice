@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ro.changeneers.apprentice.ApprenticeApplication;
+import ro.changeneers.apprentice.Quest;
 import ro.changeneers.apprentice.interfaces.CallbackDB;
 import ro.changeneers.apprentice.models.MQuest;
 import ro.changeneers.apprentice.networking.DatabaseFunctions;
