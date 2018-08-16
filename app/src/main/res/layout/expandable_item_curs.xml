@@ -14,7 +14,8 @@
             android:layout_marginTop="4dp"
             android:layout_marginBottom="4dp"
             android:layout_marginRight="12dp"
-            android:layout_marginStart="12dp"/>
+            android:layout_marginStart="12dp"
+            android:fontFamily="@font/quando"/>
 
     <LinearLayout
         android:layout_width="match_parent"
