@@ -29,7 +29,7 @@ import java.util.Set;
 import ro.changeneers.apprentice.R;
 import ro.changeneers.apprentice.utils.SharedPrefManager;
 
-public class ChatMainActivity extends NavDrawer {
+public class ChatMainActivity extends ro.changeneers.apprentice.activities.NavDrawer {
     EditText roomName;
     Button createRoom;
     ListView roomList;
@@ -114,7 +114,7 @@ public class ChatMainActivity extends NavDrawer {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id)
             {
 
-                Intent intent = new Intent(ChatMainActivity.this, ChatRoomActivity.class);
+                Intent intent = new Intent(ChatMainActivity.this, ro.changeneers.apprentice.activities.ChatRoomActivity.class);
                 intent.putExtra("room_name", ((TextView) view).getText().toString());
                 intent.putExtra("user_name", userName);
 
