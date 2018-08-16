@@ -113,11 +113,10 @@
                         android:id="@+id/TextViewDurataCurs1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        tools:text="3"
+                        android:layout_marginEnd="4dp"
                         android:textColor="@color/appTextColor"
                         android:textStyle="bold"
-                        android:layout_marginEnd="4dp"
-                        android:fontFamily="@font/quando"/>
+                        tools:text="3" />
 
                     <ImageView
                         android:layout_width="20dp"
@@ -129,11 +128,11 @@
                         android:id="@+id/TextViewCostCurs1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        tools:text="3"
+                        android:layout_marginRight="4dp"
+                        android:fontFamily="@font/quando"
                         android:textColor="@color/appTextColor"
                         android:textStyle="bold"
-                        android:layout_marginRight="4dp"
-                        android:fontFamily="@font/quando"/>
+                        tools:text="3" />
 
                     <ImageView
                         android:layout_width="20dp"
@@ -145,10 +144,9 @@
                         android:id="@+id/TextViewStarsCurs1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        tools:text="3"
                         android:textColor="@color/appTextColor"
                         android:textStyle="bold"
-                        android:fontFamily="@font/quando"/>
+                        tools:text="3" />
 
                     <ImageView
                         android:layout_width="20dp"
@@ -220,11 +218,10 @@
                         android:id="@+id/TextViewCostCurs2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        tools:text="3"
+                        android:layout_marginEnd="4dp"
                         android:textColor="@color/appTextColor"
                         android:textStyle="bold"
-                        android:layout_marginEnd="4dp"
-                        android:fontFamily="@font/quando"/>
+                        tools:text="3" />
 
                     <ImageView
                         android:layout_width="20dp"
